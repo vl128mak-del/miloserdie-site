@@ -179,6 +179,12 @@
     .hero { opacity: 1; transform: none; }
     .bl { opacity: 1; }
   }
+  table.j th.thu { cursor: pointer; }
+  table.j th.thu:hover { background: #b8d6f2; }
+  .vt { background: #eef4f9; border-radius: 10px; padding: 12px; margin-bottom: 10px; }
+  .vt > b { display: block; font-size: 16px; color: #2c3e50; }
+  .vt .tchips { margin-bottom: 0; }
+  .vsum { font-size: 14px; color: #5f6368; margin-bottom: 12px; }
   .dayab { font-size: 11px; font-weight: normal; color: #5f6368; }
   .empty { margin: 0 0 12px; color: #5f6368; font-size: 14px; }
 
@@ -531,7 +537,7 @@
     var html = '<tr><th class="num">№</th><th class="nm">Имя</th>';
     data.forEach(function (lesson) {
       var cls = '';
-      if (dow(lesson.date) === 4) cls = ' class="thu"';
+      if (dow(lesson.date) === 4) cls = ' class="thu" data-date="' + lesson.date + '" title="Нажмите, чтобы увидеть адреса"';
       if (isTea(lesson)) cls = ' class="tea"';
       html += '<th' + cls + '>' + fmt(lesson.date) + '<br><span class="dayab">' + abbr(lesson.date) + (isTea(lesson) ? ' ☕' : '') + '</span></th>';
     });
@@ -558,7 +564,7 @@
     byId('journal').innerHTML = html;
     renderLeaders();
     renderStats();
-    byId('attEmpty').textContent = data.length ? '✓ был, н — не был. Четверги — голубым, чаепитие — оранжевым.' : 'Служений пока нет.';
+    byId('attEmpty').textContent = data.length ? '✓ был, н — не был. Четверги — голубым (нажмите на дату, чтобы увидеть адреса), чаепитие — оранжевым.' : 'Служений пока нет.';
   }
 
   // ---- Быстрая статистика ----
@@ -661,6 +667,29 @@
       '</div>' + chartSvg(i);
     byId('modal').style.display = 'flex';
   }
+  function openVisits(date) {
+    var idx = find(date);
+    if (idx < 0) return;
+    var teams = data[idx].teams ? data[idx].teams : [];
+    byId('mTitle').textContent = 'Посещение адресов, ' + fmtFull(date);
+    var html = '';
+    if (!teams.length) {
+      html = '<p>Для этого четверга адреса не записаны.</p>';
+    } else {
+      var people = {};
+      teams.forEach(function (t) { t.m.forEach(function (si) { people[si] = true; }); });
+      html += '<div class="vsum">Адресов: ' + teams.length + ', людей в командах: ' + Object.keys(people).length + '</div>';
+      teams.forEach(function (t) {
+        var sorted = t.m.slice().sort(function (a, b) { return ORDER.indexOf(a) - ORDER.indexOf(b); });
+        html += '<div class="vt"><b>📍 ' + esc(t.a) + '</b><div class="tchips">';
+        sorted.forEach(function (si) { html += '<span class="tchip">' + esc(STUDENTS[si]) + '</span>'; });
+        if (!sorted.length) html += '<span class="tchip">команда не указана</span>';
+        html += '</div></div>';
+      });
+    }
+    byId('mBody').innerHTML = html;
+    byId('modal').style.display = 'flex';
+  }
   function closeModal() { byId('modal').style.display = 'none'; }
   byId('mclose').onclick = closeModal;
   byId('modal').addEventListener('click', function (e) { if (e.target === byId('modal')) closeModal(); });
@@ -674,6 +703,15 @@
   }
   // Журнал: имя открывает статистику, номер включает/выключает обводку строки
   byId('journal').addEventListener('click', function (e) {
+    var th = e.target;
+    while (th && th.tagName !== 'TH' && th !== byId('journal')) { th = th.parentNode; }
+    if (th) {
+      if (th.tagName === 'TH') {
+        var dd = th.getAttribute('data-date');
+        if (dd) openVisits(dd);
+        return;
+      }
+    }
     var cell = cellOf(e.target, byId('journal'));
     if (!cell) return;
     var row = cell.parentNode;
