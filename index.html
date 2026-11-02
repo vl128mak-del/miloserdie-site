@@ -185,6 +185,50 @@
   .vt > b { display: block; font-size: 16px; color: #2c3e50; }
   .vt .tchips { margin-bottom: 0; }
   .vsum { font-size: 14px; color: #5f6368; margin-bottom: 12px; }
+  .card input[type=month] { padding: 10px; font-size: 16px; border: 1px solid #d9dde2; border-radius: 10px; background: #fff; font-family: inherit; }
+  .vcard { background: #fff; border-radius: 16px; box-shadow: 0 4px 20px rgba(0,0,0,.06); overflow: hidden; margin-bottom: 14px; text-align: left; }
+  .vcard video { width: 100%; display: block; background: #000; max-height: 60vh; }
+  .vtitle { padding: 12px 16px; font-weight: 600; word-break: break-word; }
+  .vrow { display: flex; justify-content: space-between; align-items: center; gap: 10px; padding: 10px 0; border-bottom: 1px solid #f0f0f0; font-size: 15px; }
+  .vrow span { word-break: break-word; }
+  .vrow small { color: #5f6368; display: block; }
+  table.j th.noted { cursor: pointer; }
+  table.j th.noted:hover { background: #ffe9a8; }
+  .mbox .note-head { background: linear-gradient(135deg, #3b7bb0, #6fb1d8); color: #fff; border-radius: 14px; padding: 16px 18px; margin-bottom: 14px; }
+  .mbox .note-head small { opacity: .85; font-size: 13px; }
+  .mbox .note-head h3 { margin: 4px 0 0; font-size: 22px; line-height: 1.2; color: #fff; }
+  .note-verse { background: #fff4cf; border-left: 5px solid #e8a02f; border-radius: 10px; padding: 12px 14px; margin-bottom: 14px; font-weight: 600; }
+  .note-body p { margin: 0 0 12px; line-height: 1.55; font-size: 16px; }
+  .note-body h4 { margin: 18px 0 8px; font-size: 18px; color: #3b7bb0; border-bottom: 2px solid #e3effa; padding-bottom: 4px; }
+  .note-body ul { margin: 0 0 12px; padding: 0; list-style: none; }
+  .note-body li { position: relative; padding: 6px 0 6px 28px; line-height: 1.5; }
+  .note-body li::before { content: '✦'; position: absolute; left: 4px; color: #e8a02f; }
+  .note-body blockquote { margin: 0 0 12px; padding: 10px 14px; background: #eef4f9; border-left: 4px solid #3b7bb0; border-radius: 8px; font-style: italic; }
+  .ncard { display: flex; gap: 14px; align-items: center; width: 100%; background: #fff; border: 0; border-radius: 14px; box-shadow: 0 4px 20px rgba(0,0,0,.06); padding: 14px 16px; margin-bottom: 10px; cursor: pointer; text-align: left; font-family: inherit; color: #2c3e50; transition: transform .2s ease, box-shadow .2s ease; }
+  .ncard:hover { transform: translateY(-2px); box-shadow: 0 8px 24px rgba(0,0,0,.12); }
+  .ncard .nd { flex: none; background: #e3effa; color: #3b7bb0; font-weight: 700; border-radius: 12px; padding: 8px 10px; text-align: center; line-height: 1.2; }
+  .ncard .nd small, .ncard .nt small { display: block; font-weight: 400; font-size: 12px; color: #5f6368; }
+  .ncard .nt { font-weight: 700; font-size: 17px; }
+  .nin { width: 100%; padding: 10px; font-size: 16px; border: 1px solid #d9dde2; border-radius: 10px; font-family: inherit; margin-top: 6px; background: #fff; }
+  .card textarea { width: 100%; padding: 12px; font-size: 16px; line-height: 1.5; border: 1px solid #d9dde2; border-radius: 10px; font-family: inherit; resize: vertical; margin-top: 6px; }
+  .tb { background: #eef4f9; color: #3b7bb0; border: 0; border-radius: 8px; padding: 8px 12px; font-size: 14px; font-weight: 600; cursor: pointer; font-family: inherit; }
+  .tb:hover { background: #dbe9f5; }
+  .tbar { display: flex; flex-wrap: wrap; gap: 6px; align-items: center; background: #eef4f9; border-radius: 10px 10px 0 0; padding: 8px; margin-top: 14px; position: sticky; top: 0; z-index: 4; }
+  .tsep { width: 1px; height: 22px; background: #c4c9cf; margin: 0 2px; }
+  .tl { font-size: 12px; color: #5f6368; }
+  .tsel { padding: 7px 8px; font-size: 14px; border: 1px solid #d9dde2; border-radius: 8px; background: #fff; font-family: inherit; }
+  .sw { width: 26px; height: 26px; border-radius: 50%; border: 2px solid #fff; box-shadow: 0 0 0 1px #c4c9cf; cursor: pointer; padding: 0; font-size: 12px; color: #5f6368; line-height: 1; }
+  .editor { min-height: 280px; background: #fff; border: 1px solid #d9dde2; border-top: 0; border-radius: 0 0 10px 10px; padding: 14px; outline: none; font-size: 17px; }
+  .editor:empty::before { content: attr(data-ph); color: #9aa0a6; }
+  .note-body.rich { line-height: 1.7; font-size: 17px; word-break: break-word; }
+  .note-body.rich ul, .note-body.rich ol { list-style: revert; margin: 6px 0; padding-left: 26px; }
+  .note-body.rich li { padding: 2px 0; }
+  .note-body.rich li::before { content: none; }
+  .note-body.rich h3 { margin: 12px 0 6px; font-size: 26px; line-height: 1.25; color: #2c3e50; }
+  .note-body.rich h4 { margin: 12px 0 6px; font-size: 20px; color: #3b7bb0; border: 0; padding: 0; }
+  .note-body.rich pre { margin: 10px 0; padding: 12px 14px; background: #ececec; border-radius: 12px; font-family: ui-monospace, Menlo, Consolas, monospace; font-size: 15px; line-height: 1.55; white-space: pre-wrap; word-break: break-word; }
+  .note-body.rich blockquote { margin: 10px 0; padding: 2px 0 2px 14px; background: none; border-left: 4px solid #c4c9cf; border-radius: 0; font-style: italic; color: #444; }
+  .note-body.rich p { margin: 0 0 8px; }
   .dayab { font-size: 11px; font-weight: normal; color: #5f6368; }
   .empty { margin: 0 0 12px; color: #5f6368; font-size: 14px; }
 
@@ -205,7 +249,7 @@
   .ok { color: #1e7a3c; }
 
   .modal { position: fixed; top: 0; right: 0; bottom: 0; left: 0; background: rgba(0,0,0,.5); z-index: 20; display: none; align-items: center; justify-content: center; padding: 16px; }
-  .mbox { background: #fff; border-radius: 16px; padding: 20px; max-width: 420px; width: 100%; max-height: 90vh; overflow: auto; position: relative; text-align: left; box-shadow: 0 8px 30px rgba(0,0,0,.25); }
+  .mbox { background: #fff; border-radius: 16px; padding: 20px; max-width: 560px; width: 100%; max-height: 90vh; overflow: auto; position: relative; text-align: left; box-shadow: 0 8px 30px rgba(0,0,0,.25); }
   .mbox h3 { margin: 0 30px 14px 0; color: #3b7bb0; font-size: 20px; }
   .mx { position: absolute; top: 10px; right: 12px; background: none; border: 0; font-size: 22px; cursor: pointer; }
   .tiles { display: grid; grid-template-columns: 1fr 1fr; gap: 10px; margin-bottom: 14px; }
@@ -282,17 +326,25 @@
 
   <section class="view" id="v-notes">
     <h2>Конспекты</h2>
-    <div class="card wip">
+    <p class="sub">Конспекты понедельников</p>
+    <div id="nList"></div>
+    <div class="card wip" id="nEmpty" style="display:none">
       <div class="anim"><div class="paper"><i></i><i></i><i></i></div><span class="pen">✏️</span></div>
-      <p>Эта вкладка на стадии разработки</p>
+      <p>Конспектов пока нет</p>
     </div>
   </section>
 
   <section class="view" id="v-video">
     <h2>Видео</h2>
-    <div class="card wip">
+    <p class="sub">Видео служений по месяцам</p>
+    <div class="card" id="vPick" style="display:none;margin-bottom:14px">
+      <label for="vSel"><b>Месяц:</b></label>
+      <select id="vSel"></select>
+    </div>
+    <div id="vGrid"></div>
+    <div class="card wip" id="vEmpty" style="display:none">
       <div class="anim"><span class="ring"></span><span class="ring r2"></span><div class="screen">▶</div></div>
-      <p>Эта вкладка на стадии разработки</p>
+      <p>Видео пока нет</p>
     </div>
   </section>
 
@@ -370,14 +422,118 @@
   </section>
 
   <section class="view" id="v-admin">
-    <h2>Админ</h2>
-    <p class="sub">Отметка посещаемости по служениям</p>
+    <h2 id="adTitle">Админ</h2>
+    <p class="sub" id="adSub">Выберите раздел</p>
 
-    <div class="card" id="login">
-      <label for="pw">Введите пароль</label><br><br>
+    <div id="adHome">
+      <div class="go-grid">
+        <button type="button" class="go" data-ad="att"><span class="go-ic">📅</span><span class="go-t">Посещаемость</span><span class="go-s">Служения и команды</span></button>
+        <button type="button" class="go g2" data-ad="addr"><span class="go-ic">📍</span><span class="go-t">Адреса</span><span class="go-s">Кого мы посещаем</span></button>
+        <button type="button" class="go g3" data-ad="video"><span class="go-ic">🎬</span><span class="go-t">Видео</span><span class="go-s">Раздел видео</span></button>
+        <button type="button" class="go g4" data-ad="notes"><span class="go-ic">📝</span><span class="go-t">Конспекты</span><span class="go-s">Раздел конспектов</span></button>
+      </div>
+    </div>
+
+    <div class="card" id="adLogin" style="display:none">
+      <label for="pw"><b id="adLoginTitle">Введите пароль</b></label><br><br>
       <input type="password" id="pw" placeholder="Пароль" autocomplete="off">
-      <div class="row-btns"><button class="btn" id="loginBtn">Войти</button></div>
+      <div class="row-btns">
+        <button class="btn" id="loginBtn">Войти</button>
+        <button type="button" class="btn sec" id="adLoginBack">Назад</button>
+      </div>
       <div class="msg err" id="loginMsg"></div>
+    </div>
+
+    <div class="card" id="adVideo" style="display:none">
+      <label for="vMonth"><b>Месяц:</b></label>
+      <input type="month" id="vMonth">
+      <div style="margin-top:14px">
+        <label class="btn" for="vFile" id="vPickBtn" style="display:inline-block">📂 Выбрать видео из галереи</label>
+        <input type="file" id="vFile" accept="video/*,.mp4,.mov,.m4v,.webm,.3gp" multiple style="display:none">
+      </div>
+      <div class="empty" id="vPicked" style="margin-top:10px">Файлы не выбраны</div>
+      <div class="empty" style="margin-top:8px">Видео сохраняются в этом браузере и показываются во вкладке «Видео» за выбранный месяц.</div>
+      <div class="row-btns">
+        <button type="button" class="btn" id="vUpload">Загрузить</button>
+        <button type="button" class="btn sec" id="vBack">← Назад</button>
+      </div>
+      <div class="msg" id="vMsg"></div>
+      <div id="vAdminList"></div>
+    </div>
+
+    <div class="card" id="adNotes" style="display:none">
+      <label for="nDate"><b>Дата (понедельник):</b></label>
+      <input type="date" id="nDate"> <span id="nDay" style="margin-left:10px;font-weight:bold"></span>
+      <div class="chips" id="nExisting"></div>
+      <label for="nTitle" style="display:block;margin-top:14px"><b>Тема (необязательно)</b></label>
+      <input type="text" class="nin" id="nTitle" placeholder="Название конспекта">
+
+      <div class="tbar" id="nBar">
+        <button type="button" class="tb" data-k="cmd" data-v="bold" title="Жирный"><b>Ж</b></button>
+        <button type="button" class="tb" data-k="cmd" data-v="italic" title="Курсив"><i>К</i></button>
+        <button type="button" class="tb" data-k="cmd" data-v="underline" title="Подчёркнутый"><u>Ч</u></button>
+        <button type="button" class="tb" data-k="cmd" data-v="strikeThrough" title="Зачёркнутый"><s>З</s></button>
+        <span class="tsep"></span>
+        <button type="button" class="tb" data-k="block" data-v="h3" title="Заголовок">Заголовок</button>
+        <button type="button" class="tb" data-k="block" data-v="pre" title="Стих в рамке">📖 Стих</button>
+        <button type="button" class="tb" data-k="block" data-v="blockquote" title="Цитата">❝ Цитата</button>
+        <span class="tsep"></span>
+        <button type="button" class="tb" data-k="cmd" data-v="insertUnorderedList" title="Список">• Список</button>
+        <button type="button" class="tb" data-k="cmd" data-v="insertOrderedList" title="Нумерация">1. Список</button>
+        <button type="button" class="tb" data-k="cmd" data-v="justifyCenter" title="По центру">По центру</button>
+        <button type="button" class="tb" data-k="cmd" data-v="justifyLeft" title="По левому краю">Слева</button>
+        <span class="tsep"></span>
+        <select id="nSize" class="tsel" title="Размер текста">
+          <option value="">Размер</option>
+          <option value="2">Мелкий</option>
+          <option value="3">Обычный</option>
+          <option value="5">Крупный</option>
+          <option value="6">Огромный</option>
+        </select>
+        <select id="nFont" class="tsel" title="Шрифт">
+          <option value="">Шрифт</option>
+          <option value="Nunito">Обычный</option>
+          <option value="Georgia">С засечками</option>
+          <option value="Courier New">Печатный</option>
+          <option value="Comic Sans MS">Рукописный</option>
+        </select>
+        <span class="tsep"></span>
+        <span class="tl">Маркер</span>
+        <button type="button" class="sw" style="background:#fff176" data-k="hl" data-v="#fff176" title="Жёлтый"></button>
+        <button type="button" class="sw" style="background:#bbdefb" data-k="hl" data-v="#bbdefb" title="Голубой"></button>
+        <button type="button" class="sw" style="background:#f8bbd0" data-k="hl" data-v="#f8bbd0" title="Розовый"></button>
+        <button type="button" class="sw" style="background:#c8e6c9" data-k="hl" data-v="#c8e6c9" title="Зелёный"></button>
+        <button type="button" class="sw" style="background:#fff" data-k="hl" data-v="transparent" title="Убрать маркер">✕</button>
+        <span class="tl">Цвет</span>
+        <button type="button" class="sw" style="background:#2c3e50" data-k="fc" data-v="#2c3e50" title="Тёмный"></button>
+        <button type="button" class="sw" style="background:#d32f2f" data-k="fc" data-v="#d32f2f" title="Красный"></button>
+        <button type="button" class="sw" style="background:#1565c0" data-k="fc" data-v="#1565c0" title="Синий"></button>
+        <button type="button" class="sw" style="background:#2e7d32" data-k="fc" data-v="#2e7d32" title="Зелёный"></button>
+        <span class="tsep"></span>
+        <button type="button" class="tb" data-k="emoji" data-v="❗">❗</button>
+        <button type="button" class="tb" data-k="emoji" data-v="🔶">🔶</button>
+        <button type="button" class="tb" data-k="emoji" data-v="⏰">⏰</button>
+        <button type="button" class="tb" data-k="emoji" data-v="🙏">🙏</button>
+        <button type="button" class="tb" data-k="emoji" data-v="❤️">❤️</button>
+        <span class="tsep"></span>
+        <button type="button" class="tb" data-k="cmd" data-v="undo" title="Отменить">↶</button>
+        <button type="button" class="tb" data-k="cmd" data-v="redo" title="Вернуть">↷</button>
+        <button type="button" class="tb" data-k="clear" title="Убрать оформление">Сбросить</button>
+      </div>
+      <div class="note-body rich editor" id="nEditor" contenteditable="true" data-ph="Пишите конспект здесь. Выделите текст и нажмите нужную кнопку."></div>
+
+      <div class="row-btns">
+        <button type="button" class="btn" id="nSave">Сохранить конспект</button>
+        <button type="button" class="btn red" id="nDel">Удалить конспект</button>
+        <button type="button" class="btn sec" id="nBack">← Назад</button>
+      </div>
+      <div class="msg" id="nMsg"></div>
+    </div>
+
+    <div class="card wip" id="adWip" style="display:none">
+      <div class="anim" id="adAnim"></div>
+      <p>Этот раздел на стадии разработки</p>
+      <div class="row-btns" style="justify-content:center"><button type="button" class="btn sec" id="adWipBack">← Назад</button></div>
     </div>
 
     <div class="card" id="editor" style="display:none">
@@ -405,7 +561,8 @@
       <div class="row-btns">
         <button class="btn" id="save">Сохранить дату</button>
         <button class="btn red" id="delDate">Удалить дату</button>
-        <button class="btn sec" id="logout">Выйти</button>
+        <button type="button" class="btn sec" id="adBackAtt">← Назад</button>
+        <button type="button" class="btn sec" id="logout">Выйти</button>
       </div>
       <div class="msg" id="saveMsg"></div>
     </div>
@@ -421,7 +578,9 @@
 </div>
 
 <script>
-  var PASSWORD = '11220099';
+  // Пароли разделов админки
+  var adPass = { att: '11220022', addr: '11220055', video: '11220033', notes: '11220044' };
+  var adNames = { att: 'Посещаемость', addr: 'Адреса', video: 'Видео', notes: 'Конспекты' };
   var KEY = 'journal_data';
   var STUDENTS = [
     'Маковик Владислав',
@@ -473,8 +632,11 @@
     return [];
   }
   function store() {
-    try { localStorage.setItem(KEY, JSON.stringify(data)); return true; }
-    catch (e) { return false; }
+    var okLocal = true;
+    try { localStorage.setItem(KEY, JSON.stringify(data)); } catch (e) { okLocal = false; }
+    var okCloud = false;
+    if (window.FB) { try { window.FB.saveJournal(JSON.stringify(data)); okCloud = true; } catch (e) {} }
+    return okLocal || okCloud;
   }
   var data = load();
 
@@ -536,10 +698,13 @@
 
     var html = '<tr><th class="num">№</th><th class="nm">Имя</th>';
     data.forEach(function (lesson) {
-      var cls = '';
-      if (dow(lesson.date) === 4) cls = ' class="thu" data-date="' + lesson.date + '" title="Нажмите, чтобы увидеть адреса"';
-      if (isTea(lesson)) cls = ' class="tea"';
-      html += '<th' + cls + '>' + fmt(lesson.date) + '<br><span class="dayab">' + abbr(lesson.date) + (isTea(lesson) ? ' ☕' : '') + '</span></th>';
+      var wd = dow(lesson.date);
+      var cl = [], extra = '';
+      if (wd === 4) { cl.push('thu'); extra = ' data-date="' + lesson.date + '" title="Нажмите, чтобы увидеть адреса"'; }
+      if (isTea(lesson)) cl.push('tea');
+      var hasNote = wd === 1 && NOTES[lesson.date] ? true : false;
+      if (hasNote) { cl.push('noted'); extra += ' data-note="' + lesson.date + '" title="Нажмите, чтобы открыть конспект"'; }
+      html += '<th' + (cl.length ? ' class="' + cl.join(' ') + '"' : '') + extra + '>' + fmt(lesson.date) + '<br><span class="dayab">' + abbr(lesson.date) + (isTea(lesson) ? ' ☕' : '') + (hasNote ? ' 📝' : '') + '</span></th>';
     });
     html += '<th>Пн</th><th>Чт</th><th>Всего</th></tr>';
 
@@ -564,7 +729,7 @@
     byId('journal').innerHTML = html;
     renderLeaders();
     renderStats();
-    byId('attEmpty').textContent = data.length ? '✓ был, н — не был. Четверги — голубым (нажмите на дату, чтобы увидеть адреса), чаепитие — оранжевым.' : 'Служений пока нет.';
+    byId('attEmpty').textContent = data.length ? '✓ был, н — не был. Четверги — голубым (нажмите на дату: адреса), чаепитие — оранжевым, 📝 — есть конспект (нажмите на дату).' : 'Служений пока нет.';
   }
 
   // ---- Быстрая статистика ----
@@ -709,6 +874,8 @@
       if (th.tagName === 'TH') {
         var dd = th.getAttribute('data-date');
         if (dd) openVisits(dd);
+        var dn = th.getAttribute('data-note');
+        if (dn) openNote(dn);
         return;
       }
     }
@@ -1135,14 +1302,518 @@
     });
   })();
 
-  // ---- Навигация ----
-  var unlocked = false;
+  // ---- Видео (хранятся в браузере, IndexedDB) ----
+  var MONTHS = ['Январь', 'Февраль', 'Март', 'Апрель', 'Май', 'Июнь', 'Июль', 'Август', 'Сентябрь', 'Октябрь', 'Ноябрь', 'Декабрь'];
+  function fmtMonth(m) { return MONTHS[+m.slice(5) - 1] + ' ' + m.slice(0, 4); }
+  function fmtSize(n) { return n >= 1048576 ? (n / 1048576).toFixed(1) + ' МБ' : Math.max(1, Math.round(n / 1024)) + ' КБ'; }
 
+  var vdb = null;
+  function vOpen(cb) {
+    if (vdb) { cb(null, vdb); return; }
+    if (typeof indexedDB === 'undefined') { cb('no'); return; }
+    var req = indexedDB.open('mercy_videos', 1);
+    req.onupgradeneeded = function () { req.result.createObjectStore('videos', { keyPath: 'id', autoIncrement: true }); };
+    req.onsuccess = function () { vdb = req.result; cb(null, vdb); };
+    req.onerror = function () { cb('err'); };
+  }
+  function vAll(cb) {
+    vOpen(function (err, db) {
+      if (err) { cb(err); return; }
+      var rq = db.transaction('videos', 'readonly').objectStore('videos').getAll();
+      rq.onsuccess = function () { cb(null, rq.result); };
+      rq.onerror = function () { cb('err'); };
+    });
+  }
+  function vAdd(rec, cb) {
+    vOpen(function (err, db) {
+      if (err) { cb(err); return; }
+      var tx = db.transaction('videos', 'readwrite');
+      tx.objectStore('videos').add(rec);
+      tx.oncomplete = function () { cb(null); };
+      tx.onerror = function () { cb('err'); };
+      tx.onabort = function () { cb('err'); };
+    });
+  }
+  function vDel(id, cb) {
+    vOpen(function (err, db) {
+      if (err) { cb(err); return; }
+      var tx = db.transaction('videos', 'readwrite');
+      tx.objectStore('videos').delete(id);
+      tx.oncomplete = function () { cb(null); };
+      tx.onerror = function () { cb('err'); };
+    });
+  }
+
+  // общая вкладка «Видео»
+  var vMonth = '';
+  var vUrls = [];
+  function renderVideos() {
+    vAll(function (err, list) {
+      vUrls.forEach(function (u) { URL.revokeObjectURL(u); });
+      vUrls = [];
+      if (err) {
+        byId('vPick').style.display = 'none';
+        byId('vEmpty').style.display = 'none';
+        byId('vGrid').innerHTML = '<div class="card">Видео недоступны в этом браузере.</div>';
+        return;
+      }
+      if (!list.length) {
+        byId('vPick').style.display = 'none';
+        byId('vGrid').innerHTML = '';
+        byId('vEmpty').style.display = 'block';
+        return;
+      }
+      byId('vEmpty').style.display = 'none';
+      var months = [];
+      list.forEach(function (r) { if (months.indexOf(r.month) < 0) months.push(r.month); });
+      months.sort().reverse();
+      if (months.indexOf(vMonth) < 0) vMonth = months[0];
+      var opts = '';
+      months.forEach(function (m) { opts += '<option value="' + m + '">' + fmtMonth(m) + '</option>'; });
+      byId('vSel').innerHTML = opts;
+      byId('vSel').value = vMonth;
+      byId('vPick').style.display = 'block';
+      var items = list.filter(function (r) { return r.month === vMonth; });
+      items.sort(function (a, b) { return a.added - b.added; });
+      var html = '';
+      items.forEach(function (r) {
+        var url = URL.createObjectURL(r.blob);
+        vUrls.push(url);
+        html += '<div class="vcard"><video controls preload="metadata" src="' + url + '"></video><div class="vtitle">' + esc(r.name.replace(/\.[^.]+$/, '')) + '</div></div>';
+      });
+      byId('vGrid').innerHTML = html;
+    });
+  }
+  byId('vSel').addEventListener('change', function () { vMonth = byId('vSel').value; renderVideos(); });
+
+  // админка: загрузка и удаление
+  var vArm = 0;
+  function vAdminMsg(t, ok) {
+    var m = byId('vMsg');
+    m.className = 'msg ' + (ok ? 'ok' : 'err');
+    m.textContent = t;
+  }
+  function renderVAdmin() {
+    var month = byId('vMonth').value;
+    vAll(function (err, list) {
+      if (err) { byId('vAdminList').innerHTML = '<div class="empty">Хранилище видео недоступно в этом браузере.</div>'; return; }
+      if (!month) { byId('vAdminList').innerHTML = ''; return; }
+      var items = list.filter(function (r) { return r.month === month; });
+      items.sort(function (a, b) { return a.added - b.added; });
+      var html = '<div class="tlabel" style="margin-top:16px">' + fmtMonth(month) + ': видео ' + items.length + '</div>';
+      items.forEach(function (r) {
+        html += '<div class="vrow"><span>' + esc(r.name) + '<small>' + fmtSize(r.size) + '</small></span>' +
+                '<button type="button" class="btn red" data-vdel="' + r.id + '">' + (vArm === r.id ? 'Нажмите ещё раз' : 'Удалить') + '</button></div>';
+      });
+      byId('vAdminList').innerHTML = html;
+    });
+  }
+  function vAdminInit() {
+    if (!byId('vMonth').value) byId('vMonth').value = today().slice(0, 7);
+    vArm = 0;
+    vAdminMsg('', true);
+    showPicked();
+    renderVAdmin();
+  }
+  byId('vMonth').addEventListener('change', function () { vArm = 0; renderVAdmin(); });
+  byId('vAdminList').addEventListener('click', function (e) {
+    var id = e.target.getAttribute('data-vdel');
+    if (id === null) return;
+    id = +id;
+    if (vArm !== id) { vArm = id; renderVAdmin(); return; }
+    vArm = 0;
+    vDel(id, function (err) {
+      vAdminMsg(err ? 'Не удалось удалить' : 'Видео удалено', !err);
+      renderVAdmin();
+    });
+  });
+  // Некоторые телефоны не сообщают тип файла, тогда определяем по расширению
+  function videoType(f) {
+    if (f.type) { if (f.type.indexOf('video/') === 0) return f.type; }
+    var m = f.name.toLowerCase().match(/\.([a-z0-9]+)$/);
+    var map = { mp4: 'video/mp4', m4v: 'video/mp4', mov: 'video/quicktime', webm: 'video/webm', '3gp': 'video/3gpp', mkv: 'video/x-matroska', avi: 'video/x-msvideo' };
+    if (m) { if (map[m[1]]) return map[m[1]]; }
+    return '';
+  }
+  function showPicked() {
+    var files = byId('vFile').files;
+    var box = byId('vPicked');
+    if (!files) { box.textContent = 'Файлы не выбраны'; return; }
+    if (!files.length) { box.textContent = 'Файлы не выбраны'; return; }
+    var total = 0, names = [];
+    for (var k = 0; k < files.length; k++) {
+      total += files[k].size;
+      names.push(esc(files[k].name) + ' (' + fmtSize(files[k].size) + ')');
+    }
+    box.innerHTML = '<b>Выбрано: ' + files.length + ', всего ' + fmtSize(total) + '</b><br>' + names.join('<br>');
+  }
+  byId('vFile').addEventListener('change', showPicked);
+
+  byId('vUpload').onclick = function () {
+    var month = byId('vMonth').value;
+    var files = byId('vFile').files;
+    if (!month) { vAdminMsg('Выберите месяц', false); return; }
+    if (!files) { vAdminMsg('Сначала выберите видео из галереи', false); return; }
+    if (!files.length) { vAdminMsg('Сначала выберите видео из галереи', false); return; }
+    var list = [];
+    for (var k = 0; k < files.length; k++) {
+      if (videoType(files[k])) list.push(files[k]);
+    }
+    if (!list.length) { vAdminMsg('Выбранные файлы не похожи на видео', false); return; }
+    var done = 0;
+    byId('vUpload').disabled = true;
+    function next() {
+      if (done >= list.length) {
+        byId('vUpload').disabled = false;
+        byId('vFile').value = '';
+        showPicked();
+        vAdminMsg('Загружено: ' + done + ' (' + fmtMonth(month) + ')', true);
+        renderVAdmin();
+        return;
+      }
+      var f = list[done];
+      var vt = videoType(f);
+      vAdminMsg('Загрузка ' + (done + 1) + ' из ' + list.length + ': ' + f.name + ' ...', true);
+      vAdd({ month: month, name: f.name, size: f.size, type: vt, blob: new Blob([f], { type: vt }), added: Date.now() + done }, function (err) {
+        if (err) {
+          byId('vUpload').disabled = false;
+          if (err === 'no') {
+            vAdminMsg('Хранилище видео недоступно. Откройте сайт в Chrome или Safari, а не из файла в проводнике.', false);
+          } else {
+            vAdminMsg('Не удалось сохранить «' + f.name + '». Возможно, не хватает места в браузере.', false);
+          }
+          renderVAdmin();
+          return;
+        }
+        done++;
+        next();
+      });
+    }
+    next();
+  };
+  byId('vBack').onclick = function () { adShow('home'); };
+
+  // ---- Конспекты (привязаны к понедельникам) ----
+  var NOTES = {};
+  try {
+    var rawN = localStorage.getItem('notes_data');
+    if (rawN) NOTES = JSON.parse(rawN);
+  } catch (e) { NOTES = {}; }
+  function storeNotes(date) {
+    var okLocal = true;
+    try { localStorage.setItem('notes_data', JSON.stringify(NOTES)); } catch (e) { okLocal = false; }
+    var okCloud = false;
+    if (window.FB && date) {
+      try {
+        if (NOTES[date]) { window.FB.saveNote(date, NOTES[date]); } else { window.FB.deleteNote(date); }
+        okCloud = true;
+      } catch (e) {}
+    }
+    return okLocal || okCloud;
+  }
+
+  // ---- Редактор конспектов: безопасная очистка HTML ----
+  var OK_TAGS = { b: 1, strong: 1, i: 1, em: 1, u: 1, s: 1, strike: 1, span: 1, font: 1, div: 1, p: 1, br: 1, h3: 1, h4: 1, ul: 1, ol: 1, li: 1, blockquote: 1, pre: 1, mark: 1, code: 1, sub: 1, sup: 1 };
+  var OK_CSS = { 'color': 1, 'background-color': 1, 'background': 1, 'font-size': 1, 'font-family': 1, 'font-weight': 1, 'font-style': 1, 'text-align': 1, 'text-decoration': 1, 'text-decoration-line': 1 };
+
+  function cleanStyle(v) {
+    var out = [];
+    v.split(';').forEach(function (d) {
+      var i = d.indexOf(':');
+      if (i < 0) return;
+      var prop = d.slice(0, i).trim().toLowerCase();
+      var val = d.slice(i + 1).trim();
+      if (!OK_CSS[prop]) return;
+      if (!/^[#a-zA-Z0-9\s,.()%"'\-]+$/.test(val)) return;
+      if (/url|expression|javascript/i.test(val)) return;
+      out.push(prop + ': ' + val);
+    });
+    return out.join('; ');
+  }
+
+  function cleanHtml(html) {
+    html = String(html).replace(/<(style|script|head|title)[\s\S]*?<\/\1>/gi, '').replace(/<!--[\s\S]*?-->/g, '');
+    var out = '', last = 0, m;
+    var re = /<(\/?)([a-zA-Z0-9]+)([^>]*)>/g;
+    function txt(t) { return t.replace(/</g, '&lt;').replace(/>/g, '&gt;'); }
+    while ((m = re.exec(html)) !== null) {
+      out += txt(html.slice(last, m.index));
+      last = re.lastIndex;
+      var tag = m[2].toLowerCase();
+      if (!OK_TAGS[tag]) continue;
+      if (m[1]) { out += '</' + tag + '>'; continue; }
+      var attrs = '', a;
+      var ar = /([a-zA-Z-]+)\s*=\s*(?:"([^"]*)"|'([^']*)')/g;
+      while ((a = ar.exec(m[3])) !== null) {
+        var name = a[1].toLowerCase();
+        var val = a[2] !== undefined ? a[2] : a[3];
+        if (name === 'style') {
+          var st = cleanStyle(val.replace(/&quot;/g, '"'));
+          if (st) attrs += ' style="' + st.replace(/"/g, "'") + '"';
+        } else if (tag === 'font' && name === 'color' && /^#?[a-zA-Z0-9]+$/.test(val)) {
+          attrs += ' color="' + val + '"';
+        } else if (tag === 'font' && name === 'size' && /^[1-7]$/.test(val)) {
+          attrs += ' size="' + val + '"';
+        }
+      }
+      out += '<' + tag + attrs + '>';
+    }
+    return out + txt(html.slice(last));
+  }
+
+  function plainOf(html) {
+    return cleanHtml(html).replace(/<\/(div|p|li|h3|h4|pre|blockquote)>/g, ' ').replace(/<[^>]*>/g, '')
+      .replace(/&nbsp;/g, ' ').replace(/&lt;/g, '<').replace(/&gt;/g, '>').replace(/&amp;/g, '&').replace(/\s+/g, ' ').trim();
+  }
+  function noteTitle(n) {
+    if (n.title) return n.title;
+    var plain = n.html ? plainOf(n.html) : String(n.text ? n.text : '').replace(/\s+/g, ' ').trim();
+    if (!plain) return 'Конспект';
+    return plain.length > 45 ? plain.slice(0, 45) + '…' : plain;
+  }
+
+  // Старые конспекты (простая разметка) превращаем в обычный текст с оформлением
+  function bodyFromMarkup(text) {
+    var html = '', para = [], list = [];
+    function flushP() { if (para.length) { html += '<p>' + para.join('<br>') + '</p>'; para = []; } }
+    function flushL() {
+      if (list.length) {
+        html += '<ul>' + list.map(function (x) { return '<li>' + x + '</li>'; }).join('') + '</ul>';
+        list = [];
+      }
+    }
+    String(text).split('\n').forEach(function (raw) {
+      var line = raw.replace(/\s+$/, '');
+      if (!line.trim()) { flushP(); flushL(); return; }
+      if (line.indexOf('## ') === 0) { flushP(); flushL(); html += '<h4>' + esc(line.slice(3)) + '</h4>'; return; }
+      if (line.indexOf('- ') === 0) { flushP(); list.push(esc(line.slice(2))); return; }
+      if (line.indexOf('> ') === 0) { flushP(); flushL(); html += '<blockquote>' + esc(line.slice(2)) + '</blockquote>'; return; }
+      flushL();
+      para.push(esc(line));
+    });
+    flushP(); flushL();
+    return html;
+  }
+  function noteHtml(n) {
+    if (n.html) return cleanHtml(n.html);
+    return (n.verse ? '<pre>' + esc(n.verse) + '</pre>' : '') + bodyFromMarkup(n.text ? n.text : '');
+  }
+
+  function renderNote(n, date) {
+    return '<div class="note"><div class="note-head"><small>' + DAYS[dow(date)] + ', ' + fmtFull(date) + '</small><h3>' + esc(n.title ? n.title : 'Конспект') + '</h3></div>' +
+           '<div class="note-body rich">' + noteHtml(n) + '</div></div>';
+  }
+
+  function openNote(date) {
+    var n = NOTES[date];
+    if (!n) return;
+    byId('mTitle').textContent = 'Конспект';
+    byId('mBody').innerHTML = renderNote(n, date);
+    byId('modal').style.display = 'flex';
+  }
+
+  // вкладка «Конспекты» для всех
+  function renderNotesList() {
+    var dates = Object.keys(NOTES).sort().reverse();
+    byId('nEmpty').style.display = dates.length ? 'none' : 'block';
+    var html = '';
+    dates.forEach(function (d) {
+      var n = NOTES[d];
+      html += '<button type="button" class="ncard" data-note="' + d + '">' +
+              '<span class="nd">' + fmt(d) + '<small>' + fmtFull(d).slice(6) + '</small></span>' +
+              '<span class="nt">' + esc(noteTitle(n)) + '</span></button>';
+    });
+    byId('nList').innerHTML = html;
+  }
+  byId('nList').addEventListener('click', function (e) {
+    var node = e.target;
+    while (node && node !== byId('nList')) {
+      var v = node.getAttribute ? node.getAttribute('data-note') : null;
+      if (v) { openNote(v); return; }
+      node = node.parentNode;
+    }
+  });
+
+  // админка: редактор конспекта
+  var nArm = false;
+  var nSel = null;
+  function lastMonday() {
+    var d = new Date();
+    for (var k = 0; k < 7; k++) {
+      if (d.getDay() === 1) break;
+      d.setDate(d.getDate() - 1);
+    }
+    return d.getFullYear() + '-' + pad(d.getMonth() + 1) + '-' + pad(d.getDate());
+  }
+  function nMsg(t, ok) {
+    var m = byId('nMsg');
+    m.className = 'msg ' + (ok ? 'ok' : 'err');
+    m.textContent = t;
+  }
+  function updateNDay() {
+    var v = byId('nDate').value;
+    var el = byId('nDay');
+    if (!v) { el.textContent = ''; return; }
+    var d = dow(v);
+    el.textContent = d === 1 ? DAYS[d] : DAYS[d] + ' — выберите понедельник';
+    el.className = d === 1 ? 'ok' : 'err';
+  }
+  function renderNChips() {
+    var html = '';
+    Object.keys(NOTES).sort().reverse().forEach(function (d) {
+      html += '<button type="button" class="chip" data-d="' + d + '">' + fmtFull(d) + '</button>';
+    });
+    byId('nExisting').innerHTML = html;
+  }
+  function tidyEditor() {
+    var ed = byId('nEditor');
+    var h = ed.innerHTML;
+    if (h === '<br>') ed.innerHTML = '';
+    if (h === '<div><br></div>') ed.innerHTML = '';
+  }
+  function nLoad() {
+    var v = byId('nDate').value;
+    var n = NOTES[v];
+    byId('nTitle').value = n ? (n.title ? n.title : '') : '';
+    byId('nEditor').innerHTML = n ? noteHtml(n) : '';
+    nArm = false;
+    byId('nDel').textContent = 'Удалить конспект';
+    byId('nDel').style.opacity = n ? '1' : '0.45';
+    updateNDay();
+  }
+  function nInit() {
+    if (!byId('nDate').value) byId('nDate').value = lastMonday();
+    nMsg('', true);
+    renderNChips();
+    nLoad();
+  }
+
+  // команды форматирования (выделенный текст сохраняется, пока вы нажимаете кнопки)
+  function restoreSel() {
+    byId('nEditor').focus();
+    if (nSel) {
+      var sel = window.getSelection();
+      sel.removeAllRanges();
+      sel.addRange(nSel);
+    }
+  }
+  document.addEventListener('selectionchange', function () {
+    if (!window.getSelection) return;
+    var sel = window.getSelection();
+    if (!sel.rangeCount) return;
+    if (byId('nEditor').contains(sel.anchorNode)) nSel = sel.getRangeAt(0).cloneRange();
+  });
+  function fmt2(cmd, val) {
+    restoreSel();
+    if (!document.execCommand) return;
+    document.execCommand('styleWithCSS', false, true);
+    var ok = document.execCommand(cmd, false, val === undefined ? null : val);
+    if (!ok) { if (cmd === 'hiliteColor') document.execCommand('backColor', false, val); }
+    tidyEditor();
+  }
+  function toggleBlock(tag) {
+    restoreSel();
+    if (!document.execCommand) return;
+    var cur = String(document.queryCommandValue('formatBlock')).toLowerCase().replace(/[<>]/g, '');
+    document.execCommand('formatBlock', false, cur === tag ? 'div' : tag);
+  }
+  byId('nBar').addEventListener('mousedown', function (e) {
+    var t = e.target.tagName;
+    if (t !== 'SELECT') { if (t !== 'OPTION') e.preventDefault(); }
+  });
+  byId('nBar').addEventListener('click', function (e) {
+    var b = e.target;
+    while (b && b !== byId('nBar')) {
+      if (b.getAttribute) { if (b.getAttribute('data-k')) break; }
+      b = b.parentNode;
+    }
+    if (!b) return;
+    if (b === byId('nBar')) return;
+    var k = b.getAttribute('data-k');
+    var v = b.getAttribute('data-v');
+    if (k === 'cmd') fmt2(v);
+    if (k === 'block') toggleBlock(v);
+    if (k === 'hl') fmt2('hiliteColor', v);
+    if (k === 'fc') fmt2('foreColor', v);
+    if (k === 'emoji') fmt2('insertText', v);
+    if (k === 'clear') { fmt2('removeFormat'); fmt2('hiliteColor', 'transparent'); }
+  });
+  byId('nSize').addEventListener('change', function () {
+    var v = byId('nSize').value;
+    if (v) fmt2('fontSize', v);
+    byId('nSize').value = '';
+  });
+  byId('nFont').addEventListener('change', function () {
+    var v = byId('nFont').value;
+    if (v) fmt2('fontName', v);
+    byId('nFont').value = '';
+  });
+  byId('nEditor').addEventListener('input', tidyEditor);
+  byId('nEditor').addEventListener('paste', function (e) {
+    var cd = e.clipboardData;
+    if (!cd) return;
+    e.preventDefault();
+    var h = cd.getData('text/html');
+    if (h) { document.execCommand('insertHTML', false, cleanHtml(h)); }
+    else { document.execCommand('insertText', false, cd.getData('text/plain')); }
+  });
+
+  byId('nDate').addEventListener('change', nLoad);
+  byId('nExisting').addEventListener('click', function (e) {
+    var d = e.target.getAttribute('data-d');
+    if (d) { byId('nDate').value = d; nLoad(); }
+  });
+  byId('nSave').onclick = function () {
+    var date = byId('nDate').value;
+    if (!date) { nMsg('Выберите дату', false); return; }
+    if (dow(date) !== 1) { nMsg('Конспекты привязаны к понедельникам', false); return; }
+    var html = cleanHtml(byId('nEditor').innerHTML);
+    if (!plainOf(html)) { nMsg('Напишите текст конспекта', false); return; }
+    NOTES[date] = { title: byId('nTitle').value.trim(), html: html };
+    var ok = storeNotes(date);
+    renderNChips();
+    byId('nDel').style.opacity = '1';
+    nMsg(ok ? 'Конспект сохранён: ' + fmtFull(date) : 'Не удалось сохранить', ok);
+  };
+  byId('nDel').onclick = function () {
+    var date = byId('nDate').value;
+    if (!NOTES[date]) { nMsg('На эту дату конспекта нет', false); return; }
+    if (!nArm) {
+      nArm = true;
+      byId('nDel').textContent = 'Нажмите ещё раз: удалить';
+      return;
+    }
+    nArm = false;
+    delete NOTES[date];
+    var ok = storeNotes(date);
+    renderNChips();
+    nLoad();
+    nMsg(ok ? 'Конспект удалён: ' + fmtFull(date) : 'Не удалось сохранить', ok);
+  };
+  byId('nBack').onclick = function () { adShow('home'); };
+
+  // ---- Общая база (Firebase): данные от других людей ----
+  window.onRemoteData = function (remoteJournal, remoteNotes) {
+    if (remoteJournal) { data = remoteJournal; try { localStorage.setItem(KEY, JSON.stringify(data)); } catch (e) {} }
+    if (remoteNotes) { NOTES = remoteNotes; try { localStorage.setItem('notes_data', JSON.stringify(NOTES)); } catch (e) {} }
+    var act = document.querySelector('.view.active');
+    var id = act ? act.id : '';
+    try {
+      if (id === 'v-att') renderJournal();
+      if (id === 'v-addr') renderAddr();
+      if (id === 'v-notes') renderNotesList();
+    } catch (e) {}
+  };
+  window.getLocalForMigration = function () { return { journal: data, notes: NOTES }; };
+
+  // ---- Навигация ----
   function isNarrow(view) {
-    var narrow = ['addr', 'about', 'notes', 'video', 'bday'];
+    var narrow = ['addr', 'about', 'notes', 'video', 'bday', 'admin'];
     return narrow.indexOf(view) >= 0;
   }
   function show(view) {
+    var vids = document.querySelectorAll('video');
+    for (var pv = 0; pv < vids.length; pv++) { vids[pv].pause(); }
     var views = document.querySelectorAll('.view');
     for (var k = 0; k < views.length; k++) { views[k].classList.remove('active'); }
     byId('v-' + view).classList.add('active');
@@ -1150,16 +1821,9 @@
     nav.classList.remove('open');
     if (view === 'att') renderJournal();
     if (view === 'addr') renderAddr();
-    if (view === 'admin') {
-      byId('login').style.display = unlocked ? 'none' : 'block';
-      byId('editor').style.display = unlocked ? 'block' : 'none';
-      if (unlocked) {
-        renderMarks(); renderChips();
-        if (!byId('dateIn').value) byId('dateIn').value = lastLessonDay();
-        updateDay();
-        loadMarks();
-      }
-    }
+    if (view === 'video') renderVideos();
+    if (view === 'notes') renderNotesList();
+    if (view === 'admin') adShow('home');
     window.scrollTo(0, 0);
   }
 
@@ -1180,20 +1844,123 @@
     })(links[q]);
   }
 
-  // ---- Вход админа ----
-  function login() {
-    if (byId('pw').value === PASSWORD) {
-      unlocked = true;
-      byId('pw').value = '';
+  // ---- Админка: вкладки, у каждой свой пароль ----
+  var adOpen = {};
+  var adPending = '';
+  var adAnims = {
+    video: '<span class="ring"></span><span class="ring r2"></span><div class="screen">▶</div>',
+    notes: '<div class="paper"><i></i><i></i><i></i></div><span class="pen">✏️</span>',
+    addr: '<span class="cake">📍</span>'
+  };
+
+  function adShow(part) {
+    var wip = false;
+    if (part === 'addr') wip = true;
+    byId('adHome').style.display = part === 'home' ? 'block' : 'none';
+    byId('adLogin').style.display = part === 'login' ? 'block' : 'none';
+    byId('editor').style.display = part === 'att' ? 'block' : 'none';
+    byId('adWip').style.display = wip ? 'block' : 'none';
+    byId('adVideo').style.display = part === 'video' ? 'block' : 'none';
+    byId('adNotes').style.display = part === 'notes' ? 'block' : 'none';
+
+    var inside = adNames[part] ? true : false;
+    byId('adTitle').textContent = inside ? 'Админ: ' + adNames[part] : 'Админ';
+    byId('adSub').textContent = inside ? '' : 'Выберите раздел';
+
+    if (part === 'login') {
+      byId('adLoginTitle').textContent = 'Пароль для раздела «' + adNames[adPending] + '»';
       byId('loginMsg').textContent = '';
-      show('admin');
+    }
+    if (part === 'att') {
+      renderMarks(); renderChips();
+      if (!byId('dateIn').value) byId('dateIn').value = lastLessonDay();
+      updateDay();
+      loadMarks();
+    }
+    if (part === 'video') vAdminInit();
+    if (part === 'notes') nInit();
+    if (wip) byId('adAnim').innerHTML = adAnims[part];
+    window.scrollTo(0, 0);
+  }
+
+  function adTry(key) {
+    if (adOpen[key]) { adShow(key); return; }
+    adPending = key;
+    adShow('login');
+  }
+  function login() {
+    if (!adPending) return;
+    if (byId('pw').value === adPass[adPending]) {
+      adOpen[adPending] = true;
+      byId('pw').value = '';
+      adShow(adPending);
     } else {
       byId('loginMsg').textContent = 'Неверный пароль';
     }
   }
+
+  var adBtns = document.querySelectorAll('[data-ad]');
+  for (var w = 0; w < adBtns.length; w++) {
+    (function (b) {
+      b.onclick = function () { adTry(b.getAttribute('data-ad')); };
+    })(adBtns[w]);
+  }
   byId('loginBtn').onclick = login;
   byId('pw').addEventListener('keydown', function (e) { if (e.key === 'Enter') login(); });
-  byId('logout').onclick = function () { unlocked = false; byId('saveMsg').textContent = ''; show('admin'); };
+  byId('adLoginBack').onclick = function () { byId('pw').value = ''; adShow('home'); };
+  byId('adWipBack').onclick = function () { adShow('home'); };
+  byId('adBackAtt').onclick = function () { adShow('home'); };
+  byId('logout').onclick = function () { adOpen.att = false; byId('saveMsg').textContent = ''; adShow('home'); };
+</script>
+
+<script type="module">
+  import { initializeApp } from "https://www.gstatic.com/firebasejs/10.12.2/firebase-app.js";
+  import { getFirestore, collection, doc, setDoc, deleteDoc, onSnapshot }
+    from "https://www.gstatic.com/firebasejs/10.12.2/firebase-firestore.js";
+
+  var firebaseConfig = {
+    apiKey: "AIzaSyBVhBBjRj33eIE0S1mDTnD0SGSTvs21zlU",
+    authDomain: "miloserdie-team.firebaseapp.com",
+    projectId: "miloserdie-team",
+    storageBucket: "miloserdie-team.firebasestorage.app",
+    messagingSenderId: "385012073417",
+    appId: "1:385012073417:web:a8df4c1ac3ff3dea8dde18"
+  };
+
+  var app = initializeApp(firebaseConfig);
+  var db = getFirestore(app);
+  var col = collection(db, "site");
+
+  window.FB = {
+    saveJournal: function (json) { return setDoc(doc(col, "journal"), { json: json, t: Date.now() }); },
+    saveNote: function (date, n) { return setDoc(doc(col, "note_" + date), { date: date, title: n.title || "", html: n.html || "", t: Date.now() }); },
+    deleteNote: function (date) { return deleteDoc(doc(col, "note_" + date)); }
+  };
+
+  var migrated = false;
+  onSnapshot(col, function (snap) {
+    var journal = null, notes = {}, hasJournal = false;
+    snap.forEach(function (d) {
+      var v = d.data();
+      if (d.id === "journal") {
+        hasJournal = true;
+        try { var arr = JSON.parse(v.json); if (Array.isArray(arr)) journal = arr; } catch (e) {}
+      } else if (d.id.indexOf("note_") === 0) {
+        notes[v.date] = { title: v.title || "", html: v.html || "" };
+      }
+    });
+
+    // Первый запуск: базы ещё нет, загружаем то, что уже накоплено в этом браузере
+    if (!hasJournal && !migrated && !snap.metadata.fromCache) {
+      migrated = true;
+      var loc = window.getLocalForMigration();
+      if (loc.journal && loc.journal.length) { window.FB.saveJournal(JSON.stringify(loc.journal)); }
+      Object.keys(loc.notes || {}).forEach(function (dt) { window.FB.saveNote(dt, loc.notes[dt]); });
+      return;
+    }
+    if (!hasJournal) return;
+    window.onRemoteData(journal, notes);
+  }, function (err) { console.error("Firestore:", err); });
 </script>
 
 </body>
