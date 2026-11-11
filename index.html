@@ -57,6 +57,71 @@
   .dot { width: 8px; height: 8px; border-radius: 4px; background: rgba(255,255,255,.6); cursor: pointer; transition: width .25s ease, background .25s ease; }
   .dot.on { width: 22px; background: #fff; }
   .cap { padding: 14px 16px; color: #5f6368; font-size: 15px; }
+  .pr-card { position: relative; overflow: hidden; background: linear-gradient(145deg, #3b7bb0, #6fb1d8 60%, #9ad0ec); color: #fff; border-radius: 22px; padding: 28px 20px 24px; text-align: center; box-shadow: 0 10px 30px rgba(59,123,176,.35); }
+  .pr-card::before, .pr-card::after { content: ''; position: absolute; border-radius: 50%; background: rgba(255,255,255,.12); pointer-events: none; }
+  .pr-card::before { width: 180px; height: 180px; left: -60px; top: -70px; }
+  .pr-card::after { width: 140px; height: 140px; right: -40px; bottom: -50px; }
+  .pr-hands { font-size: 60px; line-height: 1.1; animation: bounce 2.6s ease-in-out infinite; position: relative; }
+  .pr-lead { margin: 8px 0 6px; font-size: 16px; opacity: .95; position: relative; }
+  .pr-name { min-height: 44px; margin: 6px 0 18px; font-size: 32px; font-weight: 800; line-height: 1.2; word-break: break-word; position: relative; text-shadow: 0 2px 10px rgba(0,0,0,.18); }
+  .pr-name.spin { opacity: .8; filter: blur(.6px); }
+  .pr-name.pop { animation: prPop .65s cubic-bezier(.2, 1.4, .4, 1); }
+  @keyframes prPop { 0% { transform: scale(.55); opacity: 0; } 100% { transform: scale(1); opacity: 1; } }
+  .pr-btn { position: relative; border: 0; background: #fff; color: #3b7bb0; font-family: inherit; font-weight: 800; font-size: 17px; border-radius: 30px; padding: 14px 28px; cursor: pointer; box-shadow: 0 6px 18px rgba(0,0,0,.2); transition: transform .2s ease, box-shadow .2s ease; }
+  .pr-btn:hover { transform: translateY(-2px); box-shadow: 0 10px 24px rgba(0,0,0,.25); }
+  .pr-btn:disabled { opacity: .7; cursor: default; transform: none; }
+  .pr-how { margin-top: 16px; animation: prPop .5s ease; }
+  .pr-how h4 { margin: 0 0 8px; font-size: 18px; color: #3b7bb0; }
+  .pr-how ul { margin: 0 0 12px; padding: 0; list-style: none; }
+  .pr-how li { position: relative; padding: 6px 0 6px 28px; line-height: 1.45; }
+  .pr-how li::before { content: '🙏'; position: absolute; left: 0; font-size: 15px; }
+  .pr-verse { margin: 0; padding: 10px 14px; background: #eef4f9; border-left: 4px solid #3b7bb0; border-radius: 8px; font-style: italic; color: #2c3e50; line-height: 1.5; }
+  .pr-tip { margin: 12px 0 0; color: #5f6368; font-size: 14px; }
+  .adr-row { align-items: flex-start; }
+  .adr-row span { flex: 1; min-width: 0; word-break: break-word; }
+  .adr-row b { display: block; font-size: 15px; color: #2c3e50; }
+  .adr-row small { display: block; margin-top: 2px; color: #5f6368; font-size: 13px; }
+  .adr-row small.no { color: #9aa0a6; font-style: italic; }
+  #adAddr .adr-row { flex-wrap: wrap; }
+  .adr-row small.vis { color: #3b7bb0; font-weight: 600; }
+  .adr-row small.vis.none { color: #9aa0a6; font-weight: 400; font-style: italic; }
+  .adr-btns { flex: none; display: flex; gap: 6px; }
+  .adr-btns .vbtn { color: #3b7bb0; }
+  .adr-delbar { margin-top: 14px; padding-top: 12px; border-top: 1px solid #e4ebf1; }
+  .adr-ov { position: fixed; inset: 0; z-index: 9999; background: rgba(0,0,0,.45); display: none; align-items: center; justify-content: center; padding: 14px; }
+  .adr-ov.open { display: flex; }
+  .adr-modal { background: #fff; border-radius: 14px; width: 100%; max-width: 520px; max-height: 85vh; display: flex; flex-direction: column; padding: 16px; box-sizing: border-box; }
+  .adr-modal h3 { margin: 0 0 10px; font-size: 17px; color: #2c3e50; }
+  .adr-modal #adrDelList { flex: 1; overflow-y: auto; margin-top: 8px; }
+  .adr-modal .rmrow span { flex: 1; min-width: 0; word-break: break-word; }
+  .adr-modal .rmrow b { display: block; font-size: 15px; color: #2c3e50; }
+  .adr-modal .rmrow small { display: block; margin-top: 2px; color: #5f6368; font-size: 13px; }
+  .adr-hist { flex: 1 1 100%; background: #eef4f9; border-radius: 10px; padding: 10px 12px; margin: 4px 0 2px; text-align: left; font-size: 14px; }
+  .adr-hist .nn { color: #9aa0a6; font-style: italic; font-size: 13px; }
+  .adr-hist h5 { margin: 0 0 6px; font-size: 14px; color: #2c3e50; }
+  .adr-hist .hv { padding: 6px 0; border-bottom: 1px solid #d9e3ec; }
+  .adr-hist .hv:last-child { border-bottom: 0; }
+  .adr-hist .hd { font-weight: 700; color: #2c3e50; }
+  .adr-hist .hd em { font-style: normal; font-weight: 400; color: #5f6368; }
+  .adr-hist .tchips { margin: 4px 0 0; }
+  .adr-hist .tchip small { color: #3b7bb0; font-weight: 700; margin-left: 2px; }
+  #adAddr .addp-row input { flex: 1 1 100%; }
+  #adAddr .asrch { width: 100%; padding: 10px 12px; font-size: 16px; border: 1px solid #d9dde2; border-radius: 10px; font-family: inherit; margin: 6px 0 10px; }
+  .adr-sort { display: flex; gap: 6px; flex-wrap: wrap; margin: 0 0 10px; }
+  .adr-sort button { border: 1px solid #cfe3f7; background: #fff; color: #3b7bb0; border-radius: 999px; padding: 7px 12px; font-size: 14px; font-family: inherit; cursor: pointer; }
+  .adr-sort button.on { background: #3b7bb0; border-color: #3b7bb0; color: #fff; }
+  #adAddr .acnt { margin: 0 0 6px; color: #5f6368; font-size: 14px; }
+  #adAddr #adrList { max-height: 55vh; overflow-y: auto; }
+  .pr-sep { display: flex; align-items: center; gap: 12px; margin: 30px 0 18px; color: #5f6368; font-size: 14px; font-weight: 600; }
+  .pr-sep::before, .pr-sep::after { content: ''; flex: 1; height: 1px; background: #d9dde2; }
+  .pr-card.alt { background: linear-gradient(145deg, #2f8f5b, #56b883 60%, #8fd9ae); box-shadow: 0 10px 30px rgba(47,143,91,.35); }
+  .pr-card.alt .pr-hands { animation-delay: -1.3s; }
+  .pr-card.alt .pr-btn { color: #2f8f5b; }
+  .pr-card.alt .pr-badge { display: inline-block; position: relative; margin-bottom: 4px; padding: 4px 12px; border-radius: 20px; background: rgba(255,255,255,.22); font-size: 13px; font-weight: 700; letter-spacing: .3px; }
+  .pr-how.alt h4 { color: #2f8f5b; }
+  .pr-how.alt li::before { content: '💚'; }
+  .pr-how.alt .pr-verse { background: #eaf6ef; border-left-color: #2f8f5b; }
+  @media (prefers-reduced-motion: reduce) { .pr-hands, .pr-name.pop, .pr-how { animation: none; } }
   .go-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 12px; margin-top: 18px; }
   .go { display: flex; flex-direction: column; align-items: flex-start; text-align: left; background: #fff; border: 0; border-radius: 16px; padding: 16px; cursor: pointer; font-family: inherit; color: #2c3e50; box-shadow: 0 4px 20px rgba(0,0,0,.06); transition: transform .2s ease, box-shadow .2s ease; }
   .go:hover { transform: translateY(-3px); box-shadow: 0 8px 26px rgba(0,0,0,.12); }
@@ -104,13 +169,33 @@
   table.j td.nm, table.j td.num { cursor: pointer; }
   table.j td.ln { text-align: left; }
   table.j tr.top td { background: #fff4cf; font-weight: 700; }
+  table.j tr.gsep td { background: #eef4f9 !important; color: #3b7bb0; font-weight: 700; text-align: left; padding: 10px 12px; border-top: 3px solid #3b7bb0; border-bottom: 1px solid #cfe3f7; cursor: default; }
+  table.j tr.gsep td span { position: sticky; left: 12px; }
   table.j tr.sel td { box-shadow: inset 0 3px 0 #39ff14, inset 0 -3px 0 #39ff14; }
   table.j tr.sel td:first-child { box-shadow: inset 0 3px 0 #39ff14, inset 0 -3px 0 #39ff14, inset 3px 0 0 #39ff14; }
   table.j tr.sel td:last-child { box-shadow: inset 0 3px 0 #39ff14, inset 0 -3px 0 #39ff14, inset -3px 0 0 #39ff14; }
   #leaders td.ln { cursor: pointer; }
+  .lbctl { display: flex; flex-wrap: wrap; gap: 8px; align-items: center; margin-bottom: 12px; }
+  .lbp { border: 1px solid #d9dde2; background: #fff; color: #3b7bb0; border-radius: 20px; padding: 9px 14px; font-size: 15px; font-weight: 600; font-family: inherit; cursor: pointer; transition: background .2s ease, color .2s ease; }
+  .lbp.on { background: #3b7bb0; border-color: #3b7bb0; color: #fff; }
+  .lbctl select.on { border-color: #3b7bb0; box-shadow: 0 0 0 2px #3b7bb0 inset; }
   .b { display: inline-flex; width: 24px; height: 24px; border-radius: 50%; align-items: center; justify-content: center; font-size: 13px; font-weight: 700; }
   .b.ok { background: #e6f4ea; color: #1e7a3c; }
   .b.no { background: #fce8e6; color: #b3261e; }
+  .ac { background: #fff; border-radius: 12px; box-shadow: 0 2px 10px rgba(0,0,0,.06); margin-bottom: 10px; padding: 13px 16px; text-align: left; }
+  .ac b { display: block; font-size: 17px; color: #2c3e50; }
+  .ac .aa { display: block; margin-top: 4px; font-size: 15px; color: #3b7bb0; }
+  .ac .aa0 { color: #9aa0a6; }
+  .addp { margin-bottom: 14px; background: #f3f8fc; border-radius: 12px; }
+  .addp summary { cursor: pointer; padding: 12px 14px; font-weight: 700; color: #3b7bb0; }
+  .addp-b { padding: 0 14px 14px; }
+  .addp-row { display: flex; gap: 8px; flex-wrap: wrap; margin-bottom: 8px; }
+  .addp-row input { flex: 1 1 140px; padding: 10px 12px; font-size: 16px; border: 1px solid #d9dde2; border-radius: 8px; font-family: inherit; }
+  .rmrow { display: flex; align-items: center; justify-content: space-between; gap: 10px; padding: 8px 0; border-bottom: 1px solid #e4ebf1; }
+  .rmrow button { flex: none; border: 1px solid #d9dde2; background: #fff; color: #b3261e; border-radius: 8px; padding: 7px 12px; font-size: 14px; font-family: inherit; cursor: pointer; }
+  .rmrow.off span { color: #9aa0a6; text-decoration: line-through; }
+  .rmrow.off button { color: #1e7a3c; }
+  .rmh { margin: 12px 0 2px; font-weight: 700; font-size: 14px; color: #5f6368; }
   .pc { background: #fff; border-radius: 12px; box-shadow: 0 2px 10px rgba(0,0,0,.06); margin-bottom: 10px; text-align: left; }
   .pc summary { padding: 14px 16px; cursor: pointer; font-size: 17px; list-style: none; }
   .pc summary::-webkit-details-marker { display: none; }
@@ -184,6 +269,15 @@
   .vt { background: #eef4f9; border-radius: 10px; padding: 12px; margin-bottom: 10px; }
   .vt > b { display: block; font-size: 16px; color: #2c3e50; }
   .vt .tchips { margin-bottom: 0; }
+  .facts { display: grid; gap: 8px; }
+  .fact { display: flex; gap: 10px; align-items: center; background: #f4f8fb; border-radius: 10px; padding: 9px 12px; }
+  .fact .fi { font-size: 22px; flex: none; }
+  .fact .ft { font-size: 15px; color: #2c3e50; font-weight: 600; min-width: 0; word-break: break-word; }
+  .fact .ft small { display: block; font-size: 12px; font-weight: 400; color: #5f6368; }
+  .vh { margin: 18px 0 8px; font-size: 16px; color: #2c3e50; }
+  .vnone { color: #9aa0a6; font-style: italic; font-size: 14px; margin: 0; }
+  .vdate { font-size: 13px; color: #3b7bb0; font-weight: 700; margin-bottom: 2px; }
+  .vwith { font-size: 13px; color: #5f6368; margin-top: 6px; }
   .vsum { font-size: 14px; color: #5f6368; margin-bottom: 12px; }
   .card input[type=month] { padding: 10px; font-size: 16px; border: 1px solid #d9dde2; border-radius: 10px; background: #fff; font-family: inherit; }
   .vcard { background: #fff; border-radius: 16px; box-shadow: 0 4px 20px rgba(0,0,0,.06); overflow: hidden; margin-bottom: 14px; text-align: left; }
@@ -269,8 +363,7 @@
   <a href="#" data-view="att">📅 Посещаемость</a>
   <a href="#" data-view="addr">📍 Адреса</a>
   <a href="#" data-view="notes">📝 Конспекты</a>
-  <a href="#" data-view="video">🎬 Видео</a>
-  <a href="#" data-view="bday">🎂 Дни рождения</a>
+  <a href="#" data-view="pray">🙏 Молитвы</a>
   <a href="#" data-view="about">👥 О команде</a>
   <a href="#" data-view="admin">⚙️ Админ</a>
 </nav>
@@ -292,7 +385,9 @@
     <div class="go-grid">
       <button type="button" class="go" data-go="att"><span class="go-ic">📅</span><span class="go-t">Посещаемость</span><span class="go-s">Журнал и таблица лидеров</span></button>
       <button type="button" class="go g2" data-go="addr"><span class="go-ic">📍</span><span class="go-t">Адреса</span><span class="go-s">Кого мы посещаем</span></button>
+      <button type="button" class="go g3" data-go="notes"><span class="go-ic">📝</span><span class="go-t">Конспекты</span><span class="go-s">Что разбирали по понедельникам</span></button>
       <button type="button" class="go g4" data-go="about"><span class="go-ic">👥</span><span class="go-t">О команде</span><span class="go-s">Кто мы и что делаем</span></button>
+      <button type="button" class="go g2" data-go="pray"><span class="go-ic">🙏</span><span class="go-t">Молитвы</span><span class="go-s">Вытянуть имя для молитвы</span></button>
       <button type="button" class="go g3" data-go="admin"><span class="go-ic">⚙️</span><span class="go-t">Админ</span><span class="go-s">Отметить служение и команды</span></button>
     </div>
   </section>
@@ -307,8 +402,13 @@
     </div>
 
     <h2 style="margin-top:40px">Таблица лидеров</h2>
-    <p class="sub">По количеству посещений</p>
+    <p class="sub" id="lbSub">По количеству посещений</p>
     <div class="card">
+      <div class="lbctl">
+        <button type="button" class="lbp on" data-p="all">Всё время</button>
+        <button type="button" class="lbp" data-p="month">Последний месяц</button>
+        <select id="lbSeason" aria-label="Выбрать сезон"></select>
+      </div>
       <div class="jwrap"><table class="j" id="leaders"></table></div>
     </div>
   </section>
@@ -318,7 +418,7 @@
     <p class="sub">Кого мы посещаем</p>
 
     <div id="aContent">
-      <input type="text" id="aq" placeholder="Поиск по имени или примечанию">
+      <input type="text" id="aq" placeholder="Поиск по имени или адресу">
       <div class="empty" id="aCount"></div>
       <div id="aList"></div>
     </div>
@@ -334,6 +434,38 @@
     </div>
   </section>
 
+  <section class="view" id="v-pray">
+    <h2>Молитвы</h2>
+    <p class="sub">Вытяни имя — и помолись за этого человека</p>
+    <div class="pr-card">
+      <div class="pr-hands">🙏</div>
+      <div class="pr-lead" id="prLead">Нажми на кнопку, и мы выберем, за кого тебе молиться</div>
+      <div class="pr-name" id="prName"></div>
+      <button type="button" class="pr-btn" id="prBtn">✨ Вытянуть имя</button>
+    </div>
+    <div class="card pr-how" id="prHow" style="display:none">
+      <h4>💛 За что можно помолиться</h4>
+      <ul id="prIdeas"></ul>
+      <div class="pr-verse">«Молитесь друг за друга… много может усиленная молитва праведного.» — Иакова 5:16</div>
+      <p class="pr-tip">Помолись за этого человека сегодня, а при случае напиши ему, что молишься за него.</p>
+    </div>
+
+    <div class="pr-sep">📍 из списка адресов</div>
+    <div class="pr-card alt">
+      <div class="pr-hands">🕊️</div>
+      <span class="pr-badge">Служение по адресам</span>
+      <div class="pr-lead" id="pr2Lead">Нажми на кнопку, и мы выберем человека из списка адресов, за кого помолиться</div>
+      <div class="pr-name" id="pr2Name"></div>
+      <button type="button" class="pr-btn" id="pr2Btn">✨ Вытянуть ФИО</button>
+    </div>
+    <div class="card pr-how alt" id="pr2How" style="display:none">
+      <h4>💚 Как можно послужить</h4>
+      <ul id="pr2Ideas"></ul>
+      <div class="pr-verse">«Будьте друг к другу добры, сострадательны.» — Ефесянам 4:32</div>
+      <p class="pr-tip">Помолись за этого человека сегодня, а при возможности навести его или позвони.</p>
+    </div>
+  </section>
+
   <section class="view" id="v-video">
     <h2>Видео</h2>
     <p class="sub">Видео служений по месяцам</p>
@@ -345,14 +477,6 @@
     <div class="card wip" id="vEmpty" style="display:none">
       <div class="anim"><span class="ring"></span><span class="ring r2"></span><div class="screen">▶</div></div>
       <p>Видео пока нет</p>
-    </div>
-  </section>
-
-  <section class="view" id="v-bday">
-    <h2>Дни рождения</h2>
-    <div class="card wip">
-      <div class="anim"><span class="bl b1">🎈</span><span class="bl b2">🎈</span><span class="bl b3">🎈</span><span class="bl b4">🎈</span><span class="cake">🎂</span></div>
-      <p>Эта вкладка на стадии разработки</p>
     </div>
   </section>
 
@@ -428,9 +552,8 @@
     <div id="adHome">
       <div class="go-grid">
         <button type="button" class="go" data-ad="att"><span class="go-ic">📅</span><span class="go-t">Посещаемость</span><span class="go-s">Служения и команды</span></button>
-        <button type="button" class="go g2" data-ad="addr"><span class="go-ic">📍</span><span class="go-t">Адреса</span><span class="go-s">Кого мы посещаем</span></button>
-        <button type="button" class="go g3" data-ad="video"><span class="go-ic">🎬</span><span class="go-t">Видео</span><span class="go-s">Раздел видео</span></button>
-        <button type="button" class="go g4" data-ad="notes"><span class="go-ic">📝</span><span class="go-t">Конспекты</span><span class="go-s">Раздел конспектов</span></button>
+        <button type="button" class="go g2" data-ad="notes"><span class="go-ic">📝</span><span class="go-t">Конспекты</span><span class="go-s">Добавить и править</span></button>
+        <button type="button" class="go g3" data-ad="addr"><span class="go-ic">📍</span><span class="go-t">Адреса</span><span class="go-s">Добавить и удалить</span></button>
       </div>
     </div>
 
@@ -472,17 +595,6 @@
         <button type="button" class="tb" data-k="cmd" data-v="bold" title="Жирный"><b>Ж</b></button>
         <button type="button" class="tb" data-k="cmd" data-v="italic" title="Курсив"><i>К</i></button>
         <button type="button" class="tb" data-k="cmd" data-v="underline" title="Подчёркнутый"><u>Ч</u></button>
-        <button type="button" class="tb" data-k="cmd" data-v="strikeThrough" title="Зачёркнутый"><s>З</s></button>
-        <span class="tsep"></span>
-        <button type="button" class="tb" data-k="block" data-v="h3" title="Заголовок">Заголовок</button>
-        <button type="button" class="tb" data-k="block" data-v="pre" title="Стих в рамке">📖 Стих</button>
-        <button type="button" class="tb" data-k="block" data-v="blockquote" title="Цитата">❝ Цитата</button>
-        <span class="tsep"></span>
-        <button type="button" class="tb" data-k="cmd" data-v="insertUnorderedList" title="Список">• Список</button>
-        <button type="button" class="tb" data-k="cmd" data-v="insertOrderedList" title="Нумерация">1. Список</button>
-        <button type="button" class="tb" data-k="cmd" data-v="justifyCenter" title="По центру">По центру</button>
-        <button type="button" class="tb" data-k="cmd" data-v="justifyLeft" title="По левому краю">Слева</button>
-        <span class="tsep"></span>
         <select id="nSize" class="tsel" title="Размер текста">
           <option value="">Размер</option>
           <option value="2">Мелкий</option>
@@ -490,35 +602,25 @@
           <option value="5">Крупный</option>
           <option value="6">Огромный</option>
         </select>
-        <select id="nFont" class="tsel" title="Шрифт">
-          <option value="">Шрифт</option>
-          <option value="Nunito">Обычный</option>
-          <option value="Georgia">С засечками</option>
-          <option value="Courier New">Печатный</option>
-          <option value="Comic Sans MS">Рукописный</option>
-        </select>
+        <span class="tsep"></span>
+        <button type="button" class="tb" data-k="block" data-v="pre" title="Стих в рамке">📖 Стих</button>
+        <button type="button" class="tb" data-k="block" data-v="blockquote" title="Цитата">❝ Цитата</button>
+        <button type="button" class="tb" data-k="cmd" data-v="insertUnorderedList" title="Пункты списка">• Пункты</button>
         <span class="tsep"></span>
         <span class="tl">Маркер</span>
         <button type="button" class="sw" style="background:#fff176" data-k="hl" data-v="#fff176" title="Жёлтый"></button>
-        <button type="button" class="sw" style="background:#bbdefb" data-k="hl" data-v="#bbdefb" title="Голубой"></button>
+        <button type="button" class="sw" style="background:#ffcc80" data-k="hl" data-v="#ffcc80" title="Оранжевый"></button>
         <button type="button" class="sw" style="background:#f8bbd0" data-k="hl" data-v="#f8bbd0" title="Розовый"></button>
         <button type="button" class="sw" style="background:#c8e6c9" data-k="hl" data-v="#c8e6c9" title="Зелёный"></button>
+        <button type="button" class="sw" style="background:#bbdefb" data-k="hl" data-v="#bbdefb" title="Голубой"></button>
+        <button type="button" class="sw" style="background:#d1c4e9" data-k="hl" data-v="#d1c4e9" title="Фиолетовый"></button>
         <button type="button" class="sw" style="background:#fff" data-k="hl" data-v="transparent" title="Убрать маркер">✕</button>
-        <span class="tl">Цвет</span>
-        <button type="button" class="sw" style="background:#2c3e50" data-k="fc" data-v="#2c3e50" title="Тёмный"></button>
-        <button type="button" class="sw" style="background:#d32f2f" data-k="fc" data-v="#d32f2f" title="Красный"></button>
-        <button type="button" class="sw" style="background:#1565c0" data-k="fc" data-v="#1565c0" title="Синий"></button>
-        <button type="button" class="sw" style="background:#2e7d32" data-k="fc" data-v="#2e7d32" title="Зелёный"></button>
-        <span class="tsep"></span>
-        <button type="button" class="tb" data-k="emoji" data-v="❗">❗</button>
-        <button type="button" class="tb" data-k="emoji" data-v="🔶">🔶</button>
-        <button type="button" class="tb" data-k="emoji" data-v="⏰">⏰</button>
-        <button type="button" class="tb" data-k="emoji" data-v="🙏">🙏</button>
-        <button type="button" class="tb" data-k="emoji" data-v="❤️">❤️</button>
         <span class="tsep"></span>
         <button type="button" class="tb" data-k="cmd" data-v="undo" title="Отменить">↶</button>
-        <button type="button" class="tb" data-k="cmd" data-v="redo" title="Вернуть">↷</button>
-        <button type="button" class="tb" data-k="clear" title="Убрать оформление">Сбросить</button>
+      </div>
+      <div class="row-btns" style="margin:10px 0 4px">
+        <button type="button" class="btn" id="nAuto">✨ Оформить автоматически</button>
+        <button type="button" class="btn sec" id="nAutoUndo" style="display:none">↩ Вернуть как было</button>
       </div>
       <div class="note-body rich editor" id="nEditor" contenteditable="true" data-ph="Пишите конспект здесь. Выделите текст и нажмите нужную кнопку."></div>
 
@@ -530,6 +632,42 @@
       <div class="msg" id="nMsg"></div>
     </div>
 
+    <div class="card" id="adAddr" style="display:none">
+      <details class="addp" id="adrAddBox" open>
+        <summary>➕ Добавить адрес</summary>
+        <div class="addp-b">
+          <div class="addp-row">
+            <input type="text" id="adrName" placeholder="ФИО (например: Иванова Мария Петровна)" autocomplete="off">
+            <input type="text" id="adrAddr" placeholder="Адрес (например: ул. Кирова д. 5 кв. 10)" autocomplete="off">
+          </div>
+          <button type="button" class="btn" id="adrAdd">Добавить</button>
+          <div class="msg" id="adrMsg"></div>
+        </div>
+      </details>
+      <div class="rmh" style="margin-top:0">🗑️ Список адресов</div>
+      <input type="text" class="asrch" id="adrSearch" placeholder="Поиск по ФИО или адресу">
+      <div class="adr-sort" id="adrSort">
+        <button type="button" class="on" data-sort="alpha">А–Я</button>
+        <button type="button" data-sort="min">Меньше посещений</button>
+        <button type="button" data-sort="max">Больше посещений</button>
+      </div>
+      <div class="acnt" id="adrCount"></div>
+      <div id="adrList"></div>
+      <div class="adr-delbar">
+        <button type="button" class="btn red" id="adrDelOpen">🗑️ Удалить адрес</button>
+      </div>
+      <div class="adr-ov" id="adrDelOv">
+        <div class="adr-modal">
+          <h3>Какой адрес удалить?</h3>
+          <input type="text" class="asrch" id="adrDelSearch" placeholder="Поиск по ФИО или адресу">
+          <div id="adrDelList"></div>
+          <div class="msg" id="adrDelMsg"></div>
+          <div class="row-btns"><button type="button" class="btn sec" id="adrDelClose">Закрыть</button></div>
+        </div>
+      </div>
+      <div class="row-btns"><button type="button" class="btn sec" id="adrBack">← Назад</button></div>
+    </div>
+
     <div class="card wip" id="adWip" style="display:none">
       <div class="anim" id="adAnim"></div>
       <p>Этот раздел на стадии разработки</p>
@@ -537,6 +675,35 @@
     </div>
 
     <div class="card" id="editor" style="display:none">
+      <details class="addp" id="addp">
+        <summary>➕ Добавить нового человека в команду</summary>
+        <div class="addp-b">
+          <div class="addp-row">
+            <input type="text" id="apLast" placeholder="Фамилия" autocomplete="off">
+            <input type="text" id="apFirst" placeholder="Имя" autocomplete="off">
+          </div>
+          <label class="mrow" style="margin-top:8px"><input type="checkbox" id="apGuest"> Не в группе (покажется отдельно, ниже таблицы)</label>
+          <div class="row-btns"><button type="button" class="btn" id="apAdd">Добавить</button></div>
+          <div class="msg" id="apMsg"></div>
+          <div class="empty" id="apList"></div>
+        </div>
+      </details>
+      <details class="addp" id="gsp">
+        <summary>👥 Не в группе</summary>
+        <div class="addp-b">
+          <div class="empty">Эти люди показываются отдельной таблицей ниже. Когда человека примут в группу — нажмите «В группу», и он перейдёт в основной список со всей историей посещений.</div>
+          <div class="msg" id="gsMsg"></div>
+          <div id="gsList"></div>
+        </div>
+      </details>
+      <details class="addp" id="rmp">
+        <summary>➖ Убрать человека из команды</summary>
+        <div class="addp-b">
+          <div class="empty">Человек пропадёт из таблицы, таблицы лидеров и молитв. Его прошлые отметки сохранятся, и его можно вернуть.</div>
+          <div class="msg" id="rmMsg"></div>
+          <div id="rmList"></div>
+        </div>
+      </details>
       <label for="dateIn"><b>Дата служения:</b></label>
       <input type="date" id="dateIn"> <span id="dayName" style="margin-left:10px;font-weight:bold"></span>
       <div id="typeRow" style="display:none;margin-top:12px">
@@ -545,10 +712,6 @@
       </div>
       <div class="chips" id="existing"></div>
       <div id="marksBox">
-        <div class="row-btns">
-          <button class="btn sec" id="allOn">Все были</button>
-          <button class="btn sec" id="allOff">Никого не было</button>
-        </div>
         <div id="marks" style="margin-top:12px"></div>
       </div>
       <div id="teamsBox" style="display:none;margin-top:18px">
@@ -579,18 +742,18 @@
 
 <script>
   // Пароли разделов админки
-  var adPass = { att: '11220022', addr: '11220055', video: '11220033', notes: '11220044' };
-  var adNames = { att: 'Посещаемость', addr: 'Адреса', video: 'Видео', notes: 'Конспекты' };
+  var adPass = { att: '195433', notes: '125627', addr: '482916' };
+  var adNames = { att: 'Посещаемость', notes: 'Конспекты', addr: 'Адреса' };
   var KEY = 'journal_data';
   var STUDENTS = [
     'Маковик Владислав',
     'Ярутич Анастасия',
     'Молокоедова Анастасия',
-    'Карина (@shkarinaa)',
+    'Карина',
     'Шестак Полина',
     'Хмелевский Павел',
     'Бернат Елисей',
-    'Светлана (@Tsvetanaa)',
+    'Светлана',
     'Воробьев Марк',
     'Сергиеня Тимофей',
     'Теслик Тимофей',
@@ -598,7 +761,7 @@
     'Мялик Марк',
     'Молокоедов Костя',
     'Ивановская Алина',
-    'Диана',
+    'Диана Кеба',
     'Пипко Наталья',
     'Пипко Роман',
     'Рубцов Марк',
@@ -607,12 +770,14 @@
     'Ващилко Ксения',
     'Ивановский Олег',
     'Зновец Алина',
-    'Илья (@ilia_3011)',
+    'Илья Дудич',
     'Холодницкая Дарья',
-    'Лена (@luminaia)',
+    'Лена',
     'Павлюченко Дмитрий',
     'Бородюк Александр',
-    'Маковик Тимофей'
+    'Маковик Тимофей',
+    'Виолета',
+    'Елена'
   ];
 
   // Порядок показа: по алфавиту (индексы в STUDENTS не меняются, поэтому старые отметки не ломаются)
@@ -620,6 +785,58 @@
   for (var o = 0; o < STUDENTS.length; o++) { ORDER.push(o); }
   ORDER.sort(function (x, y) { return STUDENTS[x].localeCompare(STUDENTS[y], 'ru'); });
 
+  // ---- Новые люди: добавляются в админке, хранятся в базе (документ team_extra) и дописываются в конец списка ----
+  var BASE_COUNT = STUDENTS.length;
+  var EXTRA = [];
+  var GUEST = {};    // люди «не в группе»: индексы, показываются отдельной таблицей ниже основной
+  var GORDER = [];   // порядок показа гостей
+  var ALLORD = [];   // основной список + гости (для сортировки команд и т.п.)
+  var HIDDEN = {};   // скрытые люди: индексы остаются на местах, но человек не показывается на сайте
+  function rebuildOrder() {
+    ORDER.length = 0;
+    GORDER.length = 0;
+    for (var o3 = 0; o3 < STUDENTS.length; o3++) {
+      if (HIDDEN[o3]) continue;
+      if (GUEST[o3]) GORDER.push(o3); else ORDER.push(o3);
+    }
+    var byName = function (x, y) { return STUDENTS[x].localeCompare(STUDENTS[y], 'ru'); };
+    ORDER.sort(byName);
+    GORDER.sort(byName);
+    ALLORD = ORDER.concat(GORDER);
+  }
+  function applyGuests(list) {
+    GUEST = {};
+    (list || []).forEach(function (i) { if (typeof i === 'number') GUEST[i] = true; });
+    rebuildOrder();
+  }
+  function applyExtra(list) {
+    EXTRA = list.slice();
+    STUDENTS.length = BASE_COUNT;
+    EXTRA.forEach(function (n) { STUDENTS.push(n); });
+    rebuildOrder();
+  }
+  function applyHidden(list) {
+    HIDDEN = {};
+    list.forEach(function (i) { if (typeof i === 'number') HIDDEN[i] = true; });
+    rebuildOrder();
+  }
+  function cleanList(a) {
+    return (a || []).filter(function (n) { return typeof n === 'string' && n.trim(); });
+  }
+  try {
+    var rawX = localStorage.getItem('team_extra');
+    if (rawX) { var arrX = JSON.parse(rawX); if (Array.isArray(arrX)) applyExtra(cleanList(arrX)); }
+  } catch (e) {}
+  try {
+    var rawG = localStorage.getItem('team_guests');
+    if (rawG) { var arrG = JSON.parse(rawG); if (Array.isArray(arrG)) applyGuests(arrG); }
+  } catch (e) {}
+  try {
+    var rawH = localStorage.getItem('team_hidden');
+    if (rawH) { var arrH = JSON.parse(rawH); if (Array.isArray(arrH)) applyHidden(arrH); }
+  } catch (e) {}
+
+  rebuildOrder();
   function byId(id) { return document.getElementById(id); }
   var nav = byId('nav');
 
@@ -708,25 +925,34 @@
     });
     html += '<th>Пн</th><th>Чт</th><th>Всего</th></tr>';
 
-    ORDER.forEach(function (i, pos) {
-      var cm = 0, ct = 0, ca = 0;
-      html += '<tr data-s="' + i + '"><td class="num">' + (pos + 1) + '</td><td class="nm">' + esc(STUDENTS[i]) + '</td>';
-      data.forEach(function (lesson) {
-        var d = dow(lesson.date);
-        var thu = d === 4 ? ' thu' : '';
-        if (isTea(lesson)) thu = ' tea';
-        if (lesson.marks[i] === 1) {
-          ca++;
-          if (d === 1) cm++;
-          if (d === 4) ct++;
-          html += '<td class="p' + thu + '"><span class="b ok">✓</span></td>';
-        } else {
-          html += '<td class="a' + thu + '"><span class="b no">н</span></td>';
-        }
+    var head = html;
+    function rowsFor(list) {
+      var html = '';
+      list.forEach(function (i, pos) {
+        var cm = 0, ct = 0, ca = 0;
+        html += '<tr data-s="' + i + '"><td class="num">' + (pos + 1) + '</td><td class="nm">' + esc(STUDENTS[i]) + '</td>';
+        data.forEach(function (lesson) {
+          var d = dow(lesson.date);
+          var thu = d === 4 ? ' thu' : '';
+          if (isTea(lesson)) thu = ' tea';
+          if (lesson.marks[i] === 1) {
+            ca++;
+            if (d === 1) cm++;
+            if (d === 4) ct++;
+            html += '<td class="p' + thu + '"><span class="b ok">✓</span></td>';
+          } else {
+            html += '<td class="a' + thu + '"><span class="b no">н</span></td>';
+          }
+        });
+        html += '<td><b>' + cm + '/' + nMon + '</b></td><td><b>' + ct + '/' + nThu + '</b></td><td><b>' + ca + '/' + data.length + '</b></td></tr>';
       });
-      html += '<td><b>' + cm + '/' + nMon + '</b></td><td><b>' + ct + '/' + nThu + '</b></td><td><b>' + ca + '/' + data.length + '</b></td></tr>';
-    });
-    byId('journal').innerHTML = html;
+      return html;
+    }
+    var sep = '';
+    if (GORDER.length) {
+      sep = '<tr class="gsep"><td colspan="' + (data.length + 5) + '"><span>Не в группе</span></td></tr>';
+    }
+    byId('journal').innerHTML = head + rowsFor(ORDER) + sep + rowsFor(GORDER);
     renderLeaders();
     renderStats();
     byId('attEmpty').textContent = data.length ? '✓ был, н — не был. Четверги — голубым (нажмите на дату: адреса), чаепитие — оранжевым, 📝 — есть конспект (нажмите на дату).' : 'Служений пока нет.';
@@ -736,19 +962,78 @@
   function renderStats() {
     var n = data.length, tot = 0;
     data.forEach(function (lesson) {
-      for (var k = 0; k < STUDENTS.length; k++) { if (lesson.marks[k] === 1) tot++; }
+      ORDER.forEach(function (k) { if (lesson.marks[k] === 1) tot++; });
     });
-    var avg = n ? Math.round(tot * 100 / (n * STUDENTS.length)) : 0;
+    var avg = n && ORDER.length ? Math.round(tot * 100 / (n * ORDER.length)) : 0;
     byId('stats').innerHTML =
       '<div class="stat"><b>' + n + '</b><span>служений проведено</span></div>' +
       '<div class="stat"><b>' + avg + '%</b><span>средняя посещаемость</span></div>';
   }
 
   // ---- Таблица лидеров ----
+  var lbPeriod = 'all';
+  var SEASON_NAMES = ['Зима', 'Весна', 'Лето', 'Осень'];
+  var SEASON_MONTHS = ['декабрь – февраль', 'март – май', 'июнь – август', 'сентябрь – ноябрь'];
+  // сезон: зима (дек–фев), весна (мар–май), лето (июн–авг), осень (сен–ноя); ключ = год начала + номер
+  function seasonKey(date) {
+    var p = date.split('-'), y = +p[0], m = +p[1];
+    var idx = Math.floor((m % 12) / 3);
+    var sy = m <= 2 ? y - 1 : y;
+    return sy + '-' + idx;
+  }
+  function seasonStart(key) {
+    var p = key.split('-'), sy = +p[0], idx = +p[1];
+    return sy * 12 + (idx === 0 ? 12 : idx * 3);
+  }
+  function seasonLabel(key) {
+    var p = key.split('-'), sy = +p[0], idx = +p[1];
+    var yr = idx === 0 ? sy + '–' + (sy + 1) : '' + sy;
+    return SEASON_NAMES[idx] + ' ' + yr + ' (' + SEASON_MONTHS[idx] + ')';
+  }
+  function todayStr(d) {
+    return d.getFullYear() + '-' + pad(d.getMonth() + 1) + '-' + pad(d.getDate());
+  }
+  function lbData() {
+    if (lbPeriod === 'month') {
+      var d = new Date();
+      d.setDate(d.getDate() - 30);
+      var from = todayStr(d);
+      return data.filter(function (l) { return l.date >= from; });
+    }
+    if (lbPeriod.indexOf('s:') === 0) {
+      var k = lbPeriod.slice(2);
+      return data.filter(function (l) { return seasonKey(l.date) === k; });
+    }
+    return data;
+  }
+  function lbControls() {
+    var keys = {};
+    keys[seasonKey(todayStr(new Date()))] = true;
+    data.forEach(function (l) { keys[seasonKey(l.date)] = true; });
+    var list = Object.keys(keys).sort(function (x, y) { return seasonStart(y) - seasonStart(x); });
+    var sel = byId('lbSeason');
+    var opts = '<option value="">Выбрать сезон…</option>';
+    list.forEach(function (k) {
+      opts += '<option value="s:' + k + '"' + (lbPeriod === 's:' + k ? ' selected' : '') + '>' + seasonLabel(k) + '</option>';
+    });
+    sel.innerHTML = opts;
+    sel.className = lbPeriod.indexOf('s:') === 0 ? 'on' : '';
+    if (lbPeriod.indexOf('s:') === 0 && list.indexOf(lbPeriod.slice(2)) < 0) { lbPeriod = 'all'; sel.className = ''; }
+    var btns = document.querySelectorAll('.lbp');
+    for (var q = 0; q < btns.length; q++) {
+      btns[q].classList.toggle('on', btns[q].getAttribute('data-p') === lbPeriod);
+    }
+    var sub = 'По количеству посещений — за всё время';
+    if (lbPeriod === 'month') sub = 'По количеству посещений — за последние 30 дней';
+    if (lbPeriod.indexOf('s:') === 0) sub = 'По количеству посещений — ' + seasonLabel(lbPeriod.slice(2));
+    byId('lbSub').textContent = sub;
+  }
   function renderLeaders() {
+    lbControls();
+    var sub = lbData();
     var rows = ORDER.map(function (i) {
       var c = 0;
-      data.forEach(function (lesson) { if (lesson.marks[i] === 1) c++; });
+      sub.forEach(function (lesson) { if (lesson.marks[i] === 1) c++; });
       return { i: i, name: STUDENTS[i], c: c };
     });
     rows.sort(function (a, b) {
@@ -757,16 +1042,25 @@
     });
     var medals = ['🥇', '🥈', '🥉'];
     var html = '<tr><th>Место</th><th>Имя</th><th>Посещено</th></tr>';
+    if (!sub.length) {
+      byId('leaders').innerHTML = html + '<tr><td colspan="3" style="padding:16px;color:#5f6368">За этот период служений не было.</td></tr>';
+      return;
+    }
     var place = 1;
     rows.forEach(function (r, k) {
       if (k > 0) { if (r.c !== rows[k - 1].c) place = k + 1; }
       var top = place <= 3 && r.c > 0;
       html += '<tr data-s="' + r.i + '"' + (top ? ' class="top"' : '') + '><td>' + (top ? medals[place - 1] + ' ' : '') + place + '</td>' +
               '<td class="ln">' + esc(r.name) + '</td>' +
-              '<td>' + r.c + '/' + data.length + '</td></tr>';
+              '<td>' + r.c + '/' + sub.length + '</td></tr>';
     });
     byId('leaders').innerHTML = html;
   }
+  var lbBtns = document.querySelectorAll('.lbp');
+  for (var lb = 0; lb < lbBtns.length; lb++) {
+    lbBtns[lb].onclick = function () { lbPeriod = this.getAttribute('data-p'); renderLeaders(); };
+  }
+  byId('lbSeason').onchange = function () { lbPeriod = this.value || 'all'; renderLeaders(); };
 
   // ---- Статистика ученика ----
   function studentStats(i) {
@@ -817,6 +1111,98 @@
     return svg + '</svg><div style="font-size:12px;color:#555">Столбцы: зелёный — был, красный — не был. Синяя линия — накопленный процент посещаемости.</div>';
   }
 
+  function razWord(n) {
+    var m10 = n % 10, m100 = n % 100;
+    if (m10 === 1 && m100 !== 11) return 'раз';
+    if (m10 >= 2 && m10 <= 4 && (m100 < 12 || m100 > 14)) return 'раза';
+    return 'раз';
+  }
+  function studentFactsHtml(i) {
+    if (!data.length) return '';
+    var facts = [];
+    var st = studentStats(i);
+    // место в рейтинге посещаемости
+    var pool = GUEST[i] ? GORDER : ORDER;
+    var scores = pool.map(function (x) { var q = studentStats(x); return { i: x, att: q.att, pct: q.pct }; });
+    scores.sort(function (a, b) { return b.att - a.att; });
+    var place = 0;
+    scores.forEach(function (x, k) { if (x.i === i && !place) place = scores.findIndex(function (y) { return y.att === x.att; }) + 1; });
+    if (place) facts.push(['🏆', 'Место по посещаемости', place + '-е из ' + scores.length]);
+    // первое / последнее посещение, самая длинная серия, последний пропуск
+    var first = '', last = '', run = 0, runStart = '', best = 0, bestFrom = '', bestTo = '', lastMiss = '';
+    data.forEach(function (lesson) {
+      if (lesson.marks[i] === 1) {
+        if (!first) first = lesson.date;
+        last = lesson.date;
+        if (!run) runStart = lesson.date;
+        run++;
+        if (run > best) { best = run; bestFrom = runStart; bestTo = lesson.date; }
+      } else {
+        run = 0;
+        lastMiss = lesson.date;
+      }
+    });
+    if (first) facts.push(['🌱', 'Первое посещение', fmtFull(first)]);
+    if (last) facts.push(['📅', 'Последний раз был', fmtFull(last)]);
+    if (best > 1) facts.push(['🔥', 'Лучшая серия', best + ' подряд (' + fmtFull(bestFrom) + ' — ' + fmtFull(bestTo) + ')']);
+    if (st.att > 0) facts.push(['💪', 'Последний пропуск', lastMiss ? fmtFull(lastMiss) : 'ни разу не пропускал']);
+    // адреса и напарники
+    var addrCount = {}, addrName = {}, mateCount = {}, total = 0;
+    data.forEach(function (lesson) {
+      if (!lesson.teams) return;
+      lesson.teams.forEach(function (t) {
+        if ((t.m || []).indexOf(i) < 0) return;
+        total++;
+        var k = String(t.a || '').trim().toLowerCase();
+        addrCount[k] = (addrCount[k] || 0) + 1;
+        addrName[k] = t.a;
+        t.m.forEach(function (x) { if (x !== i) mateCount[x] = (mateCount[x] || 0) + 1; });
+      });
+    });
+    if (total) {
+      var keys = Object.keys(addrCount);
+      facts.push(['🗺️', 'Разных адресов', keys.length + ' (всего выходов: ' + total + ')']);
+      keys.sort(function (a, b) { return addrCount[b] - addrCount[a]; });
+      if (addrCount[keys[0]] > 1) facts.push(['📍', 'Чаще всего ходил на', esc(addrName[keys[0]]) + ' — ' + addrCount[keys[0]] + ' ' + razWord(addrCount[keys[0]])]);
+      var mates = Object.keys(mateCount).map(Number);
+      if (mates.length) {
+        mates.sort(function (a, b) { return (mateCount[b] - mateCount[a]) || (ALLORD.indexOf(a) - ALLORD.indexOf(b)); });
+        facts.push(['🤝', 'Главный напарник', esc(STUDENTS[mates[0]]) + ' — ' + mateCount[mates[0]] + ' ' + razWord(mateCount[mates[0]]) + ' вместе']);
+      }
+    }
+    if (!facts.length) return '';
+    var html = '<h4 class="vh">Интересные факты</h4><div class="facts">';
+    facts.forEach(function (f) {
+      html += '<div class="fact"><span class="fi">' + f[0] + '</span><span class="ft"><small>' + f[1] + '</small>' + f[2] + '</span></div>';
+    });
+    return html + '</div>';
+  }
+  function studentVisitsHtml(i) {
+    var list = [];
+    data.forEach(function (lesson) {
+      if (!lesson.teams) return;
+      lesson.teams.forEach(function (t) {
+        if ((t.m || []).indexOf(i) < 0) return;
+        list.push({ date: lesson.date, a: t.a, mates: t.m.filter(function (x) { return x !== i; }) });
+      });
+    });
+    list.sort(function (a, b) { return a.date < b.date ? 1 : (a.date > b.date ? -1 : 0); });
+    var html = '<h4 class="vh">История посещения адресов' + (list.length ? ' (' + list.length + ')' : '') + '</h4>';
+    if (!list.length) return html + '<p class="vnone">Пока не посещал адреса.</p>';
+    list.forEach(function (v) {
+      v.mates.sort(function (a, b) { return ALLORD.indexOf(a) - ALLORD.indexOf(b); });
+      html += '<div class="vt"><div class="vdate">' + fmtFull(v.date) + '</div><b>📍 ' + esc(v.a) + '</b>';
+      if (v.mates.length) {
+        html += '<div class="vwith">С кем:</div><div class="tchips">';
+        v.mates.forEach(function (si) { html += '<span class="tchip">' + esc(STUDENTS[si]) + '</span>'; });
+        html += '</div>';
+      } else {
+        html += '<div class="vwith">Был один</div>';
+      }
+      html += '</div>';
+    });
+    return html;
+  }
   function openModal(i) {
     var st = studentStats(i);
     byId('mTitle').textContent = STUDENTS[i];
@@ -829,7 +1215,7 @@
       '<div class="tile"><b>' + st.cm + ' из ' + st.nM + '</b><span>молитва (пн)</span></div>' +
       '<div class="tile"><b>' + st.cTea + ' из ' + st.nTea + '</b><span>чаепитие (пн)</span></div>' +
       '<div class="tile wide"><b>' + st.ct + ' из ' + st.nT + '</b><span>посещение адресов (чт)</span></div>' +
-      '</div>' + chartSvg(i);
+      '</div>' + chartSvg(i) + studentFactsHtml(i) + studentVisitsHtml(i);
     byId('modal').style.display = 'flex';
   }
   function openVisits(date) {
@@ -845,7 +1231,7 @@
       teams.forEach(function (t) { t.m.forEach(function (si) { people[si] = true; }); });
       html += '<div class="vsum">Адресов: ' + teams.length + ', людей в командах: ' + Object.keys(people).length + '</div>';
       teams.forEach(function (t) {
-        var sorted = t.m.slice().sort(function (a, b) { return ORDER.indexOf(a) - ORDER.indexOf(b); });
+        var sorted = t.m.slice().sort(function (a, b) { return ALLORD.indexOf(a) - ALLORD.indexOf(b); });
         html += '<div class="vt"><b>📍 ' + esc(t.a) + '</b><div class="tchips">';
         sorted.forEach(function (si) { html += '<span class="tchip">' + esc(STUDENTS[si]) + '</span>'; });
         if (!sorted.length) html += '<span class="tchip">команда не указана</span>';
@@ -867,19 +1253,20 @@
     return node;
   }
   // Журнал: имя открывает статистику, номер включает/выключает обводку строки
-  byId('journal').addEventListener('click', function (e) {
+  function journalClick(e) {
+    var tbl = this;
     var th = e.target;
-    while (th && th.tagName !== 'TH' && th !== byId('journal')) { th = th.parentNode; }
+    while (th && th.tagName !== 'TH' && th !== tbl) { th = th.parentNode; }
     if (th) {
       if (th.tagName === 'TH') {
         var dd = th.getAttribute('data-date');
         if (dd) openVisits(dd);
         var dn = th.getAttribute('data-note');
-        if (dn) openNote(dn);
+        if (dn) { show('notes'); openNote(dn); }
         return;
       }
     }
-    var cell = cellOf(e.target, byId('journal'));
+    var cell = cellOf(e.target, tbl);
     if (!cell) return;
     var row = cell.parentNode;
     var si = row.getAttribute('data-s');
@@ -887,11 +1274,12 @@
     if (cell.classList.contains('nm')) { openModal(+si); return; }
     if (cell.classList.contains('num')) {
       var was = row.classList.contains('sel');
-      var old = byId('journal').querySelectorAll('tr.sel');
+      var old = tbl.querySelectorAll('tr.sel');
       for (var k = 0; k < old.length; k++) { old[k].classList.remove('sel'); }
       if (!was) row.classList.add('sel');
     }
-  });
+  }
+  byId('journal').addEventListener('click', journalClick);
   // Таблица лидеров: статистика открывается по нажатию на имя
   byId('leaders').addEventListener('click', function (e) {
     var cell = cellOf(e.target, byId('leaders'));
@@ -908,6 +1296,13 @@
       html += '<label class="mrow"><input type="checkbox" checked data-s="' + i + '"> ' +
               (pos + 1) + '. ' + esc(STUDENTS[i]) + '</label>';
     });
+    if (GORDER.length) {
+      html += '<div class="rmh">Не в группе</div>';
+      GORDER.forEach(function (i, pos) {
+        html += '<label class="mrow"><input type="checkbox" checked data-s="' + i + '"> ' +
+                (pos + 1) + '. ' + esc(STUDENTS[i]) + '</label>';
+      });
+    }
     byId('marks').innerHTML = html;
   }
   function renderChips() {
@@ -934,7 +1329,7 @@
     var boxes = document.querySelectorAll('#marks input');
     for (var k = 0; k < boxes.length; k++) {
       var si = +boxes[k].getAttribute('data-s');
-      boxes[k].checked = idx >= 0 ? data[idx].marks[si] === 1 : true;
+      boxes[k].checked = idx >= 0 ? data[idx].marks[si] === 1 : false;
     }
     byId('delDate').style.opacity = idx >= 0 ? '1' : '0.45';
   }
@@ -965,8 +1360,175 @@
   }
   byId('dateIn').addEventListener('change', function () { updateDay(); loadMarks(); });
   byId('monType').addEventListener('change', updateDay);
-  byId('allOn').onclick = function () { setAll(true); };
-  byId('allOff').onclick = function () { setAll(false); };
+
+  // ---- Админка: добавление новых людей ----
+  function renderMarksKeep() {
+    var st = {};
+    var bs = document.querySelectorAll('#marks input');
+    for (var k = 0; k < bs.length; k++) { st[bs[k].getAttribute('data-s')] = bs[k].checked; }
+    renderMarks();
+    var nb = document.querySelectorAll('#marks input');
+    for (var j = 0; j < nb.length; j++) {
+      var key = nb[j].getAttribute('data-s');
+      nb[j].checked = st.hasOwnProperty(key) ? st[key] : false;
+    }
+  }
+  function renderApList() {
+    byId('apList').innerHTML = EXTRA.length
+      ? 'Добавлены через админку: ' + EXTRA.map(function (n) { return esc(n); }).join(', ')
+      : 'Пока никого не добавляли.';
+  }
+  function renderRmList() {
+    var all = [];
+    for (var i = 0; i < STUDENTS.length; i++) all.push(i);
+    all.sort(function (x, y) { return STUDENTS[x].localeCompare(STUDENTS[y], 'ru'); });
+    var vis = '', off = '';
+    all.forEach(function (i) {
+      if (HIDDEN[i]) {
+        off += '<div class="rmrow off"><span>' + esc(STUDENTS[i]) + '</span><button type="button" data-rm="show" data-i="' + i + '">Вернуть</button></div>';
+      } else {
+        vis += '<div class="rmrow"><span>' + esc(STUDENTS[i]) + '</span><button type="button" data-rm="hide" data-i="' + i + '">Убрать</button></div>';
+      }
+    });
+    byId('rmList').innerHTML = vis + (off ? '<div class="rmh">Скрытые (не показываются на сайте)</div>' + off : '');
+  }
+  function rmMsg(text, ok) {
+    var m = byId('rmMsg');
+    m.className = 'msg ' + (ok ? 'ok' : 'err');
+    m.textContent = text;
+  }
+  byId('rmList').addEventListener('click', function (e) {
+    var b = e.target;
+    if (!b.getAttribute || !b.getAttribute('data-rm')) return;
+    var i = +b.getAttribute('data-i');
+    var hide = b.getAttribute('data-rm') === 'hide';
+    var cur = Object.keys(HIDDEN).map(Number).filter(function (x) { return x !== i; });
+    if (hide) cur.push(i);
+    cur.sort(function (x, y) { return x - y; });
+    applyHidden(cur);
+    try { localStorage.setItem('team_hidden', JSON.stringify(cur)); } catch (err) {}
+    refreshPeopleUI();
+    var nm = STUDENTS[i];
+    if (window.FB && window.FB.saveHidden) {
+      rmMsg('Сохраняем в базу…', true);
+      window.FB.saveHidden(cur).then(function () {
+        rmMsg((hide ? 'Убран: ' : 'Возвращён: ') + nm, true);
+      }).catch(function () {
+        rmMsg('Изменено на этом устройстве, но в базу сохранить не удалось', false);
+      });
+    } else {
+      rmMsg('Изменено только на этом устройстве: нет связи с базой', false);
+    }
+  });
+  function renderGsList() {
+    var ids = [];
+    for (var i = 0; i < STUDENTS.length; i++) { if (GUEST[i]) ids.push(i); }
+    ids.sort(function (x, y) { return STUDENTS[x].localeCompare(STUDENTS[y], 'ru'); });
+    var html = '';
+    ids.forEach(function (i) {
+      html += '<div class="rmrow' + (HIDDEN[i] ? ' off' : '') + '"><span>' + esc(STUDENTS[i]) + (HIDDEN[i] ? ' (скрыт)' : '') + '</span><button type="button" style="color:#1e7a3c" data-gs="' + i + '">В группу</button></div>';
+    });
+    byId('gsList').innerHTML = html || '<div class="empty">Сейчас никого нет в списке «Не в группе».</div>';
+  }
+  function gsMsg(text, ok) {
+    var m = byId('gsMsg');
+    m.className = 'msg ' + (ok ? 'ok' : 'err');
+    m.textContent = text;
+  }
+  byId('gsList').addEventListener('click', function (e) {
+    var b = e.target;
+    if (!b.getAttribute || b.getAttribute('data-gs') === null) return;
+    var i = +b.getAttribute('data-gs');
+    var nm = STUDENTS[i];
+    var cur = Object.keys(GUEST).map(Number).filter(function (x) { return x !== i; });
+    applyGuests(cur);
+    try { localStorage.setItem('team_guests', JSON.stringify(cur)); } catch (err) {}
+    refreshPeopleUI();
+    if (window.FB && window.FB.saveGuests) {
+      gsMsg('Сохраняем в базу…', true);
+      window.FB.saveGuests(cur).then(function () {
+        gsMsg('Переведён в группу: ' + nm, true);
+      }).catch(function () {
+        gsMsg('Изменено на этом устройстве, но в базу сохранить не удалось', false);
+      });
+    } else {
+      gsMsg('Изменено только на этом устройстве: нет связи с базой', false);
+    }
+  });
+  window.onRemoteGuests = function (list) {
+    var nums = (list || []).filter(function (x) { return typeof x === 'number'; }).sort(function (x, y) { return x - y; });
+    var cur = Object.keys(GUEST).map(Number).sort(function (x, y) { return x - y; });
+    if (JSON.stringify(nums) === JSON.stringify(cur)) return;
+    applyGuests(nums);
+    try { localStorage.setItem('team_guests', JSON.stringify(nums)); } catch (e) {}
+    refreshPeopleUI();
+  };
+  function refreshPeopleUI() {
+    renderApList();
+    renderRmList();
+    renderGsList();
+    if (byId('editor').style.display !== 'none') renderMarksKeep();
+    var act = document.querySelector('.view.active');
+    if (act && act.id === 'v-att') renderJournal();
+  }
+  function apMsg(text, ok) {
+    var m = byId('apMsg');
+    m.className = 'msg ' + (ok ? 'ok' : 'err');
+    m.textContent = text;
+  }
+  byId('apAdd').onclick = function () {
+    var last = byId('apLast').value.replace(/\s+/g, ' ').trim();
+    var first = byId('apFirst').value.replace(/\s+/g, ' ').trim();
+    var full = (last && first) ? last + ' ' + first : (last || first);
+    if (!full) { apMsg('Введите имя и фамилию', false); return; }
+    var low = full.toLowerCase();
+    for (var i = 0; i < STUDENTS.length; i++) {
+      if (STUDENTS[i].toLowerCase() === low) {
+        apMsg(HIDDEN[i] ? 'Этот человек уже есть, но скрыт. Верните его в разделе «Убрать человека из команды»' : 'Такой человек уже есть в списке: ' + STUDENTS[i], false);
+        return;
+      }
+    }
+    var next = EXTRA.concat([full]);
+    var asGuest = byId('apGuest').checked;
+    var gNext = Object.keys(GUEST).map(Number);
+    if (asGuest) gNext.push(BASE_COUNT + next.length - 1);
+    applyExtra(next);
+    if (asGuest) {
+      applyGuests(gNext);
+      try { localStorage.setItem('team_guests', JSON.stringify(gNext)); } catch (e) {}
+      if (window.FB && window.FB.saveGuests) window.FB.saveGuests(gNext).catch(function () {});
+    }
+    try { localStorage.setItem('team_extra', JSON.stringify(next)); } catch (e) {}
+    byId('apLast').value = '';
+    byId('apFirst').value = '';
+    byId('apGuest').checked = false;
+    refreshPeopleUI();
+    if (window.FB && window.FB.saveExtra) {
+      apMsg('Сохраняем в базу…', true);
+      window.FB.saveExtra(next).then(function () {
+        apMsg('Добавлено и сохранено в базе: ' + full, true);
+      }).catch(function () {
+        apMsg('Добавлено на этом устройстве, но в базу сохранить не удалось', false);
+      });
+    } else {
+      apMsg('Добавлено только на этом устройстве: нет связи с базой', false);
+    }
+  };
+  window.onRemoteHidden = function (list) {
+    var nums = (list || []).filter(function (x) { return typeof x === 'number'; }).sort(function (x, y) { return x - y; });
+    var cur = Object.keys(HIDDEN).map(Number).sort(function (x, y) { return x - y; });
+    if (JSON.stringify(nums) === JSON.stringify(cur)) return;
+    applyHidden(nums);
+    try { localStorage.setItem('team_hidden', JSON.stringify(nums)); } catch (e) {}
+    refreshPeopleUI();
+  };
+  window.onRemotePeople = function (list) {
+    list = cleanList(list);
+    if (JSON.stringify(list) === JSON.stringify(EXTRA)) return;
+    applyExtra(list);
+    try { localStorage.setItem('team_extra', JSON.stringify(list)); } catch (e) {}
+    refreshPeopleUI();
+  };
   byId('existing').addEventListener('click', function (e) {
     var d = e.target.getAttribute('data-date');
     if (d) { byId('dateIn').value = d; loadMarks(); }
@@ -982,6 +1544,10 @@
     var boxes = document.querySelectorAll('#marks input');
     for (var k = 0; k < boxes.length; k++) { marks[+boxes[k].getAttribute('data-s')] = boxes[k].checked ? 1 : 0; }
     var idx = find(date);
+    Object.keys(HIDDEN).forEach(function (h) {
+      var hi = +h;
+      marks[hi] = (idx >= 0 && data[idx].marks[hi] === 1) ? 1 : 0;
+    });
     var type = wd === 1 ? byId('monType').value : '';
     var teams = [];
     if (wd === 4) {
@@ -1034,108 +1600,75 @@
 
   // ---- Адреса ----
   var PEOPLE = [
-    {"nm":"Ахрименко Нина Михайловна","age":"83 года, по професси фельдшер","fam":"муж умер, есть дочка и сын(инвалид 2 группы), сестры верующие. зимой живёт у дочери(учитель информатики и физики)","rep":"покаялась примерно 25 лет назад","hs":"не крещена"},
-    {"nm":"Борисова Таиса Викентьевна","note":"можно не посещать, муж против"},
-    {"nm":"Булатая Нелли Энгелевна","note":"посещать на 18.00","age":"1950 г","fam":"муж умер, 3 неверующих детей","hs":"не крещена Духом святым","ill":"был микроинсульт, сеёчас артроз коленных суставов, проблемы с позвоночником, боль в сердце"},
-    {"nm":"Ващилко Вера Александровна","fam":"ухаживает мама"},
-    {"nm":"Макарчук(Васюк) Нина Петровна","note":"При посещении необходимы горячие молитвы (собирать серьёзную команду ). Что уже почти ничего не понимает и не идет на контакт, не говорит, и не отвечает. Может странно себя вести. Нуждается в молитвах , и поддержке","age":"83 года","fam":"нет супруга, досматривает племянница","hs":"раньше была пророком, есть проблемы","ch":"нет","ill":"был микроинсульт, не все понимает из-за этого не сильно говорит","food":"кушает всё"},
-    {"nm":"Воложина Анна Адамовна","ch":"посещает постоянно церковь,"},
-    {"nm":"Гринкевич Геннадий Васильевич, Тамара Александровна","note":"против чтобы их посещали, в обольщении"},
-    {"nm":"Гурбачмухамедова Ольга М"},
-    {"nm":"Гурин Леонид"},
-    {"nm":"Данильчик Александр"},
-    {"nm":"Дедович Оксана Леонидовна","note":"она сама назначает встречу"},
-    {"nm":"Дойнич Лидия Антоновна","note":"С ней очень интересно и ободрительно общаться. В доме 2 части, заходить с задней стороны","age":"81 год. ДР - 28.04.41.","fam":"3 детей, но дети неверующие","rep":"Библию читает, видит хорошо в очках.","hs":"молится Духом","ch":"редко бывает в церкви . Смотрит все трансляции","ill":"Плоховато слышит. не инвалид, ходит с палочкой","food":"Ест ВСЁ."},
-    {"nm":"Дудар Наталья"},
-    {"nm":"Журковская Ольга Ивановна"},
-    {"nm":"Ермолаева Любовь Павловна","note":"Нужны молитвы - серьёзная команда. расположена общаться . Приехала из Казахстана в 97 году .","age":"85 лет","fam":"живт с дочкой!","hs":"крещена Духом Святым","ch":"посещает всегда по воскресеньям, бодренькая"},
-    {"nm":"Завадская Евгения Фёдоровна","note":"Очень приятно с ней общаться.","age":"91","fam":"много внуков и детей","rep":"С детства верующая. Много свидетельств.","hs":"молится Духом","ch":"церковь не посещает","ill":"давление"},
-    {"nm":"Задорская Елена Александровна","note":"Нужна серьёзная команда.живёт в большом коттедже. Расположена общаться, но говорит иногда странные вещи","age":"86 лет","fam":"муж умер. есть 2 неверующих сына","rep":"покаялась давно","ch":"не посещает","ill":"язвы на ноге","food":"ест всё"},
-    {"nm":"Засимович Анна Ивановна"},
-    {"nm":"Захарченко Евгения Захаровна","note":"очень любит когда посещают, могут быть проблемы с открытием дверей","age":"85 лет","fam":"живёт одна, супруг давно умер, дети неверующие","rep":"покаялась 11 января 1998, занимала большую должность и не могла покаяться.ДВР","hs":"имеет дар пророчества","ch":"не была больше 2 лет","ill":"проблемы со спиной, микроинсульт, проблемы с сердцем","food":"аллергии нет"},
-    {"nm":"Истная Надежда Семёновна","note":"Нужна серьёзная команда! Работала в дет.сад 40 лет. Расположена общаться","fam":"2 сына неверующие","rep":"из православной семьи, в 60 лет покаялась","hs":"Не крещена Духом Святым","ch":"не была больше 2 лет","ill":"киста в мозгах, с памятью бывают проблемы, плохое зрение,сложно передвигается","food":"ест всё"},
-    {"nm":"Карпович Зинаида Ивановна"},
-    {"nm":"Калманухова Софья Ивановна","note":"сказала достаточно что пастырь посещает","fam":"православная дочь отказалась"},
-    {"nm":"Киончик Ирина Михайловна","fam":"муж умер, сын жиает в Барановичах, неверующий. преподователь французского, из Минска переехала 1992 году","rep":"с детства верующая, редко читает Библиюю","hs":"не крещена, но желает!","ch":"ходит постоянно в церковь то в Спасение ,то в Вознесение","ill":"больна онкологией, 2 группа инвалидности, с памятью проблемы"},
-    {"nm":"Коваленко Елена Петровна","age":"86 лет","fam":"в 2005 году покаялась на свадьбе дочери","rep":"в 2007 заключила завет с Богом, Библию не читает, плохо видит","hs":"не крещена ни она, ни её родные","ill":"очень болят ноги"},
-    {"nm":"Коляда Александр"},
-    {"nm":"Короб Вера Иаковлевна","note":"Нужна серьёзная команда. дочь с духовными проблемами"},
-    {"nm":"Костюкевич Николай Иванович","note":"нужен сурдопереводчик"},
-    {"nm":"Лавринович Анастасия Мартыновна"},
-    {"nm":"Лис Анна Газельевна","note":"33-673-58-08","fam":"муж умер, дочь- католичка, выросла мусульманской семье( с Туркменистана), родители были слепыми","rep":"покаялась на създе инвалидов","hs":"крещена Духом Святым","ch":"не была больше года из-за здоровья","ill":"болезнь с мышцами, в коляске","food":"ест всё"},
-    {"nm":"Маковик Надежда Онисимовна"},
-    {"nm":"Мацевило Марина Викторовна","note":"33-328-75-45"},
-    {"nm":"Михнович Ирина Николаевна","note":"63-30-63"},
-    {"nm":"Муравская Мария Константиновна","note":"очень общитнльная","age":"92 года","fam":"Курилик Анна (дочь 644-01-43), муж умер, было 9 детей,осталось 5 (неверующие)","hs":"крещена духом святым","ch":"давно не посещала","ill":"больные ноги"},
-    {"nm":"Ольшевская Светлана Ивановна","note":"33-323-08-30","age":"58 лет","fam":"не замужем,детей нет","rep":"покаялась в 16 лет","hs":"крещена Духом Святым","ch":"часто посещает церковь","ill":"ДЦП","food":"ест всё"},
-    {"nm":"Орловская Анна Демьяновна","age":"93 года","fam":"живёт с дочкой, дедушкой и внуком. 4 детей, один сын умер, 8 внуков и 21 правнук","ch":"церковь не посещает, Библию не читает","ill":"плохо слышит, плохо видит, делали операцию на желудок, ходит с палочкой","food":"нет"},
-    {"nm":"Пестрак Геннадий","note":"Любит петь и расположен к общению с ним людей. Баптист","age":"48 лет","fam":"живёт с папой, мама умерла,папа пожилой, расположен общаться","ill":"инвалид, не ходит"},
-    {"nm":"Петровская Валентина Витальевна","note":"Боится ?"},
-    {"nm":"Платковская Галина Михайловна"},
-    {"nm":"Понаморенко Нина Николаевна"},
-    {"nm":"Радевич Надежда Семёновна","age":"90 лет","fam":"Живёт с одной дочкой. 3 дочки (Лида, Гродно и с ней)","rep":"в 40-50 покаялась, по папиным молитвам","hs":"не крещена","ch":"встать не может даже с кровати,= не посещает служения","ill":"слабо слышит"},
-    {"nm":"Русак Леонида Ивановна","age":"83 года","fam":"муж умер, сын умер в 46 лет, дочка неверующая(есть духовные проблемы)","rep":"с детства верующая","hs":"крещена Духом Святым","ch":"нет, по состоянию здоровья","ill":"проблемы с суством в ноге","food":"нет ограничений"},
-    {"nm":"Русак Станислав Игньевич","note":"324-65-47, рано отбой","age":"91 год, 1932","fam":"жена католик -Алина Ивановна,85 лет, 1 дочка, 3 внучки","rep":"покаялся в 60 лет","ch":"ноги отказали и 2 года не ходит","ill":"год как с памятью плохо, не может читать"},
-    {"nm":"Сидар Анатолий Владимирович"},
-    {"nm":"Солдатова Евгения","fam":"дочь ненавидит верующих ."},
-    {"nm":"Стецко Сергей Николаевич","note":"серьёзный адрес, нуждается в молитвенной поддержке","fam":"живёт один, не женат","rep":"достаточно хорошо знает Библию,но не до конца правильно интерпретирует","ch":"по воскресеньям посещает церковь, РЕЖЕ посещать","ill":"инвалид"},
-    {"nm":"Столяр Галина Андреевна","age":"~72 года","fam":"Живет с дочкой . Дочь к церкви не расположена. Муж умер.","rep":"в 2010 покаялась, в 2011 приняла крещение","ch":"имеет возможность посещать ячейки и служения в церкви(ее забирают на машине)","ill":"13 лет инсульт","food":"все можно"},
-    {"nm":"Стрельчик Любовь Никитична","note":"Тёща дьякона Ващилко Сергея"},
-    {"nm":"Суриков Анатолий Иванович","note":"живёт в общежитии один,комната небольшая, периодически требует уборки. На общение идёт, расположен","age":"72 года","fam":"женат был, но в разводе давно, сын где-то за границей, не общается с ним","rep":"перед обращением к Богу сидел около 30 лет в тюрьме","ch":"нет воможности посещать .","ill":"был инстульт, проблемы с движением"},
-    {"nm":"Сымоник Любовь Дмитриевна","fam":"33-607-83-14 дочь Нелла посещ. служен.","ch":"посещает служения"},
-    {"nm":"Талеская Елена Ефимовна","note":"(просила привести Евангелие с большим шрифтом), бабушка с характером","age":"80 лет","fam":"мужа нет, дети верующие. верховодки её внуки","hs":"не крещена духом святым","ch":"2 года не ходит в церковь, Библию не читает особо","ill":"плохо видит, одна нога 10 см выше другой"},
-    {"nm":"Тукай Валентина Дмитриевна","note":"нужна серьёзная команда, есть проблемы!","age":"84 года, 20.01","fam":"Живёт с дочкой и внуком! Дочь Надежда Львовна досматривает (православная -расположена к христианскому общению) внук инвалид 2 группы","hs":"НЕ крещена ДУхом Святым","ill":"потеря памяти,проблемы с разумом"},
-    {"nm":"Хомко Галина Михайловна","age":"84 года","rep":"в 2008 году принимала крещение","hs":"по её словам крещена","ch":"1,5 года не ходит в церковь","ill":"проблемы с памятью и разумом, плохо говорит из-за аварии. Сломана шейка бедра,лежит и сидит. Очень плохо слышит","food":"ограничений нет"},
-    {"nm":"Чергейко Лидия Лаврентьевна","note":"серьёзный адрес, нужна молитвенная поддержка","age":"90 лет","fam":"Живёт с дочкой. Муж умер, дети неверующие","hs":"НЕ крещена духом Святым"},
-    {"nm":"Шапель Алла","age":"59 лет","fam":"живёт с мужем","rep":"покаялась на съезде инвалидов","ch":"не посещает","ill":"с детства инвалид, сахар подскакивает","food":"ест всё"},
-    {"nm":"Шуляк Ирина Евгеньевна","note":"проходят ячейки, можно в экстренных случаях","fam":"живёт с мужем","rep":"покаялась в другой стране у баптистов","hs":"крещена Духом Святым","ill":"проблемы с ногами","food":"ест всё"},
-    {"nm":"Стречень Андрей Константинович","fam":"сестра 727-28-38"}
-  ];
-  var AFIELDS = [
-    ['note', 'Примечание'], ['age', 'Возраст'], ['fam', 'Супруг(а), дети'], ['rep', 'Покаяние'],
-    ['hs', 'Дух Святой'], ['ch', 'Посещение церкви'], ['ill', 'Болезнь'], ['food', 'Еда']
+    {"nm": "Андросова Надежда Андреевна", "ad": "ул. Космонавтов д.46 кв.80"},
+    {"nm": "Бурак Мария Алексеевна", "ad": "ул. Космонавтов д.12 кв.13"},
+    {"nm": "Захарченко Евгения Захаровна", "ad": "ул. Космонавтов д.5 кв.8"},
+    {"nm": "Понаморенка Нина Николаевна", "ad": "ул. Космонавтов д.5 КВ.11"},
+    {"nm": "Петрушкевич Тамара Александровна", "ad": "ул. Кирова д. 56 кв. 55"},
+    {"nm": "Лис Анна Газелевна", "ad": "ул. Клубная д.5"},
+    {"nm": "Мацевило Мария Викторовна", "ad": "ул. Спокойна д.10 кв.1"},
+    {"nm": "Рогажинская Людмила Егоровна", "ad": "5-й пер. Гражданский д.4"},
+    {"nm": "Пекуло Алик Федорович", "ad": "ул. Осипенко д.13"},
+    {"nm": "Гурбачмухамедова Ольга Мередовна", "ad": "ул. Мояковского д.45/4"},
+    {"nm": "Коваленко Елена Петровна", "ad": "ул. Рагули д.41"},
+    {"nm": "Карпович Зинаида Ивановна", "ad": "ул. Белорусская д.41"},
+    {"nm": "Петровская Валентина Витальевна", "ad": "ул. Мицкевича д.10 а"},
+    {"nm": "Русак Леонида Ивановна", "ad": "ул. Горького д.71 кв.2"},
+    {"nm": "Талеская Елена Ефимовна", "ad": "ул. Домейко д.13 кв.107"},
+    {"nm": "Суриков Анатолий Иванович", "ad": "Подгорнае, хоспис"},
+    {"nm": "Ермолаева Любовь Павловна", "ad": "М. Калпеница, ул. Центральная д.106"},
+    {"nm": "Рулинская Елена Фёдоровна", "ad": "ул. Наконечникова д.28/1 кв.10"},
+    {"nm": "Турабова Надежда Ивановна", "ad": "ул. Жукова д.2 кв.16"},
+    {"nm": "Побегайло Валентина Николаевна", "ad": "М. Калпеница, ул. Столовическая д.7 кв.3"},
+    {"nm": "Чемиревская Янина", "ad": ""},
+    {"nm": "Гурин Леонид Николаевич", "ad": "ул. Наваторов д.64"},
+    {"nm": "Орловская Анна Демьяновна", "ad": "ул. Циолковского д.60"},
+    {"nm": "Голубева Алёна Анатольевна", "ad": "ул. Тельмана д.155 кв.66"},
+    {"nm": "Немкевич Анна Антоновна", "ad": "ул. Тельмана д.177/3 кв.47"},
+    {"nm": "Русак Станислав Игнатьевич", "ad": "ул. Тельмана д.155б кв.50"},
+    {"nm": "Калоша Валентина Владимировна", "ad": "4-й пер. Содовый"},
+    {"nm": "Булатая Нелли Энгелевна", "ad": "ул. Пестеля д.69"},
+    {"nm": "Ващилко Вера Петровна", "ad": "ул. Лесная д.15"},
+    {"nm": "Кулешова Вера Андреевна", "ad": "ул. Солнечная д.41"},
+    {"nm": "Ханцевич Александр Иванович", "ad": "ул. Бадака д. 29"},
+    {"nm": "Сидар Анатолий Владимирович", "ad": "ул. Дорошевича"},
+    {"nm": "Шуляк Ирина Евгеньевна", "ad": "1-й пер. Словянский д.17"},
+    {"nm": "Пестрак Михаилович", "ad": "ул. Пролетарская д.107"},
+    {"nm": "Короб Вера Яковлевна", "ad": "ул. Узноговская д.49"},
+    {"nm": "Михнович Ирина Николаевна", "ad": "ул. Коммунистическая д.142 а кв.22"},
+    {"nm": "Хомко Галина Михайловна", "ad": "ул. Притыцкого д.79 кв.30"},
+    {"nm": "Хандрико Григорий Иванович", "ad": "ул. Великая Калпеница д. 95 кв.2"},
+    {"nm": "Дойнич Лидия Антоновна", "ad": "пер. Огородний, д.23"},
+    {"nm": "Дедович Оксана Леонидовна", "ad": "ул. Фроленкова 45"},
+    {"nm": "Завадская Евгения Фёдоровна", "ad": "3-й пер. Наваторов , д.44"},
+    {"nm": "Василькова Лидия Павловна", "ad": "ул. 50 лет ВЛКСМ д 8 к.50"},
+    {"nm": "Лыкова Мария Васильевна", "ad": "ул. 50 лет ВЛКСМ д 12А к.9"},
+    {"nm": "Васильева Надежда Ивановна", "ad": "ул. Зои Космодемьянской д?????"},
+    {"nm": "Киончик Ирина Михайловна", "ad": "ул. Уборевича, 14 кв.119"},
+    {"nm": "Столяр Лилия Константиновна", "ad": "ул. Федько д11 кв37"},
+    {"nm": "Юрчик Светлана", "ad": "ул. Домейко д4 кв6"},
+    {"nm": "Столяр Галина Андреевна", "ad": "Брестская 228Б к25"},
+    {"nm": "Вербило Татьяна Владимировна", "ad": "Приозерное, Железнодорожная 16"},
+    {"nm": "Алексеева Раиса Афанасьевна", "ad": "Звездная, Максинцова 28"},
+    {"nm": "Якжик", "ad": "Погорельцы, Савхозная 4"},
+    {"nm": "Маркушевский Михаил Михайлович", "ad": "Елово, Заречная 22"},
+    {"nm": "Говорушко Александра Ивановна", "ad": "2 пер Садовый 11"},
+    {"nm": "Борисова Таиса Викентьевна", "ad": "1 пер Водопроводный 15/3"},
+    {"nm": "Ольшевская Светлана Ивановна", "ad": "ул. Домейки д.21,к/в.43"},
+    {"nm": "Шапель Алла", "ad": ""}
   ];
   PEOPLE.sort(function (a, b) { return a.nm.localeCompare(b.nm, 'ru'); });
 
   function renderAddr() {
     var q = byId('aq').value.trim().toLowerCase();
-    var visits = {};
-    data.forEach(function (l) {
-      if (!l.teams) return;
-      l.teams.forEach(function (t) {
-        if (!t.a) return;
-        if (!visits[t.a]) visits[t.a] = [];
-        visits[t.a].push({ d: l.date, m: t.m });
-      });
-    });
     var shown = PEOPLE.filter(function (p) {
       if (!q) return true;
-      var hay = (p.nm + ' ' + (p.note ? p.note : '')).toLowerCase();
-      return hay.indexOf(q) >= 0;
+      return (p.nm + ' ' + p.ad).toLowerCase().indexOf(q) >= 0;
     });
     var html = '';
     shown.forEach(function (p) {
-      html += '<details class="pc"><summary><b>' + esc(p.nm) + '</b>';
-      if (p.age) html += '<span class="pa">' + esc(p.age) + '</span>';
-      var vs = visits[p.nm] ? visits[p.nm] : [];
-      if (vs.length) html += '<span class="pvb">посещений: ' + vs.length + '</span>';
-      html += '</summary><div class="pbody">';
-      var any = false;
-      AFIELDS.forEach(function (f) {
-        if (!p[f[0]]) return;
-        any = true;
-        html += '<div class="pf' + (f[0] === 'note' ? ' pn' : '') + '"><b>' + f[1] + '</b>' + esc(p[f[0]]) + '</div>';
-      });
-      if (vs.length) {
-        any = true;
-        var lines = vs.slice().reverse().map(function (v) {
-          var who = v.m.map(function (si) { return STUDENTS[si]; }).join(', ');
-          return esc(fmtFull(v.d)) + ': ' + (who ? esc(who) : 'команда не указана');
-        });
-        html += '<div class="pf pv"><b>Посещения</b>' + lines.join('<br>') + '</div>';
-      }
-      if (!any) html += '<div class="pf">Пока нет информации</div>';
-      html += '</div></details>';
+      html += '<div class="ac"><b>' + esc(p.nm) + '</b>' +
+              (p.ad ? '<span class="aa">📍 ' + esc(p.ad) + '</span>' : '<span class="aa aa0">адрес не указан</span>') + '</div>';
     });
     byId('aList').innerHTML = html;
     byId('aCount').textContent = shown.length === PEOPLE.length ? 'Всего: ' + PEOPLE.length : 'Найдено: ' + shown.length + ' из ' + PEOPLE.length;
@@ -1180,7 +1713,7 @@
           }
         });
       } else {
-        ORDER.forEach(function (si) {
+        ALLORD.forEach(function (si) {
           if (n < 8 && curTeams[ti].m.indexOf(si) < 0 && STUDENTS[si].toLowerCase().indexOf(q) >= 0) {
             n++;
             out += '<div class="ri" data-act="pickMem" data-ti="' + ti + '" data-v="' + si + '">' + esc(STUDENTS[si]) + '</div>';
@@ -1499,6 +2032,16 @@
     var rawN = localStorage.getItem('notes_data');
     if (rawN) NOTES = JSON.parse(rawN);
   } catch (e) { NOTES = {}; }
+  // Конспекты, добавленные в код: если такого в базе ещё нет, он появится и сохранится туда
+  var SEED_NOTES = {"2026-10-19": {"title": "Знать о Боге и знать Бога", "html": "<blockquote>«А тем, которые приняли Его, верующим во имя Его, дал власть быть чадами Божиими». — Иоанна 1:12</blockquote><h4>📖 Отрывок</h4><p>Иоанна 1:12–13, 40–50.</p><p>У каждого из нас свой уровень духовности — и Бога нужно <b>искать</b>. Андрей, Пётр, Филипп и Нафанаил засвидетельствовали, что это был Иисус.</p><p><i>Вопрос для размышления: были ли ученики Иисуса Христа рождены свыше на тот момент?</i></p><h4>🤔 Знать о Боге — или знать Бога?</h4><ul><li>В нашей жизни есть люди, которые <b>знают о Боге, но не знают Бога</b>.</li><li>Мы служим Богу, но не спрашиваем: «Бог, а тебе вообще это интересно?»</li><li>Знаю ли я сердце Бога и Его характер? Знаю ли, как помолиться, чтобы получить ответ? Что нужно сделать, чтобы Богу было приятно?</li><li>Слава Богу за родителей, которые подсказывают, когда мы поступаем не так.</li></ul><h4>🕯️ Жертвенник и молитва</h4><ul><li><b>Жертвенник</b> — место, где мы стремимся найти Бога.</li><li>Наша задача в молитве — увидеть Бога и найти Его.</li><li>Святой Дух — Личность очень чуткая. Если в сердце нет мира, мы не переживаем Бога, и молитвы не будет.</li></ul><h4>💛 Что в нашем сердце</h4><ul><li>Бог допускает ситуации, чтобы показать, что у нас в сердце.</li><li>Удаляться от плотских похотей и иметь добрые дела.</li><li>Чтобы пережить Бога, нужно признать себя, свои грехи и недостатки.</li></ul><p><i>Вопрос себе: как я сегодня знаю Бога?</i></p><h4>✨ Рождение свыше</h4><p>Иоанна 3:1–6 — Никодим. Чтобы увидеть Царствие Божие, нужно родиться свыше.</p><blockquote>Нам необходимо иметь Божий характер и Божье мышление — тогда мы попадём в Царствие Божие!</blockquote><h4>🚶 Что делать</h4><ul><li>Искренне подойти к Богу и искать Его.</li><li>Приближаясь к Богу, мы встретим сопротивление дьявола — но нужно противостоять ему и идти дальше!</li></ul><blockquote>«Итак покоритесь Богу; противостаньте диаволу, и убежит от вас. Приблизьтесь к Богу, и приблизится к вам». — Иакова 4:7–8</blockquote>"}, "2026-11-02": {"title": "Что в твоём сердце? Воля Божия", "html": "<p><b>Признайся честно: Что в твоём сердце?</b></p><p>Каждый из нас — <u>загадка</u>!</p><p>Пока ты задаёшь вопросы, Бог работает над тобой…</p><p>Ты не понимаешь??? <b>СМИРИСЬ !!!</b></p><blockquote>«Если пребудете во Мне и слова Мои в вас пребудут, то, чего ни пожелаете, просите, и будет вам.» (Ин.15:7)</blockquote><p>Ну как это, всё чего не захочу — будет 🤔</p><blockquote>«и не сообразуйтесь с веком сим, но преобразуйтесь обновлением ума вашего, чтобы вам познавать, что есть воля Божия, благая, угодная и совершенная.» (Рим.12:2)</blockquote><p>Сделай так, чтобы Его слово преобразовывало тебя внутри!</p><blockquote>«Итак, <u>не будьте нерассудительны</u>, но <u>познавайте, что есть воля Божия.</u>» (Еф.5:17)</blockquote><p>Бог показывает и начинает объяснять!</p><p>Бог даёт нам в жизни <u>обстоятельства, которые показывают ЧТО ЕСТЬ ВНУТРИ нас</u></p><h3>У Бога есть ВОЛЯ и ПУТЬ <u>конкретно для тебя</u>!!!</h3><blockquote>«Ибо воля Божия есть <b>освящение</b> ваше, чтобы вы воздерживались от блуда; чтобы каждый из вас умел соблюдать свой сосуд в <b>святости и чести</b>,» (1 Фес.4:3–4)</blockquote><ul><li>В святости — не лезть в грех</li></ul><blockquote>«Ибо призвал нас Бог не к нечистоте, но к святости.» (1 Фес.4:7)</blockquote><ul><li>В чести — обуздывать себя [я этого делать не буду, я на ваш уровень спускаться не буду]</li></ul><blockquote>«Сам же Бог мира да освятит вас во всей полноте, и ваш дух и душа и тело во всей целости да сохранится без порока в пришествие Господа нашего Иисуса Христа.» (1 Фес.5:23)</blockquote><p>Наше тело — храм Святого Духа!</p><p><u>Пересмотри себя:</u> <b>Что в моём теле?</b></p><p>Что мои уши слышат?</p><p>Что мои глаза смотрят?</p><p><b><span style=\"background-color: #ffd9e2; color: #d6244f\">Я хочу стоять на пути освящения!!!</span></b></p><p><b><span style=\"background-color: #ffd9e2; color: #d6244f\">Господи, освящай то, что я не вижу у себя!!</span></b></p><blockquote>«Кто усмотрит погрешности свои? От тайных моих очисти меня и от умышленных удержи раба Твоего, чтобы не возобладали мною. Тогда я буду непорочен и чист от великого развращения.» (Пс.18:13–14)</blockquote>"}};
+  window.SEED_NOTES = SEED_NOTES;
+  var SEEDED = {};
+  try { SEEDED = JSON.parse(localStorage.getItem('notes_seeded') || '{}') || {}; } catch (e) {}
+  window.setSeeded = function (obj) {
+    SEEDED = obj || {};
+    try { localStorage.setItem('notes_seeded', JSON.stringify(SEEDED)); } catch (e) {}
+  };
+  Object.keys(SEED_NOTES).forEach(function (d) { if (!NOTES[d] && !SEEDED[d]) NOTES[d] = SEED_NOTES[d]; });
   function storeNotes(date) {
     var okLocal = true;
     try { localStorage.setItem('notes_data', JSON.stringify(NOTES)); } catch (e) { okLocal = false; }
@@ -1671,7 +2214,83 @@
     if (h === '<br>') ed.innerHTML = '';
     if (h === '<div><br></div>') ed.innerHTML = '';
   }
+  // ---- Автооформление конспекта (без ИИ, по правилам) ----
+  var AF_BOOK = '(?:[1-3]\\s?)?[А-ЯЁA-Z][а-яёa-z]{1,14}';
+  var AF_REF = new RegExp('^[\\(\\[]?' + AF_BOOK + '\\.?\\s*\\d{1,3}\\s*[:.]\\s*\\d{1,3}(?:\\s*[-–—,]\\s*\\d{1,3})*[\\)\\]]?\\.?$');
+  var AF_TAILREF = new RegExp('[\\(\\[]\\s*' + AF_BOOK + '\\.?\\s*\\d{1,3}\\s*[:.]\\s*\\d{1,3}(?:\\s*[-–—,]\\s*\\d{1,3})*\\s*[\\)\\]]\\.?\\s*$');
+  var AF_CAPS = /(^|[^А-Яа-яЁёA-Za-z])([А-ЯЁ]{4,})(?![А-Яа-яЁёA-Za-z])/g;
+  function afInline(t) {
+    t = t.replace(/\s+([,.;!?])/g, '$1').replace(/([,;])(?=[А-Яа-яЁёA-Za-z])/g, '$1 ');
+    return esc(t).replace(AF_CAPS, '$1<b>$2</b>');
+  }
+  function afIsQuote(line) {
+    if (!/^["«„“”]/.test(line) || line.length < 12) return false;
+    if (/["»”“]\s*[.!?]?\s*$/.test(line)) return true;
+    return /["»”“]\s*[\(\[][^()\[\]]*\d+\s*[:.]\s*\d+[^()\[\]]*[\)\]]\.?\s*$/.test(line);
+  }
+  function autoFormat(text) {
+    var raw = String(text).replace(/\r/g, '').replace(/\u00a0/g, ' ').split('\n');
+    var lines = [];
+    raw.forEach(function (l) {
+      l = l.replace(/[ \t]+/g, ' ').trim();
+      if (l.length > 200) {
+        l.replace(/\s[-–—•]\s*(?=[А-ЯЁA-Z«"“])/g, '\n- ').split('\n').forEach(function (p) { lines.push(p.trim()); });
+      } else {
+        lines.push(l);
+      }
+    });
+    var html = '', list = null, listTag = '';
+    function flush() {
+      if (list) { html += '<' + listTag + '>' + list.join('') + '</' + listTag + '>'; list = null; }
+    }
+    function addItem(tag, content) {
+      if (list && listTag !== tag) flush();
+      if (!list) { list = []; listTag = tag; }
+      list.push('<li>' + content + '</li>');
+    }
+    lines.forEach(function (line) {
+      if (!line) { flush(); return; }
+      var m;
+      if ((m = /^[-–—•*]\s*(.+)$/.exec(line))) { addItem('ul', afInline(m[1])); return; }
+      if ((m = /^\d{1,2}[.)]\s+(.+)$/.exec(line))) { addItem('ol', afInline(m[1])); return; }
+      flush();
+      if (AF_REF.test(line)) {
+        html += '<h4>📖 ' + esc(line.replace(/^[\(\[]|[\)\]]$|\.$/g, '').replace(/\s*[-–—]\s*/g, '–').replace(/:\s+/g, ':')) + '</h4>';
+        return;
+      }
+      var hasRef = AF_TAILREF.test(line);
+      if (afIsQuote(line)) { html += hasRef ? '<pre>' + esc(line) + '</pre>' : '<blockquote>' + esc(line) + '</blockquote>'; return; }
+      if (hasRef && line.length >= 25) { html += '<pre>' + esc(line) + '</pre>'; return; }
+      if (line.length <= 80 && /:$/.test(line)) { html += '<h4>' + esc(line.replace(/:$/, '')) + '</h4>'; return; }
+      if (line.length <= 60 && line.length >= 4 && !/[а-яёa-z]/.test(line) && /[А-ЯЁA-Z]{3}/.test(line)) { html += '<h4>' + esc(line) + '</h4>'; return; }
+      if (line.length <= 100 && /\?$/.test(line)) { html += '<p><i>' + afInline(line) + '</i></p>'; return; }
+      if (line.length <= 100 && /!$/.test(line)) { html += '<p><b>' + esc(line) + '</b></p>'; return; }
+      html += '<p>' + afInline(line) + '</p>';
+    });
+    flush();
+    return html;
+  }
+  var afPrev = null;
+  byId('nAuto').onclick = function () {
+    var ed = byId('nEditor');
+    var text = (ed.innerText || '').trim();
+    if (!text) { nMsg('Сначала напишите текст конспекта', false); return; }
+    afPrev = ed.innerHTML;
+    ed.innerHTML = cleanHtml(autoFormat(text));
+    byId('nAutoUndo').style.display = 'inline-block';
+    nMsg('Оформлено. Просмотрите, поправьте при желании и нажмите «Сохранить конспект». Не понравилось — «Вернуть как было».', true);
+  };
+  byId('nAutoUndo').onclick = function () {
+    if (afPrev === null) return;
+    byId('nEditor').innerHTML = afPrev;
+    afPrev = null;
+    this.style.display = 'none';
+    nMsg('Возвращено как было', true);
+  };
+
   function nLoad() {
+    afPrev = null;
+    byId('nAutoUndo').style.display = 'none';
     var v = byId('nDate').value;
     var n = NOTES[v];
     byId('nTitle').value = n ? (n.title ? n.title : '') : '';
@@ -1743,11 +2362,6 @@
     if (v) fmt2('fontSize', v);
     byId('nSize').value = '';
   });
-  byId('nFont').addEventListener('change', function () {
-    var v = byId('nFont').value;
-    if (v) fmt2('fontName', v);
-    byId('nFont').value = '';
-  });
   byId('nEditor').addEventListener('input', tidyEditor);
   byId('nEditor').addEventListener('paste', function (e) {
     var cd = e.clipboardData;
@@ -1795,20 +2409,21 @@
   // ---- Общая база (Firebase): данные от других людей ----
   window.onRemoteData = function (remoteJournal, remoteNotes) {
     if (remoteJournal) { data = remoteJournal; try { localStorage.setItem(KEY, JSON.stringify(data)); } catch (e) {} }
-    if (remoteNotes) { NOTES = remoteNotes; try { localStorage.setItem('notes_data', JSON.stringify(NOTES)); } catch (e) {} }
+    if (remoteNotes) { NOTES = remoteNotes; Object.keys(SEED_NOTES).forEach(function (d) { if (!NOTES[d] && !SEEDED[d]) NOTES[d] = SEED_NOTES[d]; }); try { localStorage.setItem('notes_data', JSON.stringify(NOTES)); } catch (e) {} }
     var act = document.querySelector('.view.active');
     var id = act ? act.id : '';
     try {
       if (id === 'v-att') renderJournal();
       if (id === 'v-addr') renderAddr();
       if (id === 'v-notes') renderNotesList();
+      if (id === 'v-admin' && byId('adAddr').style.display !== 'none') renderAddrAdmin();
     } catch (e) {}
   };
   window.getLocalForMigration = function () { return { journal: data, notes: NOTES }; };
 
   // ---- Навигация ----
   function isNarrow(view) {
-    var narrow = ['addr', 'about', 'notes', 'video', 'bday', 'admin'];
+    var narrow = ['addr', 'about', 'notes', 'pray', 'video', 'bday', 'admin'];
     return narrow.indexOf(view) >= 0;
   }
   function show(view) {
@@ -1844,6 +2459,342 @@
     })(links[q]);
   }
 
+  // ---- Молитвы: вытянуть имя ----
+  var PR_IDEAS = [
+    'О здоровье и силах на этот день',
+    'О мире в семье и в сердце',
+    'О мудрости в решениях и нужных людях рядом',
+    'О защите и Божьем покое',
+    'О радости и благодарности',
+    'О духовном росте и близости с Богом',
+    'О работе, учёбе и заботах, которые тяготят',
+    'О том, чтобы почувствовать, что он(а) не один(а)'
+  ];
+  var prBusy = false, prLast = -1;
+  function prPick() {
+    var pool = ORDER.slice();
+    if (!pool.length) return -1;
+    if (pool.length > 1 && prLast >= 0) {
+      pool = pool.filter(function (i) { return i !== prLast; });
+    }
+    return pool[Math.floor(Math.random() * pool.length)];
+  }
+  function prShowIdeas() {
+    var ideas = PR_IDEAS.slice().sort(function () { return Math.random() - 0.5; }).slice(0, 3);
+    byId('prIdeas').innerHTML = ideas.map(function (t) { return '<li>' + esc(t) + '</li>'; }).join('');
+    byId('prHow').style.display = 'block';
+  }
+  byId('prBtn').onclick = function () {
+    if (prBusy) return;
+    var final = prPick();
+    var nameEl = byId('prName'), btn = byId('prBtn');
+    if (final < 0) { nameEl.textContent = 'Список пуст'; return; }
+    prBusy = true;
+    btn.disabled = true;
+    byId('prHow').style.display = 'none';
+    nameEl.classList.remove('pop');
+    nameEl.classList.add('spin');
+    byId('prLead').textContent = 'Выбираем…';
+    var ticks = 0, total = 14;
+    var timer = setInterval(function () {
+      ticks++;
+      nameEl.textContent = STUDENTS[ORDER[Math.floor(Math.random() * ORDER.length)]];
+      if (ticks >= total) {
+        clearInterval(timer);
+        prLast = final;
+        nameEl.classList.remove('spin');
+        nameEl.textContent = STUDENTS[final];
+        void nameEl.offsetWidth;
+        nameEl.classList.add('pop');
+        byId('prLead').textContent = 'Сегодня помолись за:';
+        btn.textContent = '✨ Вытянуть другое имя';
+        btn.disabled = false;
+        prBusy = false;
+        prShowIdeas();
+      }
+    }, 90);
+  };
+
+  // ---- Молитвы: вытянуть ФИО из списка адресов ----
+  var PR2_IDEAS = [
+    'Помолиться о здоровье и силах',
+    'Помолиться о мире и радости в доме',
+    'Помолиться, чтобы человек не чувствовал себя одиноким',
+    'Позвонить и узнать, как дела',
+    'Навестить или написать тёплое сообщение',
+    'Помолиться о нуждах, о которых он(а) говорил(а)'
+  ];
+  var pr2Busy = false, pr2Last = -1;
+  byId('pr2Btn').onclick = function () {
+    if (pr2Busy) return;
+    var list = [];
+    for (var i = 0; i < PEOPLE.length; i++) { if (PEOPLE[i].nm) list.push(i); }
+    var nameEl = byId('pr2Name'), btn = byId('pr2Btn');
+    if (!list.length) { nameEl.textContent = 'Список адресов пуст'; return; }
+    var pool = list.length > 1 ? list.filter(function (i) { return i !== pr2Last; }) : list;
+    var final = pool[Math.floor(Math.random() * pool.length)];
+    pr2Busy = true;
+    btn.disabled = true;
+    byId('pr2How').style.display = 'none';
+    nameEl.classList.remove('pop');
+    nameEl.classList.add('spin');
+    byId('pr2Lead').textContent = 'Выбираем…';
+    var ticks = 0, total = 14;
+    var timer = setInterval(function () {
+      ticks++;
+      nameEl.textContent = PEOPLE[list[Math.floor(Math.random() * list.length)]].nm;
+      if (ticks >= total) {
+        clearInterval(timer);
+        pr2Last = final;
+        nameEl.classList.remove('spin');
+        nameEl.textContent = PEOPLE[final].nm;
+        void nameEl.offsetWidth;
+        nameEl.classList.add('pop');
+        byId('pr2Lead').textContent = 'Сегодня помолись за:';
+        btn.textContent = '✨ Вытянуть другое ФИО';
+        btn.disabled = false;
+        pr2Busy = false;
+        var ideas = PR2_IDEAS.slice().sort(function () { return Math.random() - 0.5; }).slice(0, 3);
+        byId('pr2Ideas').innerHTML = ideas.map(function (t) { return '<li>' + esc(t) + '</li>'; }).join('');
+        byId('pr2How').style.display = 'block';
+      }
+    }, 90);
+  };
+
+  // ---- Админка: адреса (добавить / удалить) ----
+  function cleanAddrList(a) {
+    var out = [];
+    (a || []).forEach(function (x) {
+      if (x && typeof x.nm === 'string' && x.nm.trim()) {
+        out.push({ nm: x.nm.replace(/\s+/g, ' ').trim(), ad: typeof x.ad === 'string' ? x.ad.replace(/\s+/g, ' ').trim() : '' });
+      }
+    });
+    return out;
+  }
+  function applyAddr(list) {
+    PEOPLE = list.slice();
+    PEOPLE.sort(function (a, b) { return a.nm.localeCompare(b.nm, 'ru'); });
+  }
+  try {
+    var rawA = localStorage.getItem('addr_list');
+    if (rawA) { var arrA = JSON.parse(rawA); if (Array.isArray(arrA)) { var cl = cleanAddrList(arrA); if (cl.length || arrA.length === 0) applyAddr(cl); } }
+  } catch (e) {}
+
+  function refreshAddrUI() {
+    if (byId('adAddr').style.display !== 'none') renderAddrAdmin();
+    if (byId('adrDelOv') && byId('adrDelOv').classList.contains('open')) renderAddrDel();
+    var act = document.querySelector('.view.active');
+    if (act && act.id === 'v-addr') renderAddr();
+  }
+  function adrMsg(id, text, ok) {
+    var m = byId(id);
+    m.className = 'msg ' + (ok ? 'ok' : 'err');
+    m.textContent = text;
+  }
+  // История посещений адреса: берём из журнала (четверги, команды по адресам)
+  var adrOpen = {};
+  // Посещения адресов без имён (разовое добавление): ['2026-11-06', 'ФИО из списка адресов']
+  var ADR_VISITS = [
+    ['2026-09-17', 'Карпович Зинаида Ивановна'],
+    ['2026-09-17', 'Хомко Галина Михайловна'],
+    ['2026-09-17', 'Ольшевская Светлана Ивановна'],
+    ['2026-09-24', 'Мацевило Мария Викторовна'],
+    ['2026-09-24', 'Короб Вера Яковлевна'],
+    ['2026-10-01', 'Петровская Валентина Витальевна'],
+    ['2026-10-01', 'Калоша Валентина Владимировна'],
+    ['2026-10-01', 'Хандрико Григорий Иванович'],
+    ['2026-10-08', 'Турабова Надежда Ивановна'],
+    ['2026-10-08', 'Шуляк Ирина Евгеньевна'],
+    ['2026-10-15', 'Ващилко Вера Петровна'],
+    ['2026-10-15', 'Лыкова Мария Васильевна'],
+    ['2026-10-22', 'Орловская Анна Демьяновна'],
+    ['2026-10-22', 'Дедович Оксана Леонидовна'],
+    ['2026-10-29', 'Мацевило Мария Викторовна'],
+    ['2026-10-29', 'Русак Леонида Ивановна'],
+    ['2026-10-29', 'Шапель Алла'],
+    ['2026-11-05', 'Ольшевская Светлана Ивановна'],
+    ['2026-11-05', 'Говорушко Александра Ивановна']
+  ].map(function (x) { return { d: x[0], a: x[1] }; });
+  function addrVisits(nm) {
+    var key = String(nm).trim().toLowerCase();
+    var out = [];
+    var byDate = {};
+    data.forEach(function (lesson) {
+      if (!lesson.teams) return;
+      var who = [];
+      var hit = false;
+      lesson.teams.forEach(function (t) {
+        if (String(t.a || '').trim().toLowerCase() !== key) return;
+        hit = true;
+        (t.m || []).forEach(function (si) { if (who.indexOf(si) < 0) who.push(si); });
+      });
+      if (hit) { var v = { date: lesson.date, who: who, manual: false }; out.push(v); byDate[lesson.date] = true; }
+    });
+    ADR_VISITS.forEach(function (x) {
+      if (x.a.toLowerCase() !== key || byDate[x.d]) return;
+      out.push({ date: x.d, who: [], manual: true });
+    });
+    out.sort(function (a, b) { return a.date < b.date ? 1 : (a.date > b.date ? -1 : 0); });
+    return out;
+  }
+  function visWord(n) {
+    var m10 = n % 10, m100 = n % 100;
+    if (m10 >= 2 && m10 <= 4 && (m100 < 12 || m100 > 14)) return 'раза';
+    return 'раз';
+  }
+  function addrHistHtml(visits, nm) {
+    var counts = {};
+    visits.forEach(function (v) { v.who.forEach(function (si) { counts[si] = (counts[si] || 0) + 1; }); });
+    var ids = Object.keys(counts).map(Number);
+    ids.sort(function (a, b) { return counts[b] - counts[a] || ALLORD.indexOf(a) - ALLORD.indexOf(b); });
+    var h = '<div class="adr-hist">';
+    if (ids.length) {
+      h += '<h5>Кто сколько раз был</h5><div class="tchips">';
+      ids.forEach(function (si) { h += '<span class="tchip">' + esc(STUDENTS[si]) + ' <small>×' + counts[si] + '</small></span>'; });
+      h += '</div>';
+    }
+    h += '<h5' + (ids.length ? ' style="margin-top:12px"' : '') + '>Когда посещали</h5>';
+    visits.forEach(function (v) {
+      h += '<div class="hv"><div class="hd">' + fmtFull(v.date) + ' <em>' + abbr(v.date) + '</em>' + '</div>';
+      if (!v.manual) {
+        var sorted = v.who.slice().sort(function (a, b) { return ALLORD.indexOf(a) - ALLORD.indexOf(b); });
+        h += '<div class="tchips">';
+        sorted.forEach(function (si) { h += '<span class="tchip">' + esc(STUDENTS[si]) + '</span>'; });
+        if (!sorted.length) h += '<span class="tchip">команда не указана</span>';
+        h += '</div>';
+      }
+      h += '</div>';
+    });
+    return h + '</div>';
+  }
+  var adrSortMode = 'alpha';
+  function renderAddrAdmin() {
+    var q = byId('adrSearch').value.trim().toLowerCase();
+    var html = '';
+    var n = 0;
+    var items = [];
+    PEOPLE.forEach(function (p, i) {
+      if (q && (p.nm + ' ' + p.ad).toLowerCase().indexOf(q) < 0) return;
+      items.push({ p: p, i: i, visits: addrVisits(p.nm) });
+    });
+    items.sort(function (a, b) {
+      var byName = a.p.nm.localeCompare(b.p.nm, 'ru');
+      if (adrSortMode === 'min') return (a.visits.length - b.visits.length) || byName;
+      if (adrSortMode === 'max') return (b.visits.length - a.visits.length) || byName;
+      return byName;
+    });
+    items.forEach(function (it) {
+      var p = it.p, i = it.i, visits = it.visits;
+      n++;
+      var opened = !!adrOpen[p.nm] && visits.length > 0;
+      var vis = visits.length
+        ? '<small class="vis">👣 Посещали: ' + visits.length + ' ' + visWord(visits.length) + ', последний раз ' + fmtFull(visits[0].date) + '</small>'
+        : '<small class="vis none">👣 Пока не посещали</small>';
+      html += '<div class="rmrow adr-row"><span><b>' + esc(p.nm) + '</b>' +
+              (p.ad ? '<small>📍 ' + esc(p.ad) + '</small>' : '<small class="no">адрес не указан</small>') +
+              vis + '</span><div class="adr-btns">' +
+              (visits.length ? '<button type="button" class="vbtn" data-adr-vis="' + i + '">' + (opened ? 'Скрыть' : 'История') + '</button>' : '') +
+              '</div>' +
+              (opened ? addrHistHtml(visits, p.nm) : '') + '</div>';
+    });
+    byId('adrList').innerHTML = html || '<div class="empty">Ничего не найдено</div>';
+    byId('adrCount').textContent = n === PEOPLE.length ? 'Всего: ' + PEOPLE.length : 'Найдено: ' + n + ' из ' + PEOPLE.length;
+  }
+  function addrAdminInit() {
+    byId('adrSearch').value = '';
+    byId('adrMsg').textContent = '';
+    byId('adrDelMsg').textContent = '';
+    closeAddrDel();
+    renderAddrAdmin();
+  }
+  function saveAddrList(list, msgId, okText) {
+    applyAddr(list);
+    try { localStorage.setItem('addr_list', JSON.stringify(PEOPLE)); } catch (e) {}
+    refreshAddrUI();
+    if (window.FB && window.FB.saveAddr) {
+      adrMsg(msgId, 'Сохраняем в базу…', true);
+      window.FB.saveAddr(PEOPLE).then(function () {
+        adrMsg(msgId, okText, true);
+      }).catch(function () {
+        adrMsg(msgId, 'Изменено на этом устройстве, но в базу сохранить не удалось', false);
+      });
+    } else {
+      adrMsg(msgId, 'Изменено только на этом устройстве: нет связи с базой', false);
+    }
+  }
+  window.onRemoteAddr = function (list) {
+    list = cleanAddrList(list);
+    var next = list.slice().sort(function (a, b) { return a.nm.localeCompare(b.nm, 'ru'); });
+    if (JSON.stringify(next) === JSON.stringify(PEOPLE)) return;
+    applyAddr(list);
+    try { localStorage.setItem('addr_list', JSON.stringify(PEOPLE)); } catch (e) {}
+    refreshAddrUI();
+  };
+  byId('adrAdd').onclick = function () {
+    var nm = byId('adrName').value.replace(/\s+/g, ' ').trim();
+    var ad = byId('adrAddr').value.replace(/\s+/g, ' ').trim();
+    if (!nm) { adrMsg('adrMsg', 'Введите ФИО', false); return; }
+    var low = nm.toLowerCase();
+    for (var i = 0; i < PEOPLE.length; i++) {
+      if (PEOPLE[i].nm.toLowerCase() === low) { adrMsg('adrMsg', 'Такой человек уже есть: ' + PEOPLE[i].nm, false); return; }
+    }
+    byId('adrName').value = '';
+    byId('adrAddr').value = '';
+    saveAddrList(PEOPLE.concat([{ nm: nm, ad: ad }]), 'adrMsg', 'Добавлено: ' + nm);
+  };
+  byId('adrList').addEventListener('click', function (e) {
+    var b = e.target;
+    if (b.getAttribute && b.getAttribute('data-adr-vis') !== null) {
+      var vp = PEOPLE[+b.getAttribute('data-adr-vis')];
+      if (vp) { adrOpen[vp.nm] = !adrOpen[vp.nm]; renderAddrAdmin(); }
+      return;
+    }
+  });
+  function renderAddrDel() {
+    var q = byId('adrDelSearch').value.trim().toLowerCase();
+    var html = '';
+    PEOPLE.forEach(function (p, i) {
+      if (q && (p.nm + ' ' + p.ad).toLowerCase().indexOf(q) < 0) return;
+      html += '<div class="rmrow"><span><b>' + esc(p.nm) + '</b>' +
+              (p.ad ? '<small>📍 ' + esc(p.ad) + '</small>' : '<small>адрес не указан</small>') +
+              '</span><button type="button" data-adr-del="' + i + '">Удалить</button></div>';
+    });
+    byId('adrDelList').innerHTML = html || '<div class="empty">Ничего не найдено</div>';
+  }
+  byId('adrDelOpen').onclick = function () {
+    byId('adrDelSearch').value = '';
+    byId('adrDelMsg').textContent = '';
+    renderAddrDel();
+    byId('adrDelOv').classList.add('open');
+    document.body.style.overflow = 'hidden';
+  };
+  function closeAddrDel() { byId('adrDelOv').classList.remove('open'); document.body.style.overflow = ''; }
+  byId('adrDelClose').onclick = closeAddrDel;
+  byId('adrDelOv').addEventListener('click', function (e) { if (e.target === this) closeAddrDel(); });
+  document.addEventListener('keydown', function (e) { if (e.key === 'Escape') closeAddrDel(); });
+  byId('adrDelSearch').addEventListener('input', renderAddrDel);
+  byId('adrDelList').addEventListener('click', function (e) {
+    var b = e.target;
+    if (!b.getAttribute || b.getAttribute('data-adr-del') === null) return;
+    var i = +b.getAttribute('data-adr-del');
+    var p = PEOPLE[i];
+    if (!p) return;
+    if (!window.confirm('Удалить из списка адресов: ' + p.nm + '?')) return;
+    var next = PEOPLE.filter(function (x, k) { return k !== i; });
+    saveAddrList(next, 'adrDelMsg', 'Удалено: ' + p.nm);
+  });
+  byId('adrSearch').addEventListener('input', renderAddrAdmin);
+  byId('adrSort').addEventListener('click', function (e) {
+    var b = e.target;
+    if (!b.getAttribute || !b.getAttribute('data-sort')) return;
+    adrSortMode = b.getAttribute('data-sort');
+    Array.prototype.forEach.call(this.querySelectorAll('button'), function (x) {
+      x.classList.toggle('on', x === b);
+    });
+    renderAddrAdmin();
+  });
+  byId('adrBack').onclick = function () { adShow('home'); };
+
   // ---- Админка: вкладки, у каждой свой пароль ----
   var adOpen = {};
   var adPending = '';
@@ -1855,13 +2806,13 @@
 
   function adShow(part) {
     var wip = false;
-    if (part === 'addr') wip = true;
     byId('adHome').style.display = part === 'home' ? 'block' : 'none';
     byId('adLogin').style.display = part === 'login' ? 'block' : 'none';
     byId('editor').style.display = part === 'att' ? 'block' : 'none';
     byId('adWip').style.display = wip ? 'block' : 'none';
     byId('adVideo').style.display = part === 'video' ? 'block' : 'none';
     byId('adNotes').style.display = part === 'notes' ? 'block' : 'none';
+    byId('adAddr').style.display = part === 'addr' ? 'block' : 'none';
 
     var inside = adNames[part] ? true : false;
     byId('adTitle').textContent = inside ? 'Админ: ' + adNames[part] : 'Админ';
@@ -1872,12 +2823,13 @@
       byId('loginMsg').textContent = '';
     }
     if (part === 'att') {
-      renderMarks(); renderChips();
+      renderMarks(); renderChips(); renderApList(); renderRmList(); renderGsList();
       if (!byId('dateIn').value) byId('dateIn').value = lastLessonDay();
       updateDay();
       loadMarks();
     }
     if (part === 'video') vAdminInit();
+    if (part === 'addr') addrAdminInit();
     if (part === 'notes') nInit();
     if (wip) byId('adAnim').innerHTML = adAnims[part];
     window.scrollTo(0, 0);
@@ -1934,21 +2886,41 @@
   window.FB = {
     saveJournal: function (json) { return setDoc(doc(col, "journal"), { json: json, t: Date.now() }); },
     saveNote: function (date, n) { return setDoc(doc(col, "note_" + date), { date: date, title: n.title || "", html: n.html || "", t: Date.now() }); },
-    deleteNote: function (date) { return deleteDoc(doc(col, "note_" + date)); }
+    deleteNote: function (date) { return deleteDoc(doc(col, "note_" + date)); },
+    saveExtra: function (arr) { return setDoc(doc(col, "team_extra"), { json: JSON.stringify(arr), t: Date.now() }); },
+    saveSeed: function (date) { return setDoc(doc(col, "seed_" + date), { date: date, t: Date.now() }); },
+    saveAddr: function (arr) { return setDoc(doc(col, "addr_list"), { json: JSON.stringify(arr), t: Date.now() }); },
+    saveGuests: function (arr) { return setDoc(doc(col, "team_guests"), { json: JSON.stringify(arr), t: Date.now() }); },
+    saveHidden: function (arr) { return setDoc(doc(col, "team_hidden"), { json: JSON.stringify(arr), t: Date.now() }); }
   };
 
   var migrated = false;
   onSnapshot(col, function (snap) {
-    var journal = null, notes = {}, hasJournal = false;
+    var journal = null, notes = {}, hasJournal = false, extra = null, hidden = null, guests = null, addr = null, seeded = {};
     snap.forEach(function (d) {
       var v = d.data();
       if (d.id === "journal") {
         hasJournal = true;
         try { var arr = JSON.parse(v.json); if (Array.isArray(arr)) journal = arr; } catch (e) {}
+      } else if (d.id.indexOf("seed_") === 0) {
+        seeded[d.id.slice(5)] = true;
+      } else if (d.id === "addr_list") {
+        try { var ad = JSON.parse(v.json); if (Array.isArray(ad)) addr = ad; } catch (e) {}
+      } else if (d.id === "team_guests") {
+        try { var gd = JSON.parse(v.json); if (Array.isArray(gd)) guests = gd; } catch (e) {}
+      } else if (d.id === "team_hidden") {
+        try { var hd = JSON.parse(v.json); if (Array.isArray(hd)) hidden = hd; } catch (e) {}
+      } else if (d.id === "team_extra") {
+        try { var ex = JSON.parse(v.json); if (Array.isArray(ex)) extra = ex; } catch (e) {}
       } else if (d.id.indexOf("note_") === 0) {
         notes[v.date] = { title: v.title || "", html: v.html || "" };
       }
     });
+
+    if (extra && window.onRemotePeople) window.onRemotePeople(extra);
+    if (hidden && window.onRemoteHidden) window.onRemoteHidden(hidden);
+    if (guests && window.onRemoteGuests) window.onRemoteGuests(guests);
+    if (addr && window.onRemoteAddr) window.onRemoteAddr(addr);
 
     // Первый запуск: базы ещё нет, загружаем то, что уже накоплено в этом браузере
     if (!hasJournal && !migrated && !snap.metadata.fromCache) {
@@ -1958,6 +2930,15 @@
       Object.keys(loc.notes || {}).forEach(function (dt) { window.FB.saveNote(dt, loc.notes[dt]); });
       return;
     }
+    if (!snap.metadata.fromCache && window.SEED_NOTES) {
+      Object.keys(window.SEED_NOTES).forEach(function (dt) {
+        if (seeded[dt]) return;
+        if (!notes[dt]) { window.FB.saveNote(dt, window.SEED_NOTES[dt]); notes[dt] = window.SEED_NOTES[dt]; }
+        window.FB.saveSeed(dt);
+        seeded[dt] = true;
+      });
+    }
+    if (window.setSeeded) window.setSeeded(seeded);
     if (!hasJournal) return;
     window.onRemoteData(journal, notes);
   }, function (err) { console.error("Firestore:", err); });
