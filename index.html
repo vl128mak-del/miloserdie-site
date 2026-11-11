@@ -174,7 +174,32 @@
   table.j tr.sel td { box-shadow: inset 0 3px 0 #39ff14, inset 0 -3px 0 #39ff14; }
   table.j tr.sel td:first-child { box-shadow: inset 0 3px 0 #39ff14, inset 0 -3px 0 #39ff14, inset 3px 0 0 #39ff14; }
   table.j tr.sel td:last-child { box-shadow: inset 0 3px 0 #39ff14, inset 0 -3px 0 #39ff14, inset -3px 0 0 #39ff14; }
-  #leaders td.ln { cursor: pointer; }
+  #leaders .pod { display: flex; align-items: flex-end; justify-content: center; gap: 8px; padding: 18px 4px 0; background: linear-gradient(180deg, #fff9e6 0%, #fff 70%); border-radius: 14px; }
+  #leaders .pcol { flex: 1; max-width: 150px; min-width: 0; text-align: center; cursor: pointer; }
+  #leaders .pcrown { font-size: 22px; line-height: 1; height: 24px; animation: lbfloat 2.2s ease-in-out infinite; }
+  #leaders .pav { width: 58px; height: 58px; border-radius: 50%; margin: 0 auto 6px; display: flex; align-items: center; justify-content: center; font-size: 30px; background: #fff; border: 3px solid #d9dde2; box-shadow: 0 3px 10px rgba(0,0,0,.12); }
+  #leaders .p1 .pav { width: 70px; height: 70px; font-size: 36px; border-color: #f2b705; box-shadow: 0 0 0 4px rgba(242,183,5,.25), 0 4px 14px rgba(242,183,5,.5); }
+  #leaders .p2 .pav { border-color: #a9b4c0; }
+  #leaders .p3 .pav { border-color: #c98a55; }
+  #leaders .pname { font-size: 13px; font-weight: 700; line-height: 1.2; color: #2c3e50; word-break: break-word; padding: 0 2px; }
+  #leaders .pcnt { font-size: 12px; color: #5f6368; margin-top: 2px; }
+  #leaders .pbase { margin-top: 8px; border-radius: 10px 10px 0 0; color: #fff; font-weight: 800; font-size: 28px; display: flex; align-items: flex-start; justify-content: center; padding-top: 6px; text-shadow: 0 1px 2px rgba(0,0,0,.25); }
+  #leaders .p1 .pbase { height: 100px; background: linear-gradient(180deg, #f9d423, #e0a100); }
+  #leaders .p2 .pbase { height: 76px; background: linear-gradient(180deg, #cfd6de, #8e9aa8); }
+  #leaders .p3 .pbase { height: 58px; background: linear-gradient(180deg, #e3aa7a, #b3703a); }
+  #leaders .pcol:active .pav { transform: scale(.96); }
+  #leaders .lrow { display: flex; align-items: center; gap: 10px; padding: 9px 6px; border-bottom: 1px solid #eef2f5; cursor: pointer; }
+  #leaders .lrow:last-child { border-bottom: 0; }
+  #leaders .lrow:hover { background: #f4f8fb; }
+  #leaders .lnum { flex: none; width: 30px; height: 30px; border-radius: 50%; background: #eef4f9; color: #3b7bb0; font-weight: 700; font-size: 14px; display: flex; align-items: center; justify-content: center; }
+  #leaders .linfo { flex: 1; min-width: 0; }
+  #leaders .lname { font-size: 15px; font-weight: 600; color: #2c3e50; word-break: break-word; }
+  #leaders .lbar { height: 6px; border-radius: 3px; background: #e8eef3; margin-top: 5px; overflow: hidden; }
+  #leaders .lbar i { display: block; height: 100%; border-radius: 3px; background: linear-gradient(90deg, #6fb1d8, #3b7bb0); }
+  #leaders .lval { flex: none; font-size: 14px; font-weight: 700; color: #3b7bb0; }
+  #leaders .lempty { padding: 16px; color: #5f6368; }
+  @keyframes lbfloat { 0%, 100% { transform: translateY(0); } 50% { transform: translateY(-4px); } }
+  @media (prefers-reduced-motion: reduce) { #leaders .pcrown { animation: none; } }
   .lbctl { display: flex; flex-wrap: wrap; gap: 8px; align-items: center; margin-bottom: 12px; }
   .lbp { border: 1px solid #d9dde2; background: #fff; color: #3b7bb0; border-radius: 20px; padding: 9px 14px; font-size: 15px; font-weight: 600; font-family: inherit; cursor: pointer; transition: background .2s ease, color .2s ease; }
   .lbp.on { background: #3b7bb0; border-color: #3b7bb0; color: #fff; }
@@ -409,7 +434,7 @@
         <button type="button" class="lbp" data-p="month">Последний месяц</button>
         <select id="lbSeason" aria-label="Выбрать сезон"></select>
       </div>
-      <div class="jwrap"><table class="j" id="leaders"></table></div>
+      <div id="leaders"></div>
     </div>
   </section>
 
@@ -1041,19 +1066,47 @@
       return a.name.localeCompare(b.name, 'ru');
     });
     var medals = ['🥇', '🥈', '🥉'];
-    var html = '<tr><th>Место</th><th>Имя</th><th>Посещено</th></tr>';
     if (!sub.length) {
-      byId('leaders').innerHTML = html + '<tr><td colspan="3" style="padding:16px;color:#5f6368">За этот период служений не было.</td></tr>';
+      byId('leaders').innerHTML = '<div class="lempty">За этот период служений не было.</div>';
       return;
     }
+    var places = [];
     var place = 1;
     rows.forEach(function (r, k) {
-      if (k > 0) { if (r.c !== rows[k - 1].c) place = k + 1; }
-      var top = place <= 3 && r.c > 0;
-      html += '<tr data-s="' + r.i + '"' + (top ? ' class="top"' : '') + '><td>' + (top ? medals[place - 1] + ' ' : '') + place + '</td>' +
-              '<td class="ln">' + esc(r.name) + '</td>' +
-              '<td>' + r.c + '/' + sub.length + '</td></tr>';
+      if (k > 0 && r.c !== rows[k - 1].c) place = k + 1;
+      places.push(place);
     });
+    var podN = 0;
+    while (podN < 3 && podN < rows.length && rows[podN].c > 0) podN++;
+    var html = '';
+    if (podN) {
+      var slots = podN === 1 ? [0] : (podN === 2 ? [1, 0] : [1, 0, 2]);
+      html += '<div class="pod">';
+      slots.forEach(function (k) {
+        var r = rows[k], pl = Math.min(places[k], 3);
+        var parts = r.name.split(' ');
+        var nm = esc(parts[0]) + (parts.length > 1 ? '<br>' + esc(parts.slice(1).join(' ')) : '');
+        html += '<div class="pcol p' + pl + '" data-s="' + r.i + '">' +
+                (pl === 1 ? '<div class="pcrown">👑</div>' : '<div class="pcrown" style="animation:none"></div>') +
+                '<div class="pav">' + medals[pl - 1] + '</div>' +
+                '<div class="pname">' + nm + '</div>' +
+                '<div class="pcnt">' + r.c + ' из ' + sub.length + '</div>' +
+                '<div class="pbase">' + places[k] + '</div></div>';
+      });
+      html += '</div>';
+    }
+    var rest = rows.slice(podN);
+    if (rest.length) {
+      html += '<div style="margin-top:12px">';
+      rest.forEach(function (r, n) {
+        var k = podN + n;
+        var pct = Math.round(r.c / sub.length * 100);
+        html += '<div class="lrow" data-s="' + r.i + '"><div class="lnum">' + places[k] + '</div>' +
+                '<div class="linfo"><div class="lname">' + esc(r.name) + '</div><div class="lbar"><i style="width:' + pct + '%"></i></div></div>' +
+                '<div class="lval">' + r.c + '/' + sub.length + '</div></div>';
+      });
+      html += '</div>';
+    }
     byId('leaders').innerHTML = html;
   }
   var lbBtns = document.querySelectorAll('.lbp');
@@ -1282,11 +1335,9 @@
   byId('journal').addEventListener('click', journalClick);
   // Таблица лидеров: статистика открывается по нажатию на имя
   byId('leaders').addEventListener('click', function (e) {
-    var cell = cellOf(e.target, byId('leaders'));
-    if (!cell) return;
-    if (!cell.classList.contains('ln')) return;
-    var si = cell.parentNode.getAttribute('data-s');
-    if (si !== null) openModal(+si);
+    var el = e.target.closest ? e.target.closest('[data-s]') : null;
+    if (!el) return;
+    openModal(+el.getAttribute('data-s'));
   });
 
   // ---- Админка ----
