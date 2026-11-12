@@ -353,6 +353,22 @@
 
   .card input[type=password], .card input[type=date] { padding: 10px; font-size: 16px; border: 1px solid #d9dde2; border-radius: 10px; background: #fff; font-family: inherit; }
   .card input[type=password] { width: 100%; }
+  #adLogin.lk { text-align: center; padding: 28px 20px 22px; max-width: 420px; margin-left: auto; margin-right: auto; background: linear-gradient(180deg, #f4f8fb 0%, #fff 55%); }
+  .lk-ic { width: 76px; height: 76px; margin: 0 auto 14px; border-radius: 50%; background: linear-gradient(135deg, #3b7bb0, #6fb1d8); display: flex; align-items: center; justify-content: center; font-size: 36px; box-shadow: 0 6px 18px rgba(59,123,176,.35); }
+  .lk-t { font-size: 20px; font-weight: 700; color: #2c3e50; }
+  .lk-s { font-size: 14px; color: #5f6368; margin: 4px 0 18px; }
+  .lk-field { position: relative; }
+  #adLogin .lk-field input[type=password], #adLogin .lk-field input[type=text] { width: 100%; box-sizing: border-box; padding: 14px 48px 14px 14px; font-size: 20px; letter-spacing: .25em; text-align: center; border: 2px solid #d9dde2; border-radius: 12px; background: #fff; font-family: inherit; outline: none; transition: border-color .2s, box-shadow .2s; }
+  #adLogin .lk-field input::placeholder { letter-spacing: normal; font-size: 16px; color: #9aa0a6; }
+  #adLogin .lk-field input:focus { border-color: #3b7bb0; box-shadow: 0 0 0 4px rgba(59,123,176,.15); }
+  #adLogin .lk-field.bad input { border-color: #c0463a; box-shadow: 0 0 0 4px rgba(192,70,58,.12); }
+  .lk-eye { position: absolute; right: 6px; top: 50%; transform: translateY(-50%); border: 0; background: none; font-size: 20px; padding: 8px 10px; cursor: pointer; opacity: .65; }
+  .lk-msg { min-height: 22px; margin-top: 10px; font-weight: 600; }
+  .lk-btns { display: flex; flex-direction: column; gap: 10px; margin-top: 8px; }
+  .lk-btns .btn { width: 100%; }
+  #adLogin.shake { animation: lkshake .45s; }
+  @keyframes lkshake { 0%, 100% { transform: translateX(0); } 20% { transform: translateX(-9px); } 40% { transform: translateX(8px); } 60% { transform: translateX(-6px); } 80% { transform: translateX(4px); } }
+  @media (prefers-reduced-motion: reduce) { #adLogin.shake { animation: none; } }
   .btn { background: #3b7bb0; color: #fff; border: 0; border-radius: 10px; padding: 12px 20px; font-size: 16px; font-weight: 600; cursor: pointer; font-family: inherit; transition: background .2s ease, transform .1s ease; }
   .btn:hover { background: #2a6db0; transform: translateY(-1px); }
   .btn.sec { background: #8a9bab; }
@@ -582,14 +598,19 @@
       </div>
     </div>
 
-    <div class="card" id="adLogin" style="display:none">
-      <label for="pw"><b id="adLoginTitle">Введите пароль</b></label><br><br>
-      <input type="password" id="pw" placeholder="Пароль" autocomplete="off">
-      <div class="row-btns">
-        <button class="btn" id="loginBtn">Войти</button>
+    <div class="card lk" id="adLogin" style="display:none">
+      <div class="lk-ic" id="lkIc">🔒</div>
+      <div class="lk-t" id="adLoginTitle">Введите пароль</div>
+      <div class="lk-s">Раздел защищён паролем</div>
+      <div class="lk-field" id="lkField">
+        <input type="password" id="pw" placeholder="Пароль" autocomplete="off" aria-label="Пароль">
+        <button type="button" class="lk-eye" id="pwEye" aria-label="Показать пароль">👁️</button>
+      </div>
+      <div class="msg err lk-msg" id="loginMsg"></div>
+      <div class="lk-btns">
+        <button class="btn" id="loginBtn">🔓 Войти</button>
         <button type="button" class="btn sec" id="adLoginBack">Назад</button>
       </div>
-      <div class="msg err" id="loginMsg"></div>
     </div>
 
     <div class="card" id="adVideo" style="display:none">
@@ -2694,17 +2715,8 @@
     return 'раз';
   }
   function addrHistHtml(visits, nm) {
-    var counts = {};
-    visits.forEach(function (v) { v.who.forEach(function (si) { counts[si] = (counts[si] || 0) + 1; }); });
-    var ids = Object.keys(counts).map(Number);
-    ids.sort(function (a, b) { return counts[b] - counts[a] || ALLORD.indexOf(a) - ALLORD.indexOf(b); });
     var h = '<div class="adr-hist">';
-    if (ids.length) {
-      h += '<h5>Кто сколько раз был</h5><div class="tchips">';
-      ids.forEach(function (si) { h += '<span class="tchip">' + esc(STUDENTS[si]) + ' <small>×' + counts[si] + '</small></span>'; });
-      h += '</div>';
-    }
-    h += '<h5' + (ids.length ? ' style="margin-top:12px"' : '') + '>Когда посещали</h5>';
+    h += '<h5>Когда посещали</h5>';
     visits.forEach(function (v) {
       h += '<div class="hv"><div class="hd">' + fmtFull(v.date) + ' <em>' + abbr(v.date) + '</em>' + '</div>';
       if (!v.manual) {
@@ -2870,8 +2882,15 @@
     byId('adSub').textContent = inside ? '' : 'Выберите раздел';
 
     if (part === 'login') {
-      byId('adLoginTitle').textContent = 'Пароль для раздела «' + adNames[adPending] + '»';
+      byId('adLoginTitle').textContent = 'Раздел «' + adNames[adPending] + '»';
+      byId('lkIc').textContent = '🔒';
       byId('loginMsg').textContent = '';
+      byId('lkField').classList.remove('bad');
+      byId('pw').type = 'password';
+      byId('pwEye').textContent = '👁️';
+      var numeric = /^\d+$/.test(adPass[adPending] || '');
+      byId('pw').setAttribute('inputmode', numeric ? 'numeric' : 'text');
+      setTimeout(function () { try { byId('pw').focus(); } catch (e) {} }, 60);
     }
     if (part === 'att') {
       renderMarks(); renderChips(); renderApList(); renderRmList(); renderGsList();
@@ -2898,7 +2917,14 @@
       byId('pw').value = '';
       adShow(adPending);
     } else {
-      byId('loginMsg').textContent = 'Неверный пароль';
+      byId('loginMsg').textContent = 'Неверный пароль, попробуйте ещё раз';
+      byId('lkField').classList.add('bad');
+      byId('pw').value = '';
+      byId('pw').focus();
+      var card = byId('adLogin');
+      card.classList.remove('shake');
+      void card.offsetWidth;
+      card.classList.add('shake');
     }
   }
 
@@ -2909,6 +2935,18 @@
     })(adBtns[w]);
   }
   byId('loginBtn').onclick = login;
+  byId('pw').addEventListener('input', function () {
+    byId('lkField').classList.remove('bad');
+    byId('loginMsg').textContent = '';
+  });
+  byId('pwEye').onclick = function () {
+    var f = byId('pw');
+    var show = f.type === 'password';
+    f.type = show ? 'text' : 'password';
+    this.textContent = show ? '🙈' : '👁️';
+    this.setAttribute('aria-label', show ? 'Скрыть пароль' : 'Показать пароль');
+    f.focus();
+  };
   byId('pw').addEventListener('keydown', function (e) { if (e.key === 'Enter') login(); });
   byId('adLoginBack').onclick = function () { byId('pw').value = ''; adShow('home'); };
   byId('adWipBack').onclick = function () { adShow('home'); };
