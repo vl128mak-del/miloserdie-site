@@ -118,6 +118,53 @@
   .pr-card.alt .pr-hands { animation-delay: -1.3s; }
   .pr-card.alt .pr-btn { color: #2f8f5b; }
   .pr-card.alt .pr-badge { display: inline-block; position: relative; margin-bottom: 4px; padding: 4px 12px; border-radius: 20px; background: rgba(255,255,255,.22); font-size: 13px; font-weight: 700; letter-spacing: .3px; }
+  .nd-wrap { margin-top: 0; }
+  .nd-lead { margin: 0 0 12px; color: #5f6368; font-size: 14px; line-height: 1.45; }
+  .nd-tabs, .nd-type { display: flex; gap: 6px; flex-wrap: wrap; margin: 14px 0 10px; }
+  .nd-tabs button, .nd-type button { border: 1px solid #cfe3f7; background: #fff; color: #3b7bb0; border-radius: 999px; padding: 7px 14px; font-size: 14px; font-family: inherit; cursor: pointer; }
+  .nd-tabs button.on, .nd-type button.on { background: #3b7bb0; border-color: #3b7bb0; color: #fff; }
+  .nd-card { background: #f4f8fb; border-left: 4px solid #6fb1d8; border-radius: 10px; padding: 10px 12px; margin-bottom: 10px; }
+  .nd-card.perm { border-left-color: #e0a100; background: #fffaf0; }
+  .nd-top { display: flex; align-items: center; justify-content: space-between; gap: 8px; flex-wrap: wrap; }
+  .nd-top b { font-size: 16px; color: #2c3e50; }
+  .nd-badge { font-size: 12px; font-weight: 700; padding: 2px 10px; border-radius: 999px; background: #e3effa; color: #3b7bb0; }
+  .nd-card.perm .nd-badge { background: #fdefc6; color: #9a6b00; }
+  .nd-text { margin-top: 6px; white-space: pre-wrap; word-break: break-word; line-height: 1.45; color: #2c3e50; }
+  .nd-meta { margin-top: 6px; display: flex; justify-content: space-between; align-items: center; font-size: 12px; color: #5f6368; }
+  .nd-meta button { border: 0; background: none; color: #c0463a; font-size: 13px; cursor: pointer; font-family: inherit; padding: 2px 4px; }
+  .nd-box { background: #fff8e6; border: 1px solid #f3dfa2; border-radius: 12px; padding: 12px; margin-bottom: 14px; }
+  .nd-box h5 { margin: 0 0 8px; font-size: 15px; color: #9a6b00; }
+  .nd-box .nd-card { background: #fff; margin-bottom: 8px; }
+  .nd-gen { background: #fffaf0; border: 1px solid #f3dfa2; border-left: 4px solid #e0a100; border-radius: 10px; padding: 12px 14px; margin-bottom: 12px; }
+  .nd-gen h5 { margin: 0 0 8px; font-size: 15px; color: #9a6b00; }
+  .nd-gen ol { margin: 0; padding-left: 22px; }
+  .nd-gen li { padding: 3px 0; line-height: 1.4; color: #2c3e50; }
+  .nd-gen ul { margin: 4px 0 2px; padding-left: 18px; list-style: '♥ '; color: #5f6368; }
+  .gn-head { font-size: 16px; font-weight: 800; color: #2c3e50; margin: 4px 0 12px; }
+  .gn-grid { display: grid; grid-template-columns: 1fr; gap: 10px; margin-bottom: 14px; }
+  .gn-card { display: flex; gap: 12px; align-items: flex-start; border-radius: 14px; padding: 12px 14px; border: 1px solid transparent; --c: #3b7bb0; --bg: #eef4f9; background: var(--bg); border-color: color-mix(in srgb, var(--c) 25%, #fff); position: relative; overflow: hidden; }
+  .gn-card::before { content: ''; position: absolute; left: 0; top: 0; bottom: 0; width: 5px; background: var(--c); }
+  .gn-card.gc0 { --c: #e0701a; --bg: #fff3e8; }
+  .gn-card.gc1 { --c: #3b7bb0; --bg: #eaf3fb; }
+  .gn-card.gc2 { --c: #2f8f5b; --bg: #eaf6ef; }
+  .gn-card.gc3 { --c: #7a5bc4; --bg: #f1ecfb; }
+  .gn-card.gc4 { --c: #d6477a; --bg: #fdecf2; }
+  .gn-card.gc5 { --c: #c28a00; --bg: #fff7dd; }
+  .gn-ic { flex: none; width: 46px; height: 46px; border-radius: 14px; background: #fff; display: flex; align-items: center; justify-content: center; font-size: 26px; box-shadow: 0 2px 8px rgba(0,0,0,.08); margin-left: 4px; }
+  .gn-body { flex: 1; min-width: 0; position: relative; }
+  .gn-num { display: inline-block; font-size: 11px; font-weight: 800; letter-spacing: .06em; color: #fff; background: var(--c); border-radius: 999px; padding: 1px 9px; margin-bottom: 4px; }
+  .gn-t { font-size: 16px; font-weight: 700; color: #2c3e50; line-height: 1.35; }
+  .gn-chips { display: flex; flex-wrap: wrap; gap: 6px; margin-top: 8px; }
+  .gn-chips span { background: #fff; color: var(--c); border: 1px solid color-mix(in srgb, var(--c) 35%, #fff); border-radius: 999px; padding: 4px 12px; font-size: 14px; font-weight: 600; }
+  .nd-gen-one { margin-top: 8px; font-size: 14px; color: #5f6368; }
+  .nd-gen-one b { color: #9a6b00; }
+  .nd-form h3 { margin: 0 0 10px; }
+  .nd-form { overflow-y: auto; }
+  .nd-row { display: flex; gap: 8px; }
+  .nd-row input { flex: 1; min-width: 0; }
+  .nd-form input[type=text], .nd-form input[type=date], .nd-form textarea { width: 100%; box-sizing: border-box; padding: 10px 12px; font-size: 16px; border: 1px solid #d9dde2; border-radius: 10px; font-family: inherit; margin-bottom: 8px; background: #fff; }
+  .nd-form textarea { resize: vertical; margin-top: 4px; }
+  .nd-lbl { display: block; font-size: 13px; color: #5f6368; margin: 4px 0 2px; }
   .pr-how.alt h4 { color: #2f8f5b; }
   .pr-how.alt li::before { content: '💚'; }
   .pr-how.alt .pr-verse { background: #eaf6ef; border-left-color: #2f8f5b; }
@@ -485,6 +532,7 @@
       <button type="button" class="pr-btn" id="prBtn">✨ Вытянуть имя</button>
     </div>
     <div class="card pr-how" id="prHow" style="display:none">
+      <div id="prNeeds"></div>
       <h4>💛 За что можно помолиться</h4>
       <ul id="prIdeas"></ul>
       <div class="pr-verse">«Молитесь друг за друга… много может усиленная молитва праведного.» — Иакова 5:16</div>
@@ -500,10 +548,41 @@
       <button type="button" class="pr-btn" id="pr2Btn">✨ Вытянуть ФИО</button>
     </div>
     <div class="card pr-how alt" id="pr2How" style="display:none">
+      <div id="pr2Needs"></div>
       <h4>💚 Как можно послужить</h4>
       <ul id="pr2Ideas"></ul>
       <div class="pr-verse">«Будьте друг к другу добры, сострадательны.» — Ефесянам 4:32</div>
       <p class="pr-tip">Помолись за этого человека сегодня, а при возможности навести его или позвони.</p>
+    </div>
+
+    <div class="pr-sep">📋 Список нужд</div>
+    <div class="card nd-wrap">
+      <p class="nd-lead">Здесь нужды людей, за которых мы молимся. Если выпадет человек, у которого есть нужда, она покажется под его именем.</p>
+      <button type="button" class="btn" id="ndAdd">✍️ Написать нужду</button>
+      <div class="nd-tabs" id="ndTabs">
+        <button type="button" class="on" data-f="perm">Постоянные</button>
+        <button type="button" data-f="temp">Временные</button>
+      </div>
+      <div id="ndList"></div>
+    </div>
+
+    <div class="adr-ov" id="ndOv">
+      <div class="adr-modal nd-form">
+        <h3>Написать нужду</h3>
+        <div class="nd-row">
+          <input type="text" id="ndLast" placeholder="Фамилия" autocomplete="off">
+          <input type="text" id="ndFirst" placeholder="Имя" autocomplete="off">
+        </div>
+        <label class="nd-lbl" for="ndDate">Дата</label>
+        <input type="date" id="ndDate">
+        <p class="nd-lbl" style="margin:6px 0 2px">⏳ Временная нужда</p>
+        <textarea id="ndText" rows="4" maxlength="600" placeholder="Нужда: за что помолиться?"></textarea>
+        <div class="msg" id="ndMsg"></div>
+        <div class="row-btns">
+          <button type="button" class="btn" id="ndSave">Сохранить</button>
+          <button type="button" class="btn sec" id="ndCancel">Отмена</button>
+        </div>
+      </div>
     </div>
   </section>
 
@@ -595,6 +674,7 @@
         <button type="button" class="go" data-ad="att"><span class="go-ic">📅</span><span class="go-t">Посещаемость</span><span class="go-s">Служения и команды</span></button>
         <button type="button" class="go g2" data-ad="notes"><span class="go-ic">📝</span><span class="go-t">Конспекты</span><span class="go-s">Добавить и править</span></button>
         <button type="button" class="go g3" data-ad="addr"><span class="go-ic">📍</span><span class="go-t">Адреса</span><span class="go-s">Добавить и удалить</span></button>
+        <button type="button" class="go g4" data-ad="pray"><span class="go-ic">🙏</span><span class="go-t">Молитвы</span><span class="go-s">Нужды: добавить и удалить</span></button>
       </div>
     </div>
 
@@ -714,6 +794,33 @@
       <div class="row-btns"><button type="button" class="btn sec" id="adrBack">← Назад</button></div>
     </div>
 
+    <div class="card" id="adNeeds" style="display:none">
+      <details class="addp" open>
+        <summary>➕ Добавить нужду</summary>
+        <div class="addp-b">
+          <div class="nd-row">
+            <input type="text" id="anLast" placeholder="Фамилия" autocomplete="off">
+            <input type="text" id="anFirst" placeholder="Имя" autocomplete="off">
+          </div>
+          <label class="nd-lbl" for="anDate">Дата</label>
+          <input type="date" id="anDate">
+          <div class="nd-type" id="anType">
+            <button type="button" class="on" data-t="temp">⏳ Временная</button>
+            <button type="button" data-t="perm">♾️ Постоянная</button>
+          </div>
+          <textarea id="anText" rows="3" maxlength="600" placeholder="Нужда: за что помолиться?"></textarea>
+          <button type="button" class="btn" id="anAdd">Добавить</button>
+          <div class="msg" id="anMsg"></div>
+        </div>
+      </details>
+      <div class="rmh" style="margin-top:6px">🗑️ Все нужды</div>
+      <input type="text" class="asrch" id="anSearch" placeholder="Поиск по имени или тексту">
+      <div class="acnt" id="anCount"></div>
+      <div id="anList"></div>
+      <div class="empty">Шесть общих постоянных нужд команды (про Духа Святого, адреса, семьи и т. д.) здесь не меняются — они записаны в самой странице.</div>
+      <div class="row-btns"><button type="button" class="btn sec" id="anBack">← Назад</button></div>
+    </div>
+
     <div class="card wip" id="adWip" style="display:none">
       <div class="anim" id="adAnim"></div>
       <p>Этот раздел на стадии разработки</p>
@@ -788,8 +895,8 @@
 
 <script>
   // Пароли разделов админки
-  var adPass = { att: '195433', notes: '125627', addr: '482916' };
-  var adNames = { att: 'Посещаемость', notes: 'Конспекты', addr: 'Адреса' };
+  var adPass = { att: '195433', notes: '125627', addr: '482916', pray: '503817' };
+  var adNames = { att: 'Посещаемость', notes: 'Конспекты', addr: 'Адреса', pray: 'Молитвы' };
   var KEY = 'journal_data';
   var STUDENTS = [
     'Маковик Владислав',
@@ -2554,6 +2661,7 @@
   function prShowIdeas() {
     var ideas = PR_IDEAS.slice().sort(function () { return Math.random() - 0.5; }).slice(0, 3);
     byId('prIdeas').innerHTML = ideas.map(function (t) { return '<li>' + esc(t) + '</li>'; }).join('');
+    renderNeedsBox('prNeeds', STUDENTS[prLast]);
     byId('prHow').style.display = 'block';
   }
   byId('prBtn').onclick = function () {
@@ -2628,10 +2736,259 @@
         pr2Busy = false;
         var ideas = PR2_IDEAS.slice().sort(function () { return Math.random() - 0.5; }).slice(0, 3);
         byId('pr2Ideas').innerHTML = ideas.map(function (t) { return '<li>' + esc(t) + '</li>'; }).join('');
+        renderNeedsBox('pr2Needs', PEOPLE[final].nm);
         byId('pr2How').style.display = 'block';
       }
     }, 90);
   };
+
+  // ---- Молитвы: список нужд ----
+  var NEEDS = [];
+  // Постоянные нужды команды (без привязки к человеку)
+  var GEN_NEEDS = [
+    { t: 'За действие Духа Святого в служении', ic: '🔥' },
+    { t: 'За адреса, которые мы посещаем', ic: '📍' },
+    { t: 'Друг за друга', ic: '🤝' },
+    { t: 'За неверующих родственников', ic: '🕊️' },
+    { t: 'За устройство личной жизни', ic: '💍' },
+    { t: 'За семьи в команде', ic: '👨‍👩‍👧', sub: ['Рома и Наташа', 'Олег и Алина', 'Костя и Настя', 'Карина и Валера'] }
+  ];
+  // Семьи в команде: label показывается, members — как записаны в таблице посещаемости
+  var FAMILIES = [
+    { label: 'Рома и Наташа', members: ['Пипко Роман', 'Пипко Наталья'] },
+    { label: 'Олег и Алина', members: ['Ивановский Олег', 'Ивановская Алина'] },
+    { label: 'Костя и Настя', members: ['Молокоедов Костя', 'Молокоедова Анастасия'] },
+    { label: 'Карина и Валера', members: ['Карина'] }
+  ];
+  function familyFor(name) {
+    var key = ndWords(name).sort().join(' ');
+    for (var i = 0; i < FAMILIES.length; i++) {
+      for (var k = 0; k < FAMILIES[i].members.length; k++) {
+        if (ndWords(FAMILIES[i].members[k]).sort().join(' ') === key) return FAMILIES[i];
+      }
+    }
+    return null;
+  }
+  function genNeedsHtml() {
+    var h = '<div class="gn-head">♾️ Постоянные нужды команды</div><div class="gn-grid">';
+    GEN_NEEDS.forEach(function (g, i) {
+      h += '<div class="gn-card gc' + (i % 6) + (g.sub ? ' wide' : '') + '">' +
+           '<div class="gn-ic">' + g.ic + '</div>' +
+           '<div class="gn-body"><span class="gn-num">' + (i + 1) + '</span><div class="gn-t">' + esc(g.t) + '</div>';
+      if (g.sub) h += '<div class="gn-chips">' + g.sub.map(function (x) { return '<span>' + esc(x) + '</span>'; }).join('') + '</div>';
+      h += '</div></div>';
+    });
+    return h + '</div>';
+  }
+  function genOneHtml() {
+    var g = GEN_NEEDS[Math.floor(Math.random() * GEN_NEEDS.length)];
+    return '<div class="nd-gen-one">♾️ Общая нужда команды: <b>' + esc(g.t.charAt(0).toLowerCase() + g.t.slice(1)) + '</b></div>';
+  }
+  var ndFilter = 'perm', ndTypeSel = 'temp';
+  function cleanNeeds(a) {
+    var out = [];
+    (a || []).forEach(function (x) {
+      if (!x || typeof x.nm !== 'string' || typeof x.text !== 'string') return;
+      var nm = x.nm.replace(/\s+/g, ' ').trim(), tx = x.text.trim();
+      if (!nm || !tx) return;
+      out.push({ id: String(x.id || ''), nm: nm, type: x.type === 'perm' ? 'perm' : 'temp', date: typeof x.date === 'string' ? x.date : '', text: tx.slice(0, 600), t: +x.t || 0 });
+    });
+    return out;
+  }
+  // Временные нужды, с которых начинается список (пока в базе ещё ничего не сохранено)
+  var SEED_NEEDS = [
+    ['Бородюк Александр', '2026-11-02', 'За друга Саши Бродюк'],
+    ['Дедович Оксана Леонидовна', '2026-11-02', 'За сиделку Оксаны Дедович'],
+    ['Пипко Роман', '2026-11-02', 'За детей Ромы Пипко'],
+    ['Пипко Роман', '2026-11-02', 'За обстоятельства в жизни Ромы, чтобы Бог давал силу проходить'],
+    ['Воробьев Марк', '2026-11-02', 'За духовное состояние Марка В'],
+    ['Коляда Саша', '2026-11-02', 'За Сашу Коляда'],
+    ['Воробьев Марк', '2026-11-02', 'За спасение отца Марка'],
+    ['Ивановский Олег', '2026-11-02', 'За детей Олега (зубы идут)'],
+    ['Воробьев Марк', '2026-11-09', 'За родственника Марка В']
+  ].map(function (x, i) { return { id: 'seed' + (i + 1), nm: x[0], type: 'temp', date: x[1], text: x[2], t: i }; });
+  var hadNeedsStore = false;
+  try {
+    var rawN = localStorage.getItem('team_needs');
+    if (rawN) { hadNeedsStore = true; var arrN = JSON.parse(rawN); if (Array.isArray(arrN)) NEEDS = cleanNeeds(arrN); }
+  } catch (e) {}
+  if (!hadNeedsStore) NEEDS = cleanNeeds(SEED_NEEDS);
+  function ndWords(s) {
+    return String(s || '').toLowerCase().replace(/ё/g, 'е').split(/[^а-яa-z0-9]+/).filter(Boolean);
+  }
+  function ndSame(a, b) {
+    var A = ndWords(a), B = ndWords(b);
+    if (A.length < 2 || B.length < 2) return false;
+    var sh = A.length <= B.length ? A : B, lg = A.length <= B.length ? B : A;
+    return sh.every(function (w) { return lg.indexOf(w) >= 0; });
+  }
+  function needsFor(name) {
+    return sortNeeds(NEEDS.filter(function (n) { return ndSame(n.nm, name); }));
+  }
+  function sortNeeds(list) {
+    return list.slice().sort(function (a, b) {
+      if (a.type !== b.type) return a.type === 'perm' ? -1 : 1;
+      return (b.date || '').localeCompare(a.date || '') || (b.t - a.t);
+    });
+  }
+  function ndCardHtml(n, canDel) {
+    return '<div class="nd-card ' + n.type + '"><div class="nd-top"><b>' + esc(n.nm) + '</b>' +
+           '<span class="nd-badge">' + (n.type === 'perm' ? 'Постоянная' : 'Временная') + '</span></div>' +
+           '<div class="nd-text">' + esc(n.text) + '</div>' +
+           '<div class="nd-meta"><span>' + (n.date ? fmtFull(n.date) : '') + '</span></div></div>';
+  }
+  function renderNeedsBox(id, name) {
+    var list = needsFor(name);
+    byId(id).innerHTML = (list.length
+      ? '<div class="nd-box"><h5>🙏 Нужды этого человека</h5>' + list.map(function (n) { return ndCardHtml(n, false); }).join('') + '</div>'
+      : '') + (familyFor(name) ? '<div class="nd-gen-one">👨‍👩‍👧 Семья в команде: <b>' + esc(familyFor(name).label) + '</b> — помолись и за их семью</div>' : '') + genOneHtml();
+  }
+  function renderNeedsList() {
+    var list = sortNeeds(NEEDS.filter(function (n) { return n.type === ndFilter; }));
+    var gen = ndFilter === 'perm' ? genNeedsHtml() : '';
+    byId('ndList').innerHTML = gen + (list.length
+      ? list.map(function (n) { return ndCardHtml(n, true); }).join('')
+      : (ndFilter === 'perm' ? '' : '<div class="empty">Временных нужд пока нет.</div>'));
+    renderNeedsAdmin();
+  }
+  function saveNeeds(next) {
+    NEEDS = cleanNeeds(next);
+    try { localStorage.setItem('team_needs', JSON.stringify(NEEDS)); } catch (e) {}
+    renderNeedsList();
+    if (window.FB && window.FB.saveNeeds) {
+      return window.FB.saveNeeds(NEEDS).then(function () { return true; }).catch(function () { return false; });
+    }
+    return Promise.resolve(false);
+  }
+  window.onRemoteNeeds = function (list) {
+    var next = cleanNeeds(list);
+    if (JSON.stringify(next) === JSON.stringify(NEEDS)) return;
+    NEEDS = next;
+    try { localStorage.setItem('team_needs', JSON.stringify(NEEDS)); } catch (e) {}
+    renderNeedsList();
+  };
+  function ndToday() {
+    var d = new Date();
+    return d.getFullYear() + '-' + ('0' + (d.getMonth() + 1)).slice(-2) + '-' + ('0' + d.getDate()).slice(-2);
+  }
+  function ndOpen() {
+    byId('ndLast').value = '';
+    byId('ndFirst').value = '';
+    byId('ndText').value = '';
+    byId('ndDate').value = ndToday();
+    byId('ndMsg').textContent = '';
+    byId('ndOv').classList.add('open');
+    document.body.style.overflow = 'hidden';
+    setTimeout(function () { try { byId('ndLast').focus(); } catch (e) {} }, 50);
+  }
+  function ndClose() {
+    byId('ndOv').classList.remove('open');
+    document.body.style.overflow = '';
+  }
+  byId('ndAdd').onclick = ndOpen;
+  byId('ndCancel').onclick = ndClose;
+  byId('ndOv').addEventListener('click', function (e) { if (e.target === this) ndClose(); });
+  document.addEventListener('keydown', function (e) { if (e.key === 'Escape') ndClose(); });
+  byId('ndTabs').addEventListener('click', function (e) {
+    var b = e.target;
+    if (!b.getAttribute || !b.getAttribute('data-f')) return;
+    ndFilter = b.getAttribute('data-f');
+    Array.prototype.forEach.call(this.querySelectorAll('button'), function (x) { x.classList.toggle('on', x === b); });
+    renderNeedsList();
+  });
+  byId('ndSave').onclick = function () {
+    var msg = byId('ndMsg');
+    var last = byId('ndLast').value.replace(/\s+/g, ' ').trim();
+    var first = byId('ndFirst').value.replace(/\s+/g, ' ').trim();
+    var text = byId('ndText').value.trim();
+    var date = byId('ndDate').value || ndToday();
+    if (!last || !first) { msg.className = 'msg err'; msg.textContent = 'Напишите фамилию и имя'; return; }
+    if (!text) { msg.className = 'msg err'; msg.textContent = 'Напишите саму нужду'; return; }
+    var n = { id: Date.now().toString(36) + Math.random().toString(36).slice(2, 6), nm: last + ' ' + first, type: 'temp', date: date, text: text, t: Date.now() };
+    var btn = this;
+    btn.disabled = true;
+    msg.className = 'msg';
+    msg.textContent = 'Сохраняем…';
+    saveNeeds(NEEDS.concat([n])).then(function (ok) {
+      btn.disabled = false;
+      if (ok) { ndClose(); }
+      else {
+        msg.className = 'msg err';
+        msg.textContent = 'Нужда сохранена только на этом устройстве: нет связи с базой';
+      }
+    });
+  };
+  // ---- Админка: нужды (добавить / удалить) ----
+  var anTypeSel = 'temp';
+  function anMsg(text, ok) {
+    var m = byId('anMsg');
+    m.className = 'msg ' + (ok ? 'ok' : 'err');
+    m.textContent = text;
+  }
+  function renderNeedsAdmin() {
+    if (byId('adNeeds').style.display === 'none') return;
+    var q = byId('anSearch').value.trim().toLowerCase();
+    var list = sortNeeds(NEEDS.filter(function (n) { return !q || (n.nm + ' ' + n.text).toLowerCase().indexOf(q) >= 0; }));
+    byId('anCount').textContent = 'Нужд: ' + list.length + (q ? ' из ' + NEEDS.length : '');
+    byId('anList').innerHTML = list.length ? list.map(function (n) {
+      return '<div class="nd-card ' + n.type + '"><div class="nd-top"><b>' + esc(n.nm) + '</b>' +
+             '<span class="nd-badge">' + (n.type === 'perm' ? 'Постоянная' : 'Временная') + '</span></div>' +
+             '<div class="nd-text">' + esc(n.text) + '</div>' +
+             '<div class="nd-meta"><span>' + (n.date ? fmtFull(n.date) : '') + '</span>' +
+             '<button type="button" data-an-del="' + esc(n.id) + '">Удалить</button></div></div>';
+    }).join('') : '<div class="empty">Нужд пока нет.</div>';
+  }
+  function needsAdminInit() {
+    byId('anLast').value = '';
+    byId('anFirst').value = '';
+    byId('anText').value = '';
+    byId('anSearch').value = '';
+    byId('anDate').value = ndToday();
+    byId('anMsg').textContent = '';
+    anTypeSel = 'temp';
+    Array.prototype.forEach.call(byId('anType').querySelectorAll('button'), function (b) {
+      b.classList.toggle('on', b.getAttribute('data-t') === 'temp');
+    });
+    renderNeedsAdmin();
+  }
+  byId('anType').addEventListener('click', function (e) {
+    var b = e.target;
+    if (!b.getAttribute || !b.getAttribute('data-t')) return;
+    anTypeSel = b.getAttribute('data-t');
+    Array.prototype.forEach.call(this.querySelectorAll('button'), function (x) { x.classList.toggle('on', x === b); });
+  });
+  byId('anSearch').addEventListener('input', renderNeedsAdmin);
+  byId('anAdd').onclick = function () {
+    var last = byId('anLast').value.replace(/\s+/g, ' ').trim();
+    var first = byId('anFirst').value.replace(/\s+/g, ' ').trim();
+    var text = byId('anText').value.trim();
+    if (!last || !first) { anMsg('Напишите фамилию и имя', false); return; }
+    if (!text) { anMsg('Напишите саму нужду', false); return; }
+    var n = { id: Date.now().toString(36) + Math.random().toString(36).slice(2, 6), nm: last + ' ' + first, type: anTypeSel, date: byId('anDate').value || ndToday(), text: text, t: Date.now() };
+    var btn = this;
+    btn.disabled = true;
+    anMsg('Сохраняем…', true);
+    saveNeeds(NEEDS.concat([n])).then(function (ok) {
+      btn.disabled = false;
+      byId('anLast').value = '';
+      byId('anFirst').value = '';
+      byId('anText').value = '';
+      anMsg(ok ? 'Нужда добавлена' : 'Добавлено только на этом устройстве: нет связи с базой', ok);
+    });
+  };
+  byId('anList').addEventListener('click', function (e) {
+    var b = e.target;
+    if (!b.getAttribute || b.getAttribute('data-an-del') === null) return;
+    var id = b.getAttribute('data-an-del');
+    var item = NEEDS.filter(function (n) { return n.id === id; })[0];
+    if (!item) return;
+    if (!window.confirm('Удалить нужду: ' + item.nm + ' — ' + item.text + '?')) return;
+    anMsg('Сохраняем…', true);
+    saveNeeds(NEEDS.filter(function (n) { return n.id !== id; })).then(function (ok) {
+      anMsg(ok ? 'Нужда удалена' : 'Удалено только на этом устройстве: нет связи с базой', ok);
+    });
+  });
+  renderNeedsList();
 
   // ---- Админка: адреса (добавить / удалить) ----
   function cleanAddrList(a) {
@@ -2876,6 +3233,7 @@
     byId('adVideo').style.display = part === 'video' ? 'block' : 'none';
     byId('adNotes').style.display = part === 'notes' ? 'block' : 'none';
     byId('adAddr').style.display = part === 'addr' ? 'block' : 'none';
+    byId('adNeeds').style.display = part === 'pray' ? 'block' : 'none';
 
     var inside = adNames[part] ? true : false;
     byId('adTitle').textContent = inside ? 'Админ: ' + adNames[part] : 'Админ';
@@ -2900,6 +3258,7 @@
     }
     if (part === 'video') vAdminInit();
     if (part === 'addr') addrAdminInit();
+    if (part === 'pray') needsAdminInit();
     if (part === 'notes') nInit();
     if (wip) byId('adAnim').innerHTML = adAnims[part];
     window.scrollTo(0, 0);
@@ -2951,6 +3310,7 @@
   byId('adLoginBack').onclick = function () { byId('pw').value = ''; adShow('home'); };
   byId('adWipBack').onclick = function () { adShow('home'); };
   byId('adBackAtt').onclick = function () { adShow('home'); };
+  byId('anBack').onclick = function () { adShow('home'); };
   byId('logout').onclick = function () { adOpen.att = false; byId('saveMsg').textContent = ''; adShow('home'); };
 </script>
 
@@ -2979,13 +3339,14 @@
     saveExtra: function (arr) { return setDoc(doc(col, "team_extra"), { json: JSON.stringify(arr), t: Date.now() }); },
     saveSeed: function (date) { return setDoc(doc(col, "seed_" + date), { date: date, t: Date.now() }); },
     saveAddr: function (arr) { return setDoc(doc(col, "addr_list"), { json: JSON.stringify(arr), t: Date.now() }); },
+    saveNeeds: function (arr) { return setDoc(doc(col, "team_needs"), { json: JSON.stringify(arr), t: Date.now() }); },
     saveGuests: function (arr) { return setDoc(doc(col, "team_guests"), { json: JSON.stringify(arr), t: Date.now() }); },
     saveHidden: function (arr) { return setDoc(doc(col, "team_hidden"), { json: JSON.stringify(arr), t: Date.now() }); }
   };
 
   var migrated = false;
   onSnapshot(col, function (snap) {
-    var journal = null, notes = {}, hasJournal = false, extra = null, hidden = null, guests = null, addr = null, seeded = {};
+    var journal = null, notes = {}, hasJournal = false, extra = null, hidden = null, guests = null, needs = null, addr = null, seeded = {};
     snap.forEach(function (d) {
       var v = d.data();
       if (d.id === "journal") {
@@ -2995,6 +3356,8 @@
         seeded[d.id.slice(5)] = true;
       } else if (d.id === "addr_list") {
         try { var ad = JSON.parse(v.json); if (Array.isArray(ad)) addr = ad; } catch (e) {}
+      } else if (d.id === "team_needs") {
+        try { var nd = JSON.parse(v.json); if (Array.isArray(nd)) needs = nd; } catch (e) {}
       } else if (d.id === "team_guests") {
         try { var gd = JSON.parse(v.json); if (Array.isArray(gd)) guests = gd; } catch (e) {}
       } else if (d.id === "team_hidden") {
@@ -3009,6 +3372,7 @@
     if (extra && window.onRemotePeople) window.onRemotePeople(extra);
     if (hidden && window.onRemoteHidden) window.onRemoteHidden(hidden);
     if (guests && window.onRemoteGuests) window.onRemoteGuests(guests);
+    if (needs && window.onRemoteNeeds) window.onRemoteNeeds(needs);
     if (addr && window.onRemoteAddr) window.onRemoteAddr(addr);
 
     // Первый запуск: базы ещё нет, загружаем то, что уже накоплено в этом браузере
