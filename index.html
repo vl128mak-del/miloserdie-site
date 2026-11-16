@@ -18,6 +18,29 @@
 <style>
   * { box-sizing: border-box; }
   html, body { margin: 0; background: #f5f2eb; }
+  /* Заставка при открытии */
+  #splash { position: fixed; inset: 0; z-index: 99999; background: #f5f2eb; display: flex; align-items: center; justify-content: center; animation: spOut .55s ease 1.9s forwards; }
+  #splash .sp-box { text-align: center; padding: 20px; }
+  #splash .sp-wrap { position: relative; width: 124px; height: 124px; margin: 0 auto; }
+  #splash .sp-ico { position: relative; z-index: 2; width: 124px; height: 124px; border-radius: 30px; display: block; box-shadow: 0 14px 34px rgba(5,80,99,.35); animation: spPop .9s cubic-bezier(.2,1.35,.4,1) both; }
+  #splash .sp-ring { position: absolute; inset: 0; z-index: 1; border-radius: 30px; border: 3px solid #055063; opacity: 0; animation: spRing 1.4s ease-out .55s 1 both; }
+  #splash .sp-ring.r2 { animation-delay: .85s; }
+  #splash .sp-small { margin-top: 26px; font-size: 13px; font-weight: 700; letter-spacing: .28em; text-transform: uppercase; color: #6a8a93; animation: spUp .6s ease .6s both; }
+  #splash .sp-name { margin-top: 2px; font-size: 32px; font-weight: 800; color: #055063; animation: spUp .6s ease .75s both; }
+  #splash .sp-dots { margin-top: 18px; display: flex; gap: 7px; justify-content: center; animation: spUp .5s ease 1s both; }
+  #splash .sp-dots i { width: 8px; height: 8px; border-radius: 50%; background: #055063; opacity: .25; animation: spDot 1s ease-in-out infinite; }
+  #splash .sp-dots i:nth-child(2) { animation-delay: .15s; }
+  #splash .sp-dots i:nth-child(3) { animation-delay: .3s; }
+  @keyframes spPop { 0% { transform: scale(.4) rotate(-8deg); opacity: 0; } 100% { transform: scale(1) rotate(0); opacity: 1; } }
+  @keyframes spRing { 0% { transform: scale(1); opacity: .55; } 100% { transform: scale(1.9); opacity: 0; } }
+  @keyframes spUp { 0% { transform: translateY(14px); opacity: 0; } 100% { transform: translateY(0); opacity: 1; } }
+  @keyframes spDot { 0%, 100% { opacity: .25; transform: translateY(0); } 50% { opacity: 1; transform: translateY(-4px); } }
+  @keyframes spOut { to { opacity: 0; visibility: hidden; transform: scale(1.04); } }
+  @media (prefers-reduced-motion: reduce) {
+    #splash { animation-delay: .7s; }
+    #splash .sp-ico, #splash .sp-ring, #splash .sp-small, #splash .sp-name, #splash .sp-dots, #splash .sp-dots i { animation: none; }
+    #splash .sp-ring { display: none; }
+  }
   body {
     background: #f5f2eb; min-height: 100vh; color: #2c3e50; overflow-x: hidden;
     font-family: 'Nunito', -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Arial, sans-serif;
@@ -51,7 +74,7 @@
   .sub { color: #5f6368; font-size: 15px; margin: 0 0 22px; }
   .view { display: none; }
   .view.active { display: block; }
-  .hero { margin: 0; background: #fff; border-radius: 16px; box-shadow: 0 4px 20px rgba(0,0,0,.06); overflow: hidden; opacity: 0; transform: translateY(40px); animation: rise 1.2s cubic-bezier(.22,.8,.3,1) .2s forwards; }
+  .hero { margin: 0; background: #fff; border-radius: 16px; box-shadow: 0 4px 20px rgba(0,0,0,.06); overflow: hidden; opacity: 0; transform: translateY(40px); animation: rise 1.2s cubic-bezier(.22,.8,.3,1) 1.5s forwards; }
   .stage { position: relative; aspect-ratio: 4 / 3; background: #e8eef4; }
   .slides { position: absolute; top: 0; left: 0; right: 0; bottom: 0; }
   .slide { position: absolute; top: 0; left: 0; width: 100%; height: 100%; object-fit: cover; object-position: center 30%; opacity: 0; transition: opacity .6s ease; }
@@ -449,6 +472,15 @@
 </style>
 </head>
 <body>
+<div id="splash" aria-hidden="true">
+  <div class="sp-box">
+    <div class="sp-wrap"><span class="sp-ring"></span><span class="sp-ring r2"></span><img class="sp-ico" id="spImg" alt=""></div>
+    <div class="sp-small">Команда</div>
+    <div class="sp-name">Милосердие</div>
+    <div class="sp-dots"><i></i><i></i><i></i></div>
+  </div>
+</div>
+<script>(function(){try{var l=document.querySelector('link[rel="apple-touch-icon"]');if(l)document.getElementById('spImg').src=l.href;}catch(e){}})();</script>
 
 <button type="button" class="menu-btn" id="mb" aria-label="Меню">
   <span></span><span></span><span></span>
