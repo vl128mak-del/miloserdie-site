@@ -2,9 +2,9 @@
 <html lang="ru">
 <head>
 <meta charset="utf-8">
-<meta name="viewport" content="width=device-width, initial-scale=1">
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
 <title>Команда Милосердие</title>
-<meta name="theme-color" content="#055063">
+<meta name="theme-color" content="#f5f2eb">
 <meta name="apple-mobile-web-app-capable" content="yes">
 <meta name="mobile-web-app-capable" content="yes">
 <meta name="apple-mobile-web-app-title" content="Милосердие">
@@ -17,13 +17,13 @@
 <link href="https://fonts.googleapis.com/css2?family=Nunito:wght@400;600;700&display=swap" rel="stylesheet">
 <style>
   * { box-sizing: border-box; }
-  html, body { margin: 0; }
+  html, body { margin: 0; background: #f5f2eb; }
   body {
     background: #f5f2eb; min-height: 100vh; color: #2c3e50; overflow-x: hidden;
     font-family: 'Nunito', -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Arial, sans-serif;
   }
   .menu-btn {
-    position: fixed; top: 22px; left: 18px; z-index: 10; width: 44px; height: 44px; padding: 12px 11px;
+    position: fixed; top: calc(22px + env(safe-area-inset-top, 0px)); left: 18px; z-index: 10; width: 44px; height: 44px; padding: 12px 11px;
     background: #fff; border: 0; border-radius: 12px; box-shadow: 0 2px 10px rgba(0,0,0,.14); cursor: pointer;
     display: flex; flex-direction: column; justify-content: space-between; transition: transform .15s ease;
   }
@@ -31,7 +31,7 @@
   .menu-btn span { display: block; height: 3px; background: #2c3e50; border-radius: 2px; }
   nav {
     position: fixed; top: 0; bottom: 0; left: 0; width: 72%; max-width: 290px; background: #fff;
-    transform: translateX(-100%); transition: transform .3s ease; padding: 90px 16px; z-index: 5;
+    transform: translateX(-100%); transition: transform .3s ease; padding: calc(90px + env(safe-area-inset-top, 0px)) 16px 16px; z-index: 5;
     box-shadow: 4px 0 24px rgba(0,0,0,.18); overflow-y: auto;
   }
   nav.open { transform: none; }
@@ -45,7 +45,7 @@
     opacity: 0; visibility: hidden; transition: opacity .3s ease;
   }
   nav.open + .backdrop { opacity: 1; visibility: visible; }
-  main { max-width: 560px; margin: 0 auto; padding: 96px 14px 40px; text-align: center; }
+  main { max-width: 560px; margin: 0 auto; padding: calc(96px + env(safe-area-inset-top, 0px)) 14px calc(40px + env(safe-area-inset-bottom, 0px)); text-align: center; }
   h1 { color: #3b7bb0; font-weight: 700; font-size: clamp(26px, 7vw, 40px); line-height: 1.25; margin: 0 0 28px; padding: 0 6px; }
   h2 { color: #2c3e50; font-weight: 700; font-size: clamp(24px, 6vw, 32px); margin: 0 0 6px; }
   .sub { color: #5f6368; font-size: 15px; margin: 0 0 22px; }
@@ -682,7 +682,7 @@
         <button type="button" class="go" data-ad="att"><span class="go-ic">📅</span><span class="go-t">Посещаемость</span><span class="go-s">Служения и команды</span></button>
         <button type="button" class="go g2" data-ad="notes"><span class="go-ic">📝</span><span class="go-t">Конспекты</span><span class="go-s">Добавить и править</span></button>
         <button type="button" class="go g3" data-ad="addr"><span class="go-ic">📍</span><span class="go-t">Адреса</span><span class="go-s">Добавить и удалить</span></button>
-        <button type="button" class="go g4" data-ad="pray"><span class="go-ic">🙏</span><span class="go-t">Молитвы</span><span class="go-s">Нужды: добавить и удалить</span></button>
+        <button type="button" class="go g4" data-ad="pray"><span class="go-ic">🙏</span><span class="go-t">Нужды</span><span class="go-s">Добавить и удалить</span></button>
       </div>
     </div>
 
@@ -904,7 +904,7 @@
 <script>
   // Пароли разделов админки
   var adPass = { att: '195433', notes: '125627', addr: '482916', pray: '503817' };
-  var adNames = { att: 'Посещаемость', notes: 'Конспекты', addr: 'Адреса', pray: 'Молитвы' };
+  var adNames = { att: 'Посещаемость', notes: 'Конспекты', addr: 'Адреса', pray: 'Нужды' };
   var KEY = 'journal_data';
   var STUDENTS = [
     'Маковик Владислав',
