@@ -160,6 +160,12 @@
   .nd-top b { font-size: 16px; color: #2c3e50; }
   .nd-badge { font-size: 12px; font-weight: 700; padding: 2px 10px; border-radius: 999px; background: #e3effa; color: #3b7bb0; }
   .nd-card.perm .nd-badge { background: #fdefc6; color: #9a6b00; }
+.nd-card.done, .nd-box .nd-card.done { border-left-color: #43a047; background: #eef8ee; }
+  .nd-card.done .nd-text { color: #3d5a40; }
+  .nd-badge.ok { background: #d7f0d9; color: #2e7d32; }
+  .nd-badges { display: flex; gap: 6px; flex-wrap: wrap; }
+  .nd-meta .nd-act { color: #2e7d32; font-weight: 600; }
+  .nd-meta .nd-del { color: #c0463a; opacity: .7; }
   .nd-text { margin-top: 6px; white-space: pre-wrap; word-break: break-word; line-height: 1.45; color: #2c3e50; }
   .nd-meta { margin-top: 6px; display: flex; justify-content: space-between; align-items: center; font-size: 12px; color: #5f6368; }
   .nd-meta button { border: 0; background: none; color: #c0463a; font-size: 13px; cursor: pointer; font-family: inherit; padding: 2px 4px; }
@@ -413,6 +419,7 @@
   .tbar { display: flex; flex-wrap: wrap; gap: 6px; align-items: center; background: #eef4f9; border-radius: 10px 10px 0 0; padding: 8px; margin-top: 14px; position: sticky; top: 0; z-index: 4; }
   .tsep { width: 1px; height: 22px; background: #c4c9cf; margin: 0 2px; }
   .tl { font-size: 12px; color: #5f6368; }
+  .tbar.nosel [data-sel], .tbar.nosel .tsel { opacity: .4; }
   .tsel { padding: 7px 8px; font-size: 14px; border: 1px solid #d9dde2; border-radius: 8px; background: #fff; font-family: inherit; }
   .sw { width: 26px; height: 26px; border-radius: 50%; border: 2px solid #fff; box-shadow: 0 0 0 1px #c4c9cf; cursor: pointer; padding: 0; font-size: 12px; color: #5f6368; line-height: 1; }
   .editor { min-height: 280px; background: #fff; border: 1px solid #d9dde2; border-top: 0; border-radius: 0 0 10px 10px; padding: 14px; outline: none; font-size: 17px; }
@@ -714,7 +721,7 @@
         <button type="button" class="go" data-ad="att"><span class="go-ic">📅</span><span class="go-t">Посещаемость</span><span class="go-s">Служения и команды</span></button>
         <button type="button" class="go g2" data-ad="notes"><span class="go-ic">📝</span><span class="go-t">Конспекты</span><span class="go-s">Добавить и править</span></button>
         <button type="button" class="go g3" data-ad="addr"><span class="go-ic">📍</span><span class="go-t">Адреса</span><span class="go-s">Добавить и удалить</span></button>
-        <button type="button" class="go g4" data-ad="pray"><span class="go-ic">🙏</span><span class="go-t">Нужды</span><span class="go-s">Добавить и удалить</span></button>
+        <button type="button" class="go g4" data-ad="pray"><span class="go-ic">🙏</span><span class="go-t">Нужды</span><span class="go-s">Добавить и отметить исполнение</span></button>
       </div>
     </div>
 
@@ -758,9 +765,9 @@
       <input type="text" class="nin" id="nTitle" placeholder="Название конспекта">
 
       <div class="tbar" id="nBar">
-        <button type="button" class="tb" data-k="cmd" data-v="bold" title="Жирный"><b>Ж</b></button>
-        <button type="button" class="tb" data-k="cmd" data-v="italic" title="Курсив"><i>К</i></button>
-        <button type="button" class="tb" data-k="cmd" data-v="underline" title="Подчёркнутый"><u>Ч</u></button>
+        <button type="button" class="tb" data-k="cmd" data-v="bold" data-sel="1" title="Жирный"><b>Ж</b></button>
+        <button type="button" class="tb" data-k="cmd" data-v="italic" data-sel="1" title="Курсив"><i>К</i></button>
+        <button type="button" class="tb" data-k="cmd" data-v="underline" data-sel="1" title="Подчёркнутый"><u>Ч</u></button>
         <select id="nSize" class="tsel" title="Размер текста">
           <option value="">Размер</option>
           <option value="2">Мелкий</option>
@@ -774,13 +781,13 @@
         <button type="button" class="tb" data-k="cmd" data-v="insertUnorderedList" title="Пункты списка">• Пункты</button>
         <span class="tsep"></span>
         <span class="tl">Маркер</span>
-        <button type="button" class="sw" style="background:#fff176" data-k="hl" data-v="#fff176" title="Жёлтый"></button>
-        <button type="button" class="sw" style="background:#ffcc80" data-k="hl" data-v="#ffcc80" title="Оранжевый"></button>
-        <button type="button" class="sw" style="background:#f8bbd0" data-k="hl" data-v="#f8bbd0" title="Розовый"></button>
-        <button type="button" class="sw" style="background:#c8e6c9" data-k="hl" data-v="#c8e6c9" title="Зелёный"></button>
-        <button type="button" class="sw" style="background:#bbdefb" data-k="hl" data-v="#bbdefb" title="Голубой"></button>
-        <button type="button" class="sw" style="background:#d1c4e9" data-k="hl" data-v="#d1c4e9" title="Фиолетовый"></button>
-        <button type="button" class="sw" style="background:#fff" data-k="hl" data-v="transparent" title="Убрать маркер">✕</button>
+        <button type="button" class="sw" style="background:#fff176" data-k="hl" data-sel="1" data-v="#fff176" title="Жёлтый"></button>
+        <button type="button" class="sw" style="background:#ffcc80" data-k="hl" data-sel="1" data-v="#ffcc80" title="Оранжевый"></button>
+        <button type="button" class="sw" style="background:#f8bbd0" data-k="hl" data-sel="1" data-v="#f8bbd0" title="Розовый"></button>
+        <button type="button" class="sw" style="background:#c8e6c9" data-k="hl" data-sel="1" data-v="#c8e6c9" title="Зелёный"></button>
+        <button type="button" class="sw" style="background:#bbdefb" data-k="hl" data-sel="1" data-v="#bbdefb" title="Голубой"></button>
+        <button type="button" class="sw" style="background:#d1c4e9" data-k="hl" data-sel="1" data-v="#d1c4e9" title="Фиолетовый"></button>
+        <button type="button" class="sw" style="background:#fff" data-k="hl" data-sel="1" data-v="transparent" title="Убрать маркер">✕</button>
         <span class="tsep"></span>
         <button type="button" class="tb" data-k="cmd" data-v="undo" title="Отменить">↶</button>
       </div>
@@ -853,7 +860,7 @@
           <div class="msg" id="anMsg"></div>
         </div>
       </details>
-      <div class="rmh" style="margin-top:6px">🗑️ Все нужды</div>
+      <div class="rmh" style="margin-top:6px">📋 Все нужды</div>
       <input type="text" class="asrch" id="anSearch" placeholder="Поиск по имени или тексту">
       <div class="acnt" id="anCount"></div>
       <div id="anList"></div>
@@ -2862,6 +2869,8 @@
     var n = NOTES[v];
     byId('nTitle').value = n ? (n.title ? n.title : '') : '';
     byId('nEditor').innerHTML = n ? noteHtml(n) : '';
+    nSel = null;
+    updSelState();
     nArm = false;
     byId('nDel').textContent = 'Удалить конспект';
     byId('nDel').style.opacity = n ? '1' : '0.45';
@@ -2887,8 +2896,17 @@
     if (!window.getSelection) return;
     var sel = window.getSelection();
     if (!sel.rangeCount) return;
-    if (byId('nEditor').contains(sel.anchorNode)) nSel = sel.getRangeAt(0).cloneRange();
+    if (byId('nEditor').contains(sel.anchorNode)) { nSel = sel.getRangeAt(0).cloneRange(); updSelState(); }
   });
+  function hasSel() {
+    return !!(nSel && !nSel.collapsed && byId('nEditor').contains(nSel.commonAncestorContainer));
+  }
+  function updSelState() {
+    byId('nBar').classList.toggle('nosel', !hasSel());
+  }
+  function needSelMsg() {
+    nMsg('Сначала выделите слово или текст, потом нажмите кнопку', false);
+  }
   function fmt2(cmd, val) {
     restoreSel();
     if (!document.execCommand) return;
@@ -2917,6 +2935,7 @@
     if (b === byId('nBar')) return;
     var k = b.getAttribute('data-k');
     var v = b.getAttribute('data-v');
+    if (b.getAttribute('data-sel') && !hasSel()) { needSelMsg(); return; }
     if (k === 'cmd') fmt2(v);
     if (k === 'block') toggleBlock(v);
     if (k === 'hl') fmt2('hiliteColor', v);
@@ -2926,10 +2945,14 @@
   });
   byId('nSize').addEventListener('change', function () {
     var v = byId('nSize').value;
-    if (v) fmt2('fontSize', v);
+    if (v && !hasSel()) needSelMsg();
+    else if (v) fmt2('fontSize', v);
     byId('nSize').value = '';
   });
   byId('nEditor').addEventListener('input', tidyEditor);
+  byId('nEditor').addEventListener('keydown', function (e) {
+    if ((e.ctrlKey || e.metaKey) && /^[biu]$/i.test(e.key) && !hasSel()) { e.preventDefault(); needSelMsg(); }
+  });
   byId('nEditor').addEventListener('paste', function (e) {
     var cd = e.clipboardData;
     if (!cd) return;
@@ -3185,7 +3208,7 @@
       if (!x || typeof x.nm !== 'string' || typeof x.text !== 'string') return;
       var nm = x.nm.replace(/\s+/g, ' ').trim(), tx = x.text.trim();
       if (!nm || !tx) return;
-      out.push({ id: String(x.id || ''), nm: nm, type: x.type === 'perm' ? 'perm' : 'temp', date: typeof x.date === 'string' ? x.date : '', text: tx.slice(0, 600), t: +x.t || 0 });
+      out.push({ id: String(x.id || ''), nm: nm, type: x.type === 'perm' ? 'perm' : 'temp', date: typeof x.date === 'string' ? x.date : '', text: tx.slice(0, 600), t: +x.t || 0, done: !!x.done, dd: typeof x.dd === 'string' ? x.dd : '' });
     });
     return out;
   }
@@ -3221,15 +3244,19 @@
   }
   function sortNeeds(list) {
     return list.slice().sort(function (a, b) {
+      if (!!a.done !== !!b.done) return a.done ? 1 : -1;
       if (a.type !== b.type) return a.type === 'perm' ? -1 : 1;
       return (b.date || '').localeCompare(a.date || '') || (b.t - a.t);
     });
   }
   function ndCardHtml(n, canDel) {
-    return '<div class="nd-card ' + n.type + '"><div class="nd-top"><b>' + esc(n.nm) + '</b>' +
-           '<span class="nd-badge">' + (n.type === 'perm' ? 'Постоянная' : 'Временная') + '</span></div>' +
+    return '<div class="nd-card ' + n.type + (n.done ? ' done' : '') + '"><div class="nd-top"><b>' + esc(n.nm) + '</b>' + ndBadges(n) + '</div>' +
            '<div class="nd-text">' + esc(n.text) + '</div>' +
-           '<div class="nd-meta"><span>' + (n.date ? fmtFull(n.date) : '') + '</span></div></div>';
+           '<div class="nd-meta"><span>' + (n.date ? fmtFull(n.date) : '') + (n.done && n.dd ? ' · исполнена ' + fmtFull(n.dd) : '') + '</span></div></div>';
+  }
+  function ndBadges(n) {
+    return '<span class="nd-badges">' + (n.done ? '<span class="nd-badge ok">✅ Исполнена</span>' : '') +
+           '<span class="nd-badge">' + (n.type === 'perm' ? 'Постоянная' : 'Временная') + '</span></span>';
   }
   function renderNeedsBox(id, name) {
     var list = needsFor(name);
@@ -3323,13 +3350,13 @@
     if (byId('adNeeds').style.display === 'none') return;
     var q = byId('anSearch').value.trim().toLowerCase();
     var list = sortNeeds(NEEDS.filter(function (n) { return !q || (n.nm + ' ' + n.text).toLowerCase().indexOf(q) >= 0; }));
-    byId('anCount').textContent = 'Нужд: ' + list.length + (q ? ' из ' + NEEDS.length : '');
+    byId('anCount').textContent = 'Нужд: ' + list.length + (q ? ' из ' + NEEDS.length : '') + ', исполнено: ' + list.filter(function (n) { return n.done; }).length;
     byId('anList').innerHTML = list.length ? list.map(function (n) {
-      return '<div class="nd-card ' + n.type + '"><div class="nd-top"><b>' + esc(n.nm) + '</b>' +
-             '<span class="nd-badge">' + (n.type === 'perm' ? 'Постоянная' : 'Временная') + '</span></div>' +
+      return '<div class="nd-card ' + n.type + (n.done ? ' done' : '') + '"><div class="nd-top"><b>' + esc(n.nm) + '</b>' + ndBadges(n) + '</div>' +
              '<div class="nd-text">' + esc(n.text) + '</div>' +
-             '<div class="nd-meta"><span>' + (n.date ? fmtFull(n.date) : '') + '</span>' +
-             '<button type="button" data-an-del="' + esc(n.id) + '">Удалить</button></div></div>';
+             '<div class="nd-meta"><span>' + (n.date ? fmtFull(n.date) : '') + (n.done && n.dd ? ' · исполнена ' + fmtFull(n.dd) : '') + '</span>' +
+             '<span><button type="button" class="nd-act" data-an-done="' + esc(n.id) + '">' + (n.done ? '↩ Вернуть в нужды' : '✅ Нужда исполнена') + '</button>' +
+             '<button type="button" class="nd-del" data-an-del="' + esc(n.id) + '">Удалить</button></span></div></div>';
     }).join('') : '<div class="empty">Нужд пока нет.</div>';
   }
   function needsAdminInit() {
@@ -3372,6 +3399,22 @@
   };
   byId('anList').addEventListener('click', function (e) {
     var b = e.target;
+    if (b.getAttribute && b.getAttribute('data-an-done') !== null) {
+      var did = b.getAttribute('data-an-done');
+      var cur = NEEDS.filter(function (n) { return n.id === did; })[0];
+      if (!cur) return;
+      var nowDone = !cur.done;
+      anMsg('Сохраняем…', true);
+      saveNeeds(NEEDS.map(function (n) {
+        if (n.id !== did) return n;
+        var c = {}; for (var k in n) c[k] = n[k];
+        c.done = nowDone; c.dd = nowDone ? ndToday() : '';
+        return c;
+      })).then(function (ok) {
+        anMsg(ok ? (nowDone ? 'Отмечено: нужда исполнена' : 'Нужда снова в списке') : 'Сохранено только на этом устройстве: нет связи с базой', ok);
+      });
+      return;
+    }
     if (!b.getAttribute || b.getAttribute('data-an-del') === null) return;
     var id = b.getAttribute('data-an-del');
     var item = NEEDS.filter(function (n) { return n.id === id; })[0];
