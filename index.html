@@ -52,35 +52,6 @@
   }
   .menu-btn:hover { transform: translateY(-2px); }
   .menu-btn span { display: block; height: 3px; background: #2c3e50; border-radius: 2px; }
-  .set-btn { position: fixed; top: calc(22px + env(safe-area-inset-top, 0px)); right: 18px; z-index: 10; width: 44px; height: 44px; background: #fff; border: 0; border-radius: 12px; box-shadow: 0 2px 10px rgba(0,0,0,.14); cursor: pointer; font-size: 22px; line-height: 1; padding: 0; }
-  .set-card { background: #fff; border-radius: 18px; width: 100%; max-width: 420px; max-height: 88vh; overflow-y: auto; padding: 18px; box-shadow: 0 10px 40px rgba(0,0,0,.25); }
-  .set-head { display: flex; align-items: center; justify-content: space-between; font-size: 20px; font-weight: 800; color: #2c3e50; }
-  .set-x { border: 0; background: #eef2f5; width: 34px; height: 34px; border-radius: 50%; font-size: 16px; cursor: pointer; color: #5f6368; }
-  .set-row { margin-top: 16px; }
-  .set-lbl { font-weight: 700; color: #2c3e50; margin-bottom: 6px; }
-  .set-hint { font-size: 13px; color: #7a8590; margin-top: 4px; line-height: 1.35; }
-  .set-btn.in { background: #3b7bb0; color: #fff; font-size: 19px; font-weight: 800; }
-  .ac-box { background: #f3f7fb; border-radius: 12px; padding: 12px 14px; margin-top: 14px; }
-  .ac-name { font-size: 20px; font-weight: 800; color: #2c3e50; margin-top: 2px; }
-  .set-hint a { color: #3b7bb0; font-weight: 600; }
-  .st-seg { display: flex; gap: 6px; flex-wrap: wrap; }
-  .st-seg button { flex: 1 1 auto; padding: 9px 10px; border: 2px solid #dfe6ee; background: #fff; border-radius: 10px; font: inherit; font-size: 14px; font-weight: 600; color: #3b7bb0; cursor: pointer; }
-  .st-seg button.on { background: #3b7bb0; border-color: #3b7bb0; color: #fff; }
-  .st-tgl-row { display: flex; align-items: center; justify-content: space-between; gap: 12px; }
-  .st-tgl { flex: none; width: 52px; height: 30px; border-radius: 999px; border: 0; background: #cfd6dd; position: relative; cursor: pointer; transition: background .2s; padding: 0; }
-  .st-tgl::after { content: ''; position: absolute; top: 3px; left: 3px; width: 24px; height: 24px; border-radius: 50%; background: #fff; box-shadow: 0 1px 3px rgba(0,0,0,.3); transition: transform .2s; }
-  .st-tgl.on { background: #43a047; }
-  .st-tgl.on::after { transform: translateX(22px); }
-  .st-reset { margin-top: 18px; width: 100%; padding: 10px; border: 0; border-radius: 10px; background: #f3f5f7; color: #c0463a; font: inherit; font-weight: 700; cursor: pointer; }
-  html.dark { filter: invert(.92) hue-rotate(180deg); background: #f5f2eb; }
-  html.dark img, html.dark video, html.dark iframe, html.dark canvas { filter: invert(1) hue-rotate(180deg); }
-  body.compact table.j th, body.compact table.j td { padding: 3px 7px; font-size: 12px; }
-  body.compact table.j td.num, body.compact table.j th.num { min-width: 26px; }
-  body.compact .jwrap { max-height: 85vh; }
-  body.compact table.j .b { width: 18px; height: 18px; font-size: 11px; }
-  body.compact #leaders .lrow { padding: 4px 6px; gap: 8px; }
-  body.compact #leaders .lname { font-size: 13px; }
-  body.compact #leaders .lval { font-size: 12px; }
   nav {
     position: fixed; top: 0; bottom: 0; left: 0; width: 72%; max-width: 290px; background: #fff;
     transform: translateX(-100%); transition: transform .3s ease; padding: calc(90px + env(safe-area-inset-top, 0px)) 16px 16px; z-index: 5;
@@ -116,14 +87,6 @@
   .dots { position: absolute; left: 0; right: 0; bottom: 10px; display: none; justify-content: center; gap: 6px; }
   .dot { width: 8px; height: 8px; border-radius: 4px; background: rgba(255,255,255,.6); cursor: pointer; transition: width .25s ease, background .25s ease; }
   .dot.on { width: 22px; background: #fff; }
-  .today-rem { display: none; position: relative; overflow: hidden; margin-top: 14px; padding: 16px 18px 18px; border-radius: 18px; background: linear-gradient(135deg, #14315c 0%, #1f4e8c 100%); color: #fff; box-shadow: 0 6px 20px rgba(20,49,92,.35); }
-  .today-rem.show { display: block; }
-  .today-rem .tr-bg { position: absolute; right: -6px; top: -8px; font-size: 92px; line-height: 1; opacity: .16; pointer-events: none; }
-  .today-rem .tr-day { position: relative; display: inline-block; font-size: 12px; font-weight: 700; letter-spacing: .08em; text-transform: uppercase; color: #bcd8f7; background: rgba(255,255,255,.13); border-radius: 999px; padding: 4px 12px; }
-  .today-rem .tr-title { position: relative; font-size: 28px; font-weight: 800; line-height: 1.15; margin: 10px 0 12px; }
-  .today-rem .tr-chips { position: relative; display: flex; flex-wrap: wrap; gap: 8px; }
-  .today-rem .tr-chips span { background: #fff; color: #14315c; border-radius: 12px; padding: 8px 14px; font-size: 17px; font-weight: 700; }
-  .today-rem .tr-chips .tr-t { background: #ffd35a; color: #3a2a00; font-size: 20px; font-weight: 800; }
   .cap { padding: 14px 16px; color: #5f6368; font-size: 15px; }
   .pr-card { position: relative; overflow: hidden; background: linear-gradient(145deg, #3b7bb0, #6fb1d8 60%, #9ad0ec); color: #fff; border-radius: 22px; padding: 28px 20px 24px; text-align: center; box-shadow: 0 10px 30px rgba(59,123,176,.35); }
   .pr-card::before, .pr-card::after { content: ''; position: absolute; border-radius: 50%; background: rgba(255,255,255,.12); pointer-events: none; }
@@ -514,7 +477,6 @@
   .tile b { display: block; font-size: 22px; color: #2c3e50; }
   .tile span { font-size: 13px; color: #5f6368; }
 </style>
-<script src="https://cdn.jsdelivr.net/npm/@supabase/supabase-js@2.45.4/dist/umd/supabase.min.js"></script>
 </head>
 <body>
 <div id="splash" aria-hidden="true">
@@ -527,14 +489,7 @@
 </div>
 <script>(function(){try{var l=document.querySelector('link[rel="apple-touch-icon"]');if(l)document.getElementById('spImg').src=l.href;}catch(e){}})();</script>
 
-<button type="button" class="set-btn" id="setBtn" aria-label="Аккаунт">👤</button>
-  <div class="adr-ov" id="setOv">
-    <div class="set-card" role="dialog" aria-label="Настройки">
-      <div class="set-head"><span>👤 Аккаунт</span><button type="button" class="set-x" id="setX" aria-label="Закрыть">✕</button></div>
-      <div id="setBody"></div>
-    </div>
-  </div>
-  <button type="button" class="menu-btn" id="mb" aria-label="Меню">
+<button type="button" class="menu-btn" id="mb" aria-label="Меню">
   <span></span><span></span><span></span>
 </button>
 
@@ -561,7 +516,6 @@
       </div>
       <div class="cap">Команда «Милосердие»</div>
     </div>
-    <div class="today-rem" id="todayRem"></div>
 
     <div class="go-grid">
       <button type="button" class="go" data-go="att"><span class="go-ic">📅</span><span class="go-t">Посещаемость</span><span class="go-s">Журнал и таблица лидеров</span></button>
@@ -950,14 +904,6 @@
           <div id="rmList"></div>
         </div>
       </details>
-      <details class="addp" id="edp">
-        <summary>✏️ Изменить имя или фамилию</summary>
-        <div class="addp-b">
-          <div class="empty">Отметки и серии человека сохраняются, меняется только имя в таблице, рейтинге и командах.</div>
-          <div class="msg" id="edMsg"></div>
-          <div id="edList"></div>
-        </div>
-      </details>
       <label for="dateIn"><b>Дата служения:</b></label>
       <input type="date" id="dateIn"> <span id="dayName" style="margin-left:10px;font-weight:bold"></span>
       <div id="typeRow" style="display:none;margin-top:12px">
@@ -1041,8 +987,6 @@
 
   // ---- Новые люди: добавляются в админке, хранятся в базе (документ team_extra) и дописываются в конец списка ----
   var BASE_COUNT = STUDENTS.length;
-  var BASE_NAMES = STUDENTS.slice();   // исходные имена (до переименований)
-  var RENAMES = {};   // переименования: индекс -> новое «Фамилия Имя»
   var EXTRA = [];
   var DELETED = {};  // удалены навсегда (из списка скрытых тоже пропадают)
   var GUEST = {};    // люди «не в группе»: индексы, показываются отдельной таблицей ниже основной
@@ -1072,19 +1016,8 @@
   }
   function applyExtra(list) {
     EXTRA = list.slice();
-    applyRenames(RENAMES);
-  }
-  function origName(i) { return i < BASE_COUNT ? BASE_NAMES[i] : EXTRA[i - BASE_COUNT]; }
-  function applyRenames(map) {
-    RENAMES = {};
-    Object.keys(map || {}).forEach(function (k) {
-      var v = map[k];
-      if (+k >= 0 && typeof v === 'string' && v.trim()) RENAMES[+k] = v.replace(/\s+/g, ' ').trim();
-    });
     STUDENTS.length = BASE_COUNT;
-    for (var b = 0; b < BASE_COUNT; b++) STUDENTS[b] = BASE_NAMES[b];
     EXTRA.forEach(function (n) { STUDENTS.push(n); });
-    Object.keys(RENAMES).forEach(function (k) { if (STUDENTS[k] !== undefined) STUDENTS[k] = RENAMES[k]; });
     rebuildOrder();
   }
   function applyHidden(list) {
@@ -1110,10 +1043,6 @@
   try {
     var rawH = localStorage.getItem('team_hidden');
     if (rawH) { var arrH = JSON.parse(rawH); if (Array.isArray(arrH)) applyHidden(arrH); }
-  } catch (e) {}
-  try {
-    var rawR = localStorage.getItem('team_renames');
-    if (rawR) { var objR = JSON.parse(rawR); if (objR && typeof objR === 'object' && !Array.isArray(objR)) applyRenames(objR); }
   } catch (e) {}
 
   rebuildOrder();
@@ -1184,210 +1113,6 @@
     return -1;
   }
 
-  // ---- Настройки (шестерёнка), хранятся на этом устройстве ----
-  var PREF_DEF = { theme: 'system', density: 'normal', sort: 'default', hide: false };
-  var PREF = (function () {
-    var p = {};
-    try { p = JSON.parse(localStorage.getItem('mil_prefs') || '{}') || {}; } catch (e) {}
-    var o = {};
-    for (var k in PREF_DEF) o[k] = (k in p && typeof p[k] === typeof PREF_DEF[k]) ? p[k] : PREF_DEF[k];
-    return o;
-  })();
-  function savePref() { try { localStorage.setItem('mil_prefs', JSON.stringify(PREF)); } catch (e) {} }
-  var darkMQ = window.matchMedia ? window.matchMedia('(prefers-color-scheme: dark)') : null;
-  function applyPrefs() {
-    var dark = PREF.theme === 'dark' || (PREF.theme === 'system' && darkMQ && darkMQ.matches);
-    document.documentElement.classList.toggle('dark', dark);
-    document.body.classList.toggle('compact', PREF.density === 'compact');
-  }
-  if (darkMQ && darkMQ.addEventListener) darkMQ.addEventListener('change', applyPrefs);
-  applyPrefs();
-
-  function visitsOf(i) {
-    var c = 0;
-    data.forEach(function (l) { if (l.marks[i] === 1) c++; });
-    return c;
-  }
-  function lastVisit(i) {
-    var last = '';
-    data.forEach(function (l) { if (l.marks[i] === 1 && l.date > last) last = l.date; });
-    return last;
-  }
-  // «неактивные» — не приходили больше 2 месяцев до последнего служения
-  function inactiveSet() {
-    var set = {};
-    if (!PREF.hide || !data.length) return set;
-    var mx = '';
-    data.forEach(function (l) { if (l.date > mx) mx = l.date; });
-    var q = mx.split('-'), d = new Date(+q[0], +q[1] - 1, +q[2]);
-    d.setDate(d.getDate() - 60);
-    var cut = d.getFullYear() + '-' + pad(d.getMonth() + 1) + '-' + pad(d.getDate());
-    var all = ORDER.concat(GORDER), n = 0;
-    all.forEach(function (i) { if (lastVisit(i) < cut) { set[i] = true; n++; } });
-    return n >= all.length ? {} : set;
-  }
-  function sortList(list) {
-    var l = list.slice();
-    var alpha = function (a, b) { return STUDENTS[a].localeCompare(STUDENTS[b], 'ru'); };
-    if (PREF.sort === 'alpha') l.sort(alpha);
-    else if (PREF.sort === 'count') {
-      var c = {}; l.forEach(function (i) { c[i] = visitsOf(i); });
-      l.sort(function (a, b) { return c[b] - c[a] || alpha(a, b); });
-    } else if (PREF.sort === 'last') {
-      var v = {}; l.forEach(function (i) { v[i] = lastVisit(i); });
-      l.sort(function (a, b) { return v[a] < v[b] ? 1 : v[a] > v[b] ? -1 : alpha(a, b); });
-    }
-    return l;
-  }
-
-  // ---- Аккаунт: вход с подтверждением в Telegram (для просмотра сайта вход не нужен) ----
-  // Заполни три значения из инструкции (Supabase → Project Settings → API; username бота без @):
-  var SB_URL = 'https://lnzrymmglavdedigjnox.supabase.co/rest/v1/';   // например 'https://abcdxyz.supabase.co'
-  var SB_KEY = 'eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpc3MiOiJzdXBhYmFzZSIsInJlZiI6ImxuenJ5bW1nbGF2ZGVkaWdqbm94Iiwicm9sZSI6ImFub24iLCJpYXQiOjE3OTUzNDQ4MTcsImV4cCI6MjExMDkyMDgxN30.pyTeEkk7YDW8kVEb57G5RTFgBZ-S7yiyREoCNr-YJ_g';   // публичный anon / publishable ключ
-  var TG_BOT = '';   // например 'miloserdie_team_bot'
-  var SBC = null;
-  var AC = { me: null, status: '', waiting: false, run: 0, sel: '' };
-  function sbClient() {
-    if (!SBC && SB_URL && SB_KEY && window.supabase) { try { SBC = window.supabase.createClient(SB_URL, SB_KEY); } catch (e) {} }
-    return SBC;
-  }
-  function acUpdateBtn() {
-    var b = byId('setBtn'), nm = AC.me !== null ? (STUDENTS[AC.me] || '') : '';
-    if (nm) { var pp = nm.split(' '); b.textContent = ((pp[1] || pp[0] || '?').charAt(0) || '?').toUpperCase(); b.classList.add('in'); }
-    else { b.textContent = '👤'; b.classList.remove('in'); }
-  }
-  function acSet(msg, waiting) {
-    AC.status = msg; AC.waiting = !!waiting;
-    if (byId('setOv').classList.contains('open')) renderSettings();
-  }
-  function accountHtml() {
-    var h = '<div class="ac-box">';
-    if (AC.me !== null) {
-      h += '<div class="set-lbl" style="margin:0">Вы вошли как</div><div class="ac-name">' + esc(STUDENTS[AC.me] || '') + '</div>' +
-           '<button type="button" class="st-reset" id="acLogout" style="margin-top:10px;color:#3b7bb0">Выйти из аккаунта</button>';
-    } else if (!SB_URL || !SB_KEY) {
-      h += '<div class="set-lbl" style="margin:0">Войти в аккаунт</div><div class="set-hint">Вход через Telegram пока не подключён. Сайтом можно пользоваться и без входа.</div>';
-    } else {
-      var ids = [];
-      for (var i = 0; i < STUDENTS.length; i++) { if (!DELETED[i]) ids.push(i); }
-      ids.sort(function (a, b) { return STUDENTS[a].localeCompare(STUDENTS[b], 'ru'); });
-      var opts = '<option value="">Выберите своё имя</option>';
-      ids.forEach(function (i) { opts += '<option value="' + i + '"' + (String(i) === AC.sel ? ' selected' : '') + '>' + esc(STUDENTS[i]) + '</option>'; });
-      h += '<div class="set-lbl" style="margin:0 0 6px">Войти в аккаунт</div><select id="acSel" class="tsel" style="width:100%"' + (AC.waiting ? ' disabled' : '') + '>' + opts + '</select>' +
-           '<div class="st-seg" style="margin-top:8px">' +
-           (AC.waiting ? '<button type="button" id="acCancel">Отменить</button>' : '<button type="button" id="acLogin" class="on">Войти через Telegram</button>') + '</div>' +
-           '<div class="set-hint">' + (AC.status || 'Подтверждение придёт в Telegram. Для просмотра сайта входить не нужно.') + '</div>';
-    }
-    return h + '</div><div class="set-head" style="margin-top:22px;font-size:17px">⚙️ Настройки</div>';
-  }
-  async function acLogin() {
-    var sel = byId('acSel');
-    var idx = sel && sel.value !== '' ? +sel.value : -1;
-    if (idx < 0) { acSet('Сначала выберите своё имя.', false); return; }
-    var cl = sbClient();
-    if (!cl) { acSet('Не удалось подключиться. Проверьте интернет и попробуйте позже.', false); return; }
-    AC.sel = String(idx);
-    var run = ++AC.run;
-    acSet('Отправляем запрос…', true);
-    var r;
-    try { r = await cl.functions.invoke('login-start', { body: { person: idx, name: STUDENTS[idx] } }); } catch (e) { r = { error: e }; }
-    if (run !== AC.run) return;
-    var d = r.data;
-    if (r.error || !d) { acSet('Нет связи, попробуйте позже.', false); return; }
-    if (d.error === 'not_linked') {
-      acSet('Ваш Telegram ещё не привязан. Откройте бота' + (TG_BOT ? ' <a href="https://t.me/' + TG_BOT + '" target="_blank" rel="noopener">@' + TG_BOT + '</a>' : '') +
-            ' и нажмите Start. Если вас нет в списке, напишите организатору.', false);
-      return;
-    }
-    if (d.error === 'too_often') { acSet('Подождите минуту и повторите.', false); return; }
-    acSet('Вам пришло сообщение от бота в Telegram. Нажмите «✅ Это я», и вход подтвердится.', true);
-    for (var k = 0; k < 300; k++) {
-      await new Promise(function (ok) { setTimeout(ok, 2000); });
-      if (run !== AC.run) return;
-      var c;
-      try { c = await cl.rpc('check_login', { p_token: d.token }); } catch (e) { continue; }
-      var st = c && c.data && c.data.status;
-      if (st === 'ok') {
-        try { localStorage.setItem('mil_session', c.data.session); } catch (e) {}
-        AC.me = c.data.person; AC.sel = '';
-        acUpdateBtn(); acSet('', false);
-        return;
-      }
-      if (st === 'denied') { acSet('Вход отклонён.', false); return; }
-      if (st === 'expired') { acSet('Время вышло, попробуйте ещё раз.', false); return; }
-    }
-    acSet('Время вышло, попробуйте ещё раз.', false);
-  }
-  async function acInit() {
-    var s = null;
-    try { s = localStorage.getItem('mil_session'); } catch (e) {}
-    var cl = s ? sbClient() : null;
-    if (!cl) return;
-    try {
-      var r = await cl.rpc('whoami', { p_session: s });
-      if (r.data === null || r.data === undefined) { try { localStorage.removeItem('mil_session'); } catch (e) {} AC.me = null; }
-      else AC.me = r.data;
-    } catch (e) {}
-    acUpdateBtn();
-  }
-
-  var SET_OPTS = [
-    { k: 'theme', t: 'Тема оформления', o: [['light', '☀️ Светлая'], ['dark', '🌙 Тёмная'], ['system', 'Как в системе']] },
-    { k: 'density', t: 'Плотность таблицы', o: [['normal', 'Крупно, удобно читать'], ['compact', 'Сжато, виден весь список']] },
-    { k: 'sort', t: 'Сортировка списка', o: [['default', 'Как сейчас'], ['alpha', 'По алфавиту'], ['count', 'По числу посещений'], ['last', 'По дате последнего визита']] }
-  ];
-  function renderSettings() {
-    var h = accountHtml();
-    SET_OPTS.forEach(function (g) {
-      h += '<div class="set-row"><div class="set-lbl">' + g.t + '</div><div class="st-seg">';
-      g.o.forEach(function (o) {
-        h += '<button type="button" data-pk="' + g.k + '" data-pv="' + o[0] + '"' + (PREF[g.k] === o[0] ? ' class="on"' : '') + '>' + o[1] + '</button>';
-      });
-      h += '</div></div>';
-    });
-    h += '<div class="set-row"><div class="st-tgl-row"><div><div class="set-lbl" style="margin:0">Скрывать неактивных</div>' +
-         '<div class="set-hint">Прячет тех, кто не приходил больше 2 месяцев (в журнале и в таблице лидеров)</div></div>' +
-         '<button type="button" class="st-tgl' + (PREF.hide ? ' on' : '') + '" data-pk="hide" data-pv="t" role="switch" aria-checked="' + PREF.hide + '"></button></div></div>';
-    h += '<button type="button" class="st-reset" id="setReset">Сбросить настройки</button>';
-    byId('setBody').innerHTML = h;
-  }
-  function openSettings() {
-    renderSettings();
-    if (!byId('setOv').classList.contains('open')) ovPush();
-    byId('setOv').classList.add('open');
-    document.body.style.overflow = 'hidden';
-  }
-  function closeSettings() {
-    if (!byId('setOv').classList.contains('open')) return;
-    byId('setOv').classList.remove('open');
-    document.body.style.overflow = '';
-    ovPop();
-  }
-  byId('setBtn').onclick = openSettings;
-  byId('setBody').addEventListener('change', function (e) { if (e.target && e.target.id === 'acSel') AC.sel = e.target.value; });
-  acInit();
-  byId('setX').onclick = closeSettings;
-  byId('setOv').addEventListener('click', function (e) {
-    if (e.target === byId('setOv')) { closeSettings(); return; }
-    var b = e.target.closest ? e.target.closest('button') : null;
-    if (!b) return;
-    if (b.id === 'acLogin') { acLogin(); return; }
-    if (b.id === 'acCancel') { AC.run++; acSet('Вход отменён.', false); return; }
-    if (b.id === 'acLogout') {
-      try { localStorage.removeItem('mil_session'); } catch (err) {}
-      AC.me = null; AC.run++; AC.status = ''; AC.waiting = false;
-      acUpdateBtn(); renderSettings();
-      return;
-    }
-    if (b.id === 'setReset') { for (var k in PREF_DEF) PREF[k] = PREF_DEF[k]; }
-    else if (b.getAttribute('data-pk')) {
-      var k2 = b.getAttribute('data-pk'), v = b.getAttribute('data-pv');
-      PREF[k2] = k2 === 'hide' ? !PREF.hide : v;
-    } else return;
-    savePref(); applyPrefs(); renderSettings(); renderJournal();
-  });
-  document.addEventListener('keydown', function (e) { if (e.key === 'Escape') closeSettings(); });
-
   // ---- Журнал ----
   function renderJournal() {
     var nMon = 0, nThu = 0;
@@ -1432,21 +1157,14 @@
       });
       return html;
     }
-    var inact = inactiveSet(), hidden = 0;
-    function prep(list) {
-      var keep = list.filter(function (i) { if (inact[i]) { hidden++; return false; } return true; });
-      return sortList(keep);
-    }
-    var mainL = prep(ORDER), gL = prep(GORDER);
     var sep = '';
-    if (gL.length) {
+    if (GORDER.length) {
       sep = '<tr class="gsep"><td colspan="' + (data.length + 5) + '"><span>Не в группе</span></td></tr>';
     }
-    byId('journal').innerHTML = head + rowsFor(mainL) + sep + rowsFor(gL);
+    byId('journal').innerHTML = head + rowsFor(ORDER) + sep + rowsFor(GORDER);
     renderLeaders();
     renderStats();
     byId('attEmpty').textContent = data.length ? '✓ был, н — не был. Четверги — голубым (нажмите на дату: адреса), чаепитие — оранжевым, 📝 — есть конспект (нажмите на дату).' : 'Служений пока нет.';
-    if (data.length && hidden) byId('attEmpty').textContent += ' Скрыто неактивных: ' + hidden + '.';
   }
 
   // ---- Быстрая статистика ----
@@ -1542,12 +1260,6 @@
       if (k > 0 && r.c !== rows[k - 1].c) place = k + 1;
       places.push(place);
     });
-    if (PREF.hide) {
-      var inL = inactiveSet();
-      rows.forEach(function (r, k) { r.pl = places[k]; });
-      rows = rows.filter(function (r) { return !inL[r.i]; });
-      places = rows.map(function (r) { return r.pl; });
-    }
     var podN = 0;
     while (podN < 3 && podN < rows.length && rows[podN].c > 0) podN++;
     var html = '';
@@ -1741,7 +1453,6 @@
       '<div class="tile"><b>' + st.cTea + ' из ' + st.nTea + '</b><span>чаепитие (пн)</span></div>' +
       '<div class="tile wide"><b>' + st.ct + ' из ' + st.nT + '</b><span>посещение адресов (чт)</span></div>' +
       '</div>' + chartSvg(i) + studentFactsHtml(i) + studentVisitsHtml(i);
-    if (byId('modal').style.display !== 'flex') ovPush();
     byId('modal').style.display = 'flex';
   }
   function openVisits(date) {
@@ -1765,14 +1476,9 @@
       });
     }
     byId('mBody').innerHTML = html;
-    if (byId('modal').style.display !== 'flex') ovPush();
     byId('modal').style.display = 'flex';
   }
-  function closeModal() {
-    if (byId('modal').style.display !== 'flex') return;
-    byId('modal').style.display = 'none';
-    ovPop();
-  }
+  function closeModal() { byId('modal').style.display = 'none'; }
   byId('mclose').onclick = closeModal;
   byId('modal').addEventListener('click', function (e) { if (e.target === byId('modal')) closeModal(); });
   document.addEventListener('keydown', function (e) { if (e.key === 'Escape') closeModal(); });
@@ -1968,68 +1674,6 @@
       rmMsg('Изменено только на этом устройстве: нет связи с базой', false);
     }
   });
-  var edI = -1;
-  function edMsg(text, ok) {
-    var m = byId('edMsg');
-    m.className = 'msg ' + (ok ? 'ok' : 'err');
-    m.textContent = text;
-  }
-  function renderEdList() {
-    var all = [];
-    for (var i = 0; i < STUDENTS.length; i++) { if (!DELETED[i]) all.push(i); }
-    all.sort(function (x, y) { return STUDENTS[x].localeCompare(STUDENTS[y], 'ru'); });
-    var h = '';
-    all.forEach(function (i) {
-      if (i === edI) {
-        var pp = STUDENTS[i].split(' ');
-        h += '<div class="rmrow" style="flex-wrap:wrap;gap:6px"><input type="text" id="edLast" value="' + esc(pp[0] || '') + '" placeholder="Фамилия" autocomplete="off" style="flex:1 1 120px;min-width:0">' +
-             '<input type="text" id="edFirst" value="' + esc(pp.slice(1).join(' ')) + '" placeholder="Имя" autocomplete="off" style="flex:1 1 120px;min-width:0">' +
-             '<span><button type="button" data-ed="save" data-i="' + i + '">Сохранить</button> <button type="button" data-ed="cancel">Отмена</button></span></div>';
-      } else {
-        h += '<div class="rmrow' + (HIDDEN[i] ? ' off' : '') + '"><span><small style="color:#8a949e">№' + i + '</small> ' + esc(STUDENTS[i]) + (HIDDEN[i] ? ' (скрыт)' : '') + (GUEST[i] ? ' (не в группе)' : '') +
-             '</span><button type="button" data-ed="edit" data-i="' + i + '">Изменить</button></div>';
-      }
-    });
-    byId('edList').innerHTML = h;
-  }
-  byId('edList').addEventListener('click', function (e) {
-    var b = e.target;
-    var act = b.getAttribute ? b.getAttribute('data-ed') : null;
-    if (!act) return;
-    if (act === 'edit') {
-      edI = +b.getAttribute('data-i');
-      renderEdList();
-      byId('edMsg').className = 'msg';
-      byId('edMsg').textContent = '';
-      var f = byId('edFirst'); if (f) f.focus();
-      return;
-    }
-    if (act === 'cancel') { edI = -1; renderEdList(); return; }
-    var i = +b.getAttribute('data-i');
-    var last = byId('edLast').value.replace(/\s+/g, ' ').trim();
-    var first = byId('edFirst').value.replace(/\s+/g, ' ').trim();
-    var full = (last && first) ? last + ' ' + first : (last || first);
-    if (!full) { edMsg('Введите фамилию и имя', false); return; }
-    if (full === STUDENTS[i]) { edI = -1; renderEdList(); return; }
-    var low = full.toLowerCase();
-    for (var k = 0; k < STUDENTS.length; k++) {
-      if (k !== i && !DELETED[k] && STUDENTS[k].toLowerCase() === low) { edMsg('Такой человек уже есть в списке: ' + STUDENTS[k], false); return; }
-    }
-    var next = {};
-    Object.keys(RENAMES).forEach(function (kk) { next[kk] = RENAMES[kk]; });
-    if (full === origName(i)) delete next[i]; else next[i] = full;
-    applyRenames(next);
-    try { localStorage.setItem('team_renames', JSON.stringify(next)); } catch (err) {}
-    edI = -1;
-    refreshPeopleUI();
-    if (window.FB && window.FB.saveRenames) {
-      edMsg('Сохраняем в базу…', true);
-      window.FB.saveRenames(next).then(function () { edMsg('Имя изменено: ' + full, true); })
-        .catch(function () { edMsg('Изменено на этом устройстве, но в базу сохранить не удалось', false); });
-    } else {
-      edMsg('Изменено только на этом устройстве: нет связи с базой', false);
-    }
-  });
   function renderGsList() {
     var ids = [];
     for (var i = 0; i < STUDENTS.length; i++) { if (GUEST[i] && !DELETED[i]) ids.push(i); }
@@ -2077,7 +1721,6 @@
     renderApList();
     renderRmList();
     renderGsList();
-    renderEdList();
     if (byId('editor').style.display !== 'none') renderMarksKeep();
     var act = document.querySelector('.view.active');
     if (act && act.id === 'v-att') renderJournal();
@@ -2117,7 +1760,7 @@
     if (window.FB && window.FB.saveExtra) {
       apMsg('Сохраняем в базу…', true);
       window.FB.saveExtra(next).then(function () {
-        apMsg('Добавлено и сохранено в базе: ' + full + ' (номер для Telegram-входа: №' + (BASE_COUNT + next.length - 1) + ')', true);
+        apMsg('Добавлено и сохранено в базе: ' + full, true);
       }).catch(function () {
         apMsg('Добавлено на этом устройстве, но в базу сохранить не удалось', false);
       });
@@ -2131,13 +1774,6 @@
     if (JSON.stringify(nums) === JSON.stringify(cur)) return;
     applyDeleted(nums);
     try { localStorage.setItem('team_deleted', JSON.stringify(nums)); } catch (e) {}
-    refreshPeopleUI();
-  };
-  window.onRemoteRenames = function (obj) {
-    var norm = function (o) { return JSON.stringify(Object.keys(o || {}).sort().map(function (k) { return [k, o[k]]; })); };
-    if (norm(obj) === norm(RENAMES)) return;
-    applyRenames(obj);
-    try { localStorage.setItem('team_renames', JSON.stringify(RENAMES)); } catch (e) {}
     refreshPeopleUI();
   };
   window.onRemoteHidden = function (list) {
@@ -2768,28 +2404,6 @@
       'USIVipKMh+YN4zTdxVRSDgctwyi5FJUWnIcGxM2jK4x+c48w4rnwDX+948tlUug2whSmeZXoe0VxATJYeY9z3lwyV1qLg26YlqU04qUQIz7PCNBdXIKssWL3lS1VgUZjUzhZVsWFrIq3MS2C8FceiRICyHH7hTQF7q/eUmSzJdl499y4AarVOsQ7yAgYPebL7RKjeo6VDhtSwwbDfJ4vzBtygDx4meFPDXaIduYxjlglcdUl12lcAJQLr5lGOo1WyNVw7LhSCTlD7SzFdRSx6B0Kvf3nkw2MSi6wVGKchvtMBUOi3xAsBocl/UNWJ0knzB2peFtPMIGykVbuI4CyycwEgGTxxRGaQyj5YeQeSblhoF43mIWqup2r2iKBlYXrzMSWKhX1gENgrOfNS7t4Qma4Ivlu88xypXdhGs6hILlsQprVZn+6QhFFiHSIZbvI8/YmQreVcZfvqKrzVaeZkkUmlXcYaAMT6ZPSUuIWiaQ0VoIANi33lIZrp1l1ehpwELFQ077jW4dDNGKlylZaDpKNAZQ1nfMc8kSNa7SgadMdIldLbU7fHSUCFtnmBVcgV1HMLwB04hb0QoYa9YB0WSJzklLustr/MHtGWazLVYvt1iFFtHaEiy9kGrvmYBXEq/aUgy8RfIyFQDSMJ21By1KohWb2dYmpieIlzYs8mYYE2Vku4xBiNjdMuwYVudf5FwCjKudQQ0R5u4rQAoBG4foLayWWbYS8O2vvDlxsV8VEAiCFBaPSFLFRdC3EuIVuNB00VveQ/M7x68XAciz05guFwRRu184xAEKxReYDZlm6ljkAtERZaS1eCWNYapgOsWxrNY9WWuM1RAoAtCmWdU9B6zZo8l3fWWbQOgQouhTwhpLa243VfMzfys2JrHQi4ABgOksiEr6rQeI4u4UKtzLL81Nupq4QQ0kq3RxP//Z'
     ].join('')
   ];
-  function showTodayReminder() {
-    var box = byId('todayRem');
-    if (!box) return;
-    var now = new Date(), d = now.getDay(), dom = now.getDate(), vsh = '23 кабинет ВШ';
-    var ev = null;
-    if (d === 1 && dom >= 2 && dom <= 8) {
-      // понедельник после первого воскресенья месяца — чаепитие
-      ev = { day: 'Сегодня · понедельник', ic: '🍵', title: 'Чаепитие', tm: '19:00', place: 'ул. Защитная, дом 10д' };
-    } else if (d === 1) {
-      ev = { day: 'Сегодня · понедельник', ic: '🙏', title: 'Молитва', tm: '19:30', place: vsh };
-    } else if (d === 4) {
-      ev = { day: 'Сегодня · четверг', ic: '🚶', title: 'Посещение', tm: '18:15', place: vsh };
-    }
-    box.innerHTML = ev ? '<div class="tr-bg">' + ev.ic + '</div><span class="tr-day">' + ev.day + '</span>' +
-      '<div class="tr-title">' + ev.ic + ' ' + ev.title + '</div>' +
-      '<div class="tr-chips"><span class="tr-t">🕒 ' + ev.tm + '</span><span>📍 ' + ev.place + '</span></div>' : '';
-    box.classList.toggle('show', !!ev);
-  }
-
-  showTodayReminder();
-  document.addEventListener('visibilitychange', function () { if (!document.hidden) showTodayReminder(); });
-  setInterval(showTodayReminder, 600000);
   (function showPhotos() {
     if (EMBED_PHOTOS.length) { buildCarousel(EMBED_PHOTOS); }
     else { byId('slides').innerHTML = '<div class="noph">Фото пока нет</div>'; }
@@ -3112,7 +2726,6 @@
     if (!n) return;
     byId('mTitle').textContent = 'Конспект';
     byId('mBody').innerHTML = renderNote(n, date);
-    if (byId('modal').style.display !== 'flex') ovPush();
     byId('modal').style.display = 'flex';
   }
 
@@ -3403,12 +3016,7 @@
     var narrow = ['addr', 'about', 'notes', 'pray', 'video', 'bday', 'admin'];
     return narrow.indexOf(view) >= 0;
   }
-  var curView = 'home', curAd = 'home', skipPop = 0, inPop = false;
-  function ovPush() { history.pushState({ v: curView, ad: curView === 'admin' ? curAd : undefined, ov: 1 }, ''); }
-  function ovPop() { if (!inPop && history.state && history.state.ov) { skipPop++; history.back(); } }
-  function show(view, fromPop) {
-    if (!fromPop && view !== curView) history.pushState({ v: view }, '');
-    curView = view;
+  function show(view) {
     var vids = document.querySelectorAll('video');
     for (var pv = 0; pv < vids.length; pv++) { vids[pv].pause(); }
     var views = document.querySelectorAll('.view');
@@ -3420,7 +3028,7 @@
     if (view === 'addr') renderAddr();
     if (view === 'video') renderVideos();
     if (view === 'notes') renderNotesList();
-    if (view === 'admin') adShow('home', fromPop);
+    if (view === 'admin') adShow('home');
     window.scrollTo(0, 0);
   }
 
@@ -3440,28 +3048,6 @@
       a.onclick = function (e) { e.preventDefault(); show(a.getAttribute('data-view')); };
     })(links[q]);
   }
-
-  // ---- Кнопка/свайп «назад»: возврат на предыдущий экран, а не выход с сайта ----
-  try { history.replaceState({ v: 'home' }, ''); } catch (e) {}
-  window.addEventListener('popstate', function (e) {
-    if (skipPop > 0) { skipPop--; return; }
-    inPop = true;
-    var closed = true;
-    if (byId('modal').style.display === 'flex') closeModal();
-    else if (byId('ndOv').classList.contains('open')) ndClose();
-    else if (byId('adrDelOv').classList.contains('open')) closeAddrDel();
-    else if (byId('setOv').classList.contains('open')) closeSettings();
-    else closed = false;
-    inPop = false;
-    if (closed) return;
-    var st = e.state || { v: 'home' };
-    if (st.v !== curView) show(st.v, true);
-    if (st.v === 'admin') {
-      var part = st.ad || 'home';
-      if (part === 'login' || (part !== 'home' && !adOpen[part])) part = 'home';
-      if (part !== curAd) adShow(part, true);
-    }
-  });
 
   // ---- Молитвы: вытянуть имя ----
   var PR_IDEAS = [
@@ -3534,7 +3120,7 @@
     if (pr2Busy) return;
     var list = [];
     var hiddenNames = [];
-    for (var h = 0; h < STUDENTS.length; h++) { if (HIDDEN[h]) { hiddenNames.push(STUDENTS[h]); if (origName(h) !== STUDENTS[h]) hiddenNames.push(origName(h)); } }
+    for (var h = 0; h < STUDENTS.length; h++) { if (HIDDEN[h]) hiddenNames.push(STUDENTS[h]); }
     for (var i = 0; i < PEOPLE.length; i++) {
       if (!PEOPLE[i].nm) continue;
       var isHidden = hiddenNames.some(function (hn) { return ndSame(PEOPLE[i].nm, hn); });
@@ -3605,21 +3191,14 @@
     GEN_NEEDS.forEach(function (g, i) {
       h += '<div class="gn-card gc' + (i % 6) + (g.sub ? ' wide' : '') + '">' +
            '<div class="gn-ic">' + g.ic + '</div>' +
-           '<div class="gn-body"><div class="gn-t">' + esc(g.t) + '</div>';
+           '<div class="gn-body"><span class="gn-num">' + (i + 1) + '</span><div class="gn-t">' + esc(g.t) + '</div>';
       if (g.sub) h += '<div class="gn-chips">' + g.sub.map(function (x) { return '<span>' + esc(x) + '</span>'; }).join('') + '</div>';
       h += '</div></div>';
     });
     return h + '</div>';
   }
-  function famCardHtml(text) {
-    return '<div class="nd-card perm"><div class="nd-top"><b>👨‍👩‍👧 За семьи в команде</b>' +
-           '<span class="nd-badges"><span class="nd-badge">Постоянная</span></span></div>' +
-           '<div class="nd-text">' + esc(text) + '</div></div>';
-  }
-  function genOneHtml(skipFamily) {
-    var pool = GEN_NEEDS.filter(function (x) { return !(skipFamily && x.sub); });
-    var g = pool[Math.floor(Math.random() * pool.length)];
-    if (g.sub) return famCardHtml(g.sub.join(' · '));
+  function genOneHtml() {
+    var g = GEN_NEEDS[Math.floor(Math.random() * GEN_NEEDS.length)];
     return '<div class="nd-gen-one">♾️ Общая нужда команды: <b>' + esc(g.t.charAt(0).toLowerCase() + g.t.slice(1)) + '</b></div>';
   }
   var ndFilter = 'perm', ndTypeSel = 'temp';
@@ -3683,7 +3262,7 @@
     var list = needsFor(name);
     byId(id).innerHTML = (list.length
       ? '<div class="nd-box"><h5>🙏 Нужды этого человека</h5>' + list.map(function (n) { return ndCardHtml(n, false); }).join('') + '</div>'
-      : '') + (familyFor(name) ? famCardHtml('Семья в команде: ' + familyFor(name).label + ' — помолись и за их семью') : '') + genOneHtml(!!familyFor(name));
+      : '') + (familyFor(name) ? '<div class="nd-gen-one">👨‍👩‍👧 Семья в команде: <b>' + esc(familyFor(name).label) + '</b> — помолись и за их семью</div>' : '') + genOneHtml();
   }
   function renderNeedsList() {
     var list = sortNeeds(NEEDS.filter(function (n) { return n.type === ndFilter; }));
@@ -3719,16 +3298,13 @@
     byId('ndText').value = '';
     byId('ndDate').value = ndToday();
     byId('ndMsg').textContent = '';
-    if (!byId('ndOv').classList.contains('open')) ovPush();
     byId('ndOv').classList.add('open');
     document.body.style.overflow = 'hidden';
     setTimeout(function () { try { byId('ndLast').focus(); } catch (e) {} }, 50);
   }
   function ndClose() {
-    if (!byId('ndOv').classList.contains('open')) return;
     byId('ndOv').classList.remove('open');
     document.body.style.overflow = '';
-    ovPop();
   }
   byId('ndAdd').onclick = ndOpen;
   byId('ndCancel').onclick = ndClose;
@@ -4046,16 +3622,10 @@
     byId('adrDelSearch').value = '';
     byId('adrDelMsg').textContent = '';
     renderAddrDel();
-    if (!byId('adrDelOv').classList.contains('open')) ovPush();
     byId('adrDelOv').classList.add('open');
     document.body.style.overflow = 'hidden';
   };
-  function closeAddrDel() {
-    if (!byId('adrDelOv').classList.contains('open')) return;
-    byId('adrDelOv').classList.remove('open');
-    document.body.style.overflow = '';
-    ovPop();
-  }
+  function closeAddrDel() { byId('adrDelOv').classList.remove('open'); document.body.style.overflow = ''; }
   byId('adrDelClose').onclick = closeAddrDel;
   byId('adrDelOv').addEventListener('click', function (e) { if (e.target === this) closeAddrDel(); });
   document.addEventListener('keydown', function (e) { if (e.key === 'Escape') closeAddrDel(); });
@@ -4091,8 +3661,7 @@
     addr: '<span class="cake">📍</span>'
   };
 
-  function adShow(part, fromPop) {
-    curAd = part;
+  function adShow(part) {
     var wip = false;
     byId('adHome').style.display = part === 'home' ? 'block' : 'none';
     byId('adLogin').style.display = part === 'login' ? 'block' : 'none';
@@ -4119,7 +3688,7 @@
       setTimeout(function () { try { byId('pw').focus(); } catch (e) {} }, 60);
     }
     if (part === 'att') {
-      renderMarks(); renderChips(); renderApList(); renderRmList(); renderGsList(); renderEdList();
+      renderMarks(); renderChips(); renderApList(); renderRmList(); renderGsList();
       if (!byId('dateIn').value) byId('dateIn').value = lastLessonDay();
       updateDay();
       loadMarks();
@@ -4130,15 +3699,6 @@
     if (part === 'notes') nInit();
     if (wip) byId('adAnim').innerHTML = adAnims[part];
     window.scrollTo(0, 0);
-    if (!fromPop) {
-      var hs = history.state || {};
-      if (part === 'home') {
-        if (hs.v === 'admin' && hs.ad) { skipPop++; history.back(); }
-      } else if (curView === 'admin') {
-        if (hs.ad === 'login') history.replaceState({ v: 'admin', ad: part }, '');
-        else history.pushState({ v: 'admin', ad: part }, '');
-      }
-    }
   }
 
   function adTry(key) {
@@ -4192,59 +3752,64 @@
 </script>
 
 <script type="module">
-  // Данные сайта хранятся в Supabase (таблица site_docs). SB_URL и SB_KEY задаются в блоке «Аккаунт» главного скрипта.
-  var sb = (window.SB_URL && window.SB_KEY && window.supabase) ? window.supabase.createClient(window.SB_URL, window.SB_KEY) : null;
-  var T = "site_docs";
-  function chk(r) { if (r.error) throw r.error; }
-  function put(id, data) { return sb.from(T).upsert({ id: id, data: data, t: Date.now() }).then(chk); }
-  function W(fn) { return function () { return sb ? fn.apply(null, arguments) : Promise.reject(new Error("no-db")); }; }
-  function J(id, v) { return put(id, { json: JSON.stringify(v), t: Date.now() }); }
+  import { initializeApp } from "https://www.gstatic.com/firebasejs/10.12.2/firebase-app.js";
+  import { getFirestore, collection, doc, setDoc, deleteDoc, onSnapshot }
+    from "https://www.gstatic.com/firebasejs/10.12.2/firebase-firestore.js";
 
-  window.FB = {
-    saveJournal: W(function (json) { return put("journal", { json: json, t: Date.now() }); }),
-    saveNote: W(function (date, n) { return put("note_" + date, { date: date, title: n.title || "", html: n.html || "", t: Date.now() }); }),
-    deleteNote: W(function (date) { return sb.from(T).delete().eq("id", "note_" + date).then(chk); }),
-    saveExtra: W(function (arr) { return J("team_extra", arr); }),
-    saveSeed: W(function (date) { return put("seed_" + date, { date: date, t: Date.now() }); }),
-    saveAddr: W(function (arr) { return J("addr_list", arr); }),
-    saveNeeds: W(function (arr) { return J("team_needs", arr); }),
-    saveGuests: W(function (arr) { return J("team_guests", arr); }),
-    saveDeleted: W(function (arr) { return J("team_deleted", arr); }),
-    saveRenames: W(function (obj) { return J("team_renames", obj); }),
-    saveHidden: W(function (arr) { return J("team_hidden", arr); })
+  var firebaseConfig = {
+    apiKey: "AIzaSyBVhBBjRj33eIE0S1mDTnD0SGSTvs21zlU",
+    authDomain: "miloserdie-team.firebaseapp.com",
+    projectId: "miloserdie-team",
+    storageBucket: "miloserdie-team.firebasestorage.app",
+    messagingSenderId: "385012073417",
+    appId: "1:385012073417:web:a8df4c1ac3ff3dea8dde18"
   };
 
-  var docs = {}, migrated = false, loaded = false;
-  function apply() {
-    var journal = null, notes = {}, hasJournal = false, extra = null, hidden = null, deleted = null, guests = null, renames = null, needs = null, addr = null, seeded = {};
-    Object.keys(docs).forEach(function (id) {
-      var v = docs[id] || {};
-      if (id === "journal") {
+  var app = initializeApp(firebaseConfig);
+  var db = getFirestore(app);
+  var col = collection(db, "site");
+
+  window.FB = {
+    saveJournal: function (json) { return setDoc(doc(col, "journal"), { json: json, t: Date.now() }); },
+    saveNote: function (date, n) { return setDoc(doc(col, "note_" + date), { date: date, title: n.title || "", html: n.html || "", t: Date.now() }); },
+    deleteNote: function (date) { return deleteDoc(doc(col, "note_" + date)); },
+    saveExtra: function (arr) { return setDoc(doc(col, "team_extra"), { json: JSON.stringify(arr), t: Date.now() }); },
+    saveSeed: function (date) { return setDoc(doc(col, "seed_" + date), { date: date, t: Date.now() }); },
+    saveAddr: function (arr) { return setDoc(doc(col, "addr_list"), { json: JSON.stringify(arr), t: Date.now() }); },
+    saveNeeds: function (arr) { return setDoc(doc(col, "team_needs"), { json: JSON.stringify(arr), t: Date.now() }); },
+    saveGuests: function (arr) { return setDoc(doc(col, "team_guests"), { json: JSON.stringify(arr), t: Date.now() }); },
+    saveDeleted: function (arr) { return setDoc(doc(col, "team_deleted"), { json: JSON.stringify(arr), t: Date.now() }); },
+    saveHidden: function (arr) { return setDoc(doc(col, "team_hidden"), { json: JSON.stringify(arr), t: Date.now() }); }
+  };
+
+  var migrated = false;
+  onSnapshot(col, function (snap) {
+    var journal = null, notes = {}, hasJournal = false, extra = null, hidden = null, deleted = null, guests = null, needs = null, addr = null, seeded = {};
+    snap.forEach(function (d) {
+      var v = d.data();
+      if (d.id === "journal") {
         hasJournal = true;
         try { var arr = JSON.parse(v.json); if (Array.isArray(arr)) journal = arr; } catch (e) {}
-      } else if (id.indexOf("seed_") === 0) {
-        seeded[id.slice(5)] = true;
-      } else if (id === "addr_list") {
+      } else if (d.id.indexOf("seed_") === 0) {
+        seeded[d.id.slice(5)] = true;
+      } else if (d.id === "addr_list") {
         try { var ad = JSON.parse(v.json); if (Array.isArray(ad)) addr = ad; } catch (e) {}
-      } else if (id === "team_deleted") {
+      } else if (d.id === "team_deleted") {
         try { var dd = JSON.parse(v.json); if (Array.isArray(dd)) deleted = dd; } catch (e) {}
-      } else if (id === "team_needs") {
+      } else if (d.id === "team_needs") {
         try { var nd = JSON.parse(v.json); if (Array.isArray(nd)) needs = nd; } catch (e) {}
-      } else if (id === "team_guests") {
+      } else if (d.id === "team_guests") {
         try { var gd = JSON.parse(v.json); if (Array.isArray(gd)) guests = gd; } catch (e) {}
-      } else if (id === "team_renames") {
-        try { var rn = JSON.parse(v.json); if (rn && typeof rn === "object" && !Array.isArray(rn)) renames = rn; } catch (e) {}
-      } else if (id === "team_hidden") {
+      } else if (d.id === "team_hidden") {
         try { var hd = JSON.parse(v.json); if (Array.isArray(hd)) hidden = hd; } catch (e) {}
-      } else if (id === "team_extra") {
+      } else if (d.id === "team_extra") {
         try { var ex = JSON.parse(v.json); if (Array.isArray(ex)) extra = ex; } catch (e) {}
-      } else if (id.indexOf("note_") === 0) {
+      } else if (d.id.indexOf("note_") === 0) {
         notes[v.date] = { title: v.title || "", html: v.html || "" };
       }
     });
 
     if (extra && window.onRemotePeople) window.onRemotePeople(extra);
-    if (renames && window.onRemoteRenames) window.onRemoteRenames(renames);
     if (hidden && window.onRemoteHidden) window.onRemoteHidden(hidden);
     if (deleted && window.onRemoteDeleted) window.onRemoteDeleted(deleted);
     if (guests && window.onRemoteGuests) window.onRemoteGuests(guests);
@@ -4252,14 +3817,14 @@
     if (addr && window.onRemoteAddr) window.onRemoteAddr(addr);
 
     // Первый запуск: базы ещё нет, загружаем то, что уже накоплено в этом браузере
-    if (!hasJournal && !migrated && loaded) {
+    if (!hasJournal && !migrated && !snap.metadata.fromCache) {
       migrated = true;
       var loc = window.getLocalForMigration();
       if (loc.journal && loc.journal.length) { window.FB.saveJournal(JSON.stringify(loc.journal)); }
       Object.keys(loc.notes || {}).forEach(function (dt) { window.FB.saveNote(dt, loc.notes[dt]); });
       return;
     }
-    if (loaded && window.SEED_NOTES) {
+    if (!snap.metadata.fromCache && window.SEED_NOTES) {
       Object.keys(window.SEED_NOTES).forEach(function (dt) {
         if (seeded[dt]) return;
         if (!notes[dt]) { window.FB.saveNote(dt, window.SEED_NOTES[dt]); notes[dt] = window.SEED_NOTES[dt]; }
@@ -4270,27 +3835,7 @@
     if (window.setSeeded) window.setSeeded(seeded);
     if (!hasJournal) return;
     window.onRemoteData(journal, notes);
-  }
-
-  function load() {
-    return sb.from(T).select("id,data").then(function (r) {
-      if (r.error) { console.error("Supabase:", r.error); return; }
-      docs = {};
-      (r.data || []).forEach(function (row) { docs[row.id] = row.data; });
-      loaded = true;
-      apply();
-    });
-  }
-  if (sb) {
-    load();
-    sb.channel("site-docs").on("postgres_changes", { event: "*", schema: "public", table: T }, function (p) {
-      if (p.eventType === "DELETE") { if (p.old && p.old.id) delete docs[p.old.id]; }
-      else if (p.new) docs[p.new.id] = p.new.data;
-      apply();
-    }).subscribe();
-    document.addEventListener("visibilitychange", function () { if (!document.hidden) load(); });
-    setInterval(load, 120000);
-  }
+  }, function (err) { console.error("Firestore:", err); });
 </script>
 
 </body>
