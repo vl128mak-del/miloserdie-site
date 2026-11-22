@@ -514,6 +514,7 @@
   .tile b { display: block; font-size: 22px; color: #2c3e50; }
   .tile span { font-size: 13px; color: #5f6368; }
 </style>
+<script src="config.js"></script>
 <script src="https://cdn.jsdelivr.net/npm/@supabase/supabase-js@2.45.4/dist/umd/supabase.min.js"></script>
 </head>
 <body>
@@ -527,10 +528,10 @@
 </div>
 <script>(function(){try{var l=document.querySelector('link[rel="apple-touch-icon"]');if(l)document.getElementById('spImg').src=l.href;}catch(e){}})();</script>
 
-<button type="button" class="set-btn" id="setBtn" aria-label="Аккаунт">👤</button>
+<button type="button" class="set-btn" id="setBtn" aria-label="Настройки">⚙️</button>
   <div class="adr-ov" id="setOv">
     <div class="set-card" role="dialog" aria-label="Настройки">
-      <div class="set-head"><span>👤 Аккаунт</span><button type="button" class="set-x" id="setX" aria-label="Закрыть">✕</button></div>
+      <div class="set-head"><span>⚙️ Настройки</span><button type="button" class="set-x" id="setX" aria-label="Закрыть">✕</button></div>
       <div id="setBody"></div>
     </div>
   </div>
@@ -950,6 +951,10 @@
           <div id="rmList"></div>
         </div>
       </details>
+      <details class="addp" id="acp">
+        <summary>👤 Аккаунт (вход через Telegram)</summary>
+        <div class="addp-b"><div id="acBody"></div></div>
+      </details>
       <details class="addp" id="edp">
         <summary>✏️ Изменить имя или фамилию</summary>
         <div class="addp-b">
@@ -1242,9 +1247,10 @@
 
   // ---- Аккаунт: вход с подтверждением в Telegram (для просмотра сайта вход не нужен) ----
   // Заполни три значения из инструкции (Supabase → Project Settings → API; username бота без @):
-  var SB_URL = 'https://lnzrymmglavdedigjnox.supabase.co';   // например 'https://abcdxyz.supabase.co'
-  var SB_KEY = 'eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpc3MiOiJzdXBhYmFzZSIsInJlZiI6ImxuenJ5bW1nbGF2ZGVkaWdqbm94Iiwicm9sZSI6ImFub24iLCJpYXQiOjE3OTUzNDQ4MTcsImV4cCI6MjExMDkyMDgxN30.pyTeEkk7YDW8kVEb57G5RTFgBZ-S7yiyREoCNr-YJ_g';   // публичный anon / publishable ключ
-  var TG_BOT = '';   // например 'miloserdie_team_bot'
+  // Значения берутся из файла config.js (его правят один раз). Можно вписать и прямо сюда.
+  var SB_URL = (window.MIL_CFG && window.MIL_CFG.url) || '';   // например 'https://abcdxyz.supabase.co'
+  var SB_KEY = (window.MIL_CFG && window.MIL_CFG.key) || '';   // публичный anon ключ
+  var TG_BOT = (window.MIL_CFG && window.MIL_CFG.bot) || '';   // например 'miloserdie_team_bot'
   // Лишнее в конце адреса (например /rest/v1/) и пробелы в ключе отбрасываем автоматически
   SB_URL = (SB_URL.match(/^\s*(https:\/\/[a-z0-9-]+\.supabase\.co)/i) || [0, ''])[1];
   SB_KEY = SB_KEY.replace(/\s+/g, '');
@@ -1255,13 +1261,11 @@
     return SBC;
   }
   function acUpdateBtn() {
-    var b = byId('setBtn'), nm = AC.me !== null ? (STUDENTS[AC.me] || '') : '';
-    if (nm) { var pp = nm.split(' '); b.textContent = ((pp[1] || pp[0] || '?').charAt(0) || '?').toUpperCase(); b.classList.add('in'); }
-    else { b.textContent = '👤'; b.classList.remove('in'); }
+    renderAccount();
   }
   function acSet(msg, waiting) {
     AC.status = msg; AC.waiting = !!waiting;
-    if (byId('setOv').classList.contains('open')) renderSettings();
+    renderAccount();
   }
   function accountHtml() {
     var h = '<div class="ac-box">';
@@ -1281,7 +1285,11 @@
            (AC.waiting ? '<button type="button" id="acCancel">Отменить</button>' : '<button type="button" id="acLogin" class="on">Войти через Telegram</button>') + '</div>' +
            '<div class="set-hint">' + (AC.status || 'Подтверждение придёт в Telegram. Для просмотра сайта входить не нужно.') + '</div>';
     }
-    return h + '</div><div class="set-head" style="margin-top:22px;font-size:17px">⚙️ Настройки</div>';
+    return h + '</div>';
+  }
+  function renderAccount() {
+    var box = byId('acBody');
+    if (box) box.innerHTML = accountHtml();
   }
   async function acLogin() {
     var sel = byId('acSel');
@@ -1340,7 +1348,7 @@
     { k: 'sort', t: 'Сортировка списка', o: [['default', 'Как сейчас'], ['alpha', 'По алфавиту'], ['count', 'По числу посещений'], ['last', 'По дате последнего визита']] }
   ];
   function renderSettings() {
-    var h = accountHtml();
+    var h = '';
     SET_OPTS.forEach(function (g) {
       h += '<div class="set-row"><div class="set-lbl">' + g.t + '</div><div class="st-seg">';
       g.o.forEach(function (o) {
@@ -1367,11 +1375,8 @@
     ovPop();
   }
   byId('setBtn').onclick = openSettings;
-  byId('setBody').addEventListener('change', function (e) { if (e.target && e.target.id === 'acSel') AC.sel = e.target.value; });
-  acInit();
-  byId('setX').onclick = closeSettings;
-  byId('setOv').addEventListener('click', function (e) {
-    if (e.target === byId('setOv')) { closeSettings(); return; }
+  byId('acBody').addEventListener('change', function (e) { if (e.target && e.target.id === 'acSel') AC.sel = e.target.value; });
+  byId('acBody').addEventListener('click', function (e) {
     var b = e.target.closest ? e.target.closest('button') : null;
     if (!b) return;
     if (b.id === 'acLogin') { acLogin(); return; }
@@ -1379,9 +1384,16 @@
     if (b.id === 'acLogout') {
       try { localStorage.removeItem('mil_session'); } catch (err) {}
       AC.me = null; AC.run++; AC.status = ''; AC.waiting = false;
-      acUpdateBtn(); renderSettings();
-      return;
+      renderAccount();
     }
+  });
+  renderAccount();
+  acInit();
+  byId('setX').onclick = closeSettings;
+  byId('setOv').addEventListener('click', function (e) {
+    if (e.target === byId('setOv')) { closeSettings(); return; }
+    var b = e.target.closest ? e.target.closest('button') : null;
+    if (!b) return;
     if (b.id === 'setReset') { for (var k in PREF_DEF) PREF[k] = PREF_DEF[k]; }
     else if (b.getAttribute('data-pk')) {
       var k2 = b.getAttribute('data-pk'), v = b.getAttribute('data-pv');
@@ -2081,6 +2093,7 @@
     renderRmList();
     renderGsList();
     renderEdList();
+    renderAccount();
     if (byId('editor').style.display !== 'none') renderMarksKeep();
     var act = document.querySelector('.view.active');
     if (act && act.id === 'v-att') renderJournal();
